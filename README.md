@@ -8,7 +8,9 @@ GitHub Pages를 통해 호스팅되고 있습니다.
 ## 🛠 Tech Stack
 - React (Vite)
 - JavaScript
+- HTML/CSS
 - GitHub Pages
+- Figma
 
 ## 📂 Features
 - 다크모드 기반 UI
