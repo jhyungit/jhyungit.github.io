@@ -1,42 +1,101 @@
-#root {
-  max-width: 1280px;
+/* 전체 다크 테마 */
+body {
+  background-color: #0d0d0d;
+  color: #e5e5e5;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 메인 컨테이너 */
+.container {
+  width: 90%;
+  max-width: 850px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 40px 0;
+}
+
+/* 제목/헤더 */
+.header {
   text-align: center;
+  margin-bottom: 50px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.subtitle {
+  font-size: 1.2rem;
+  color: #9f9f9f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* 섹션 */
+.section {
+  margin-bottom: 50px;
 }
 
-.card {
-  padding: 2em;
+.section h2 {
+  font-size: 1.8rem;
+  border-left: 6px solid #4f7df3;
+  padding-left: 12px;
+  margin-bottom: 20px;
+  color: #c3d4ff;
 }
 
-.read-the-docs {
-  color: #888;
+/* 스킬 */
+.skills {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills li {
+  background-color: #1a1a1a;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #d6d6d6;
+  font-size: 0.95rem;
+  border: 1px solid #2a2a2a;
+}
+
+/* 프로젝트 카드 */
+.project-card {
+  background-color: #141414;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: #dbe5ff;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(100, 100, 255, 0.2);
+}
+
+/* 링크 */
+a {
+  color: #6b8cff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 푸터 */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #7c7c7c;
+  font-size: 0.9rem;
 }
