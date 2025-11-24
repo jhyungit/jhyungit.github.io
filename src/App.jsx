@@ -13,7 +13,7 @@ function App() {
       <section className="section">
         <h2>👋 About Me</h2>
         <p>
-          안녕하세요! 데이터 엔지니어 및 백엔드 개발자를 목표로 학습하고 있는 이정현입니다.
+          안녕하세요! 데이터 엔지니어 및 백엔드 개발자가 목표인 이정현입니다.
           클린 코드, 자동화, 안정적인 데이터 파이프라인 구축에 관심이 많습니다.
         </p>
       </section>
@@ -23,11 +23,13 @@ function App() {
         <h2>🛠 Tech Stack</h2>
         <ul className="skills">
           <li>Python</li>
+          <li>C/C++</li>
+          <li>Java</li>
+          <li>JavaScript</li>
           <li>React</li>
           <li>Node.js</li>
-          <li>SQL / MySQL / PostgreSQL</li>
+          <li>SQL / MySQL / Oracle</li>
           <li>AWS</li>
-          <li>Docker</li>
         </ul>
       </section>
 
@@ -36,20 +38,20 @@ function App() {
         <h2>📂 Projects</h2>
 
         <div className="project-card">
-          <h3>프로젝트 예시 1</h3>
-          <p>프로젝트 설명을 여기에 적어주세요. 어떤 기술을 사용했고 무엇을 해결했는지!</p>
+          <h3>프로젝트 1</h3>
+          <p>사용자 기반 메뉴 추천 시스템</p>
         </div>
 
         <div className="project-card">
-          <h3>프로젝트 예시 2</h3>
-          <p>React + GitHub Pages 기반 포트폴리오 프로젝트.</p>
+          <h3>프로젝트 2</h3>
+          <p>React + GitHub Pages 기반 포트폴리오</p>
         </div>
       </section>
 
       {/* 연락 */}
       <section className="section">
         <h2>📬 Contact</h2>
-        <p>Email: your-email@example.com</p>
+        <p>Email: kyn05165@naver.com</p>
         <p>GitHub: <a href="https://github.com/jhyungit" target="_blank">github.com/jhyungit</a></p>
       </section>
 
