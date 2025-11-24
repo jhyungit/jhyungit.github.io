@@ -15,4 +15,4 @@ GitHub Pages를 통해 호스팅되고 있습니다.
 - 프로젝트 정리
 - About / Tech Stack / Contact 섹션
 
-## 🚀 Development
+<!-- ## 🚀 Development -->
