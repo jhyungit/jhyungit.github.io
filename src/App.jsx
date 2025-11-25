@@ -1,63 +1,59 @@
+// src/App.jsx
 import './App.css';
 
 function App() {
   return (
-    <div className="container">
-      {/* 헤더 */}
-      <header className="header">
-        <h1 className="title">이정현 • Portfolio</h1>
-        <p className="subtitle">Data Engineer / Backend Developer</p>
-      </header>
+    <div className="app">
+      <div className="hero">
 
-      {/* 소개 */}
-      <section className="section">
-        <h2>👋 About Me</h2>
-        <p>
-          안녕하세요! 데이터 엔지니어 및 백엔드 개발자가 목표인 이정현입니다.
-          클린 코드, 자동화, 안정적인 데이터 파이프라인 구축에 관심이 많습니다.
-        </p>
-      </section>
+        {/* 🔵 헤더 (피그마 기준으로 수정된 버전) */}
+        <header className="hero-header">
 
-      {/* 스킬 */}
-      <section className="section">
-        <h2>🛠 Tech Stack</h2>
-        <ul className="skills">
-          <li>Python</li>
-          <li>C/C++</li>
-          <li>Java</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Node.js</li>
-          <li>SQL / MySQL / Oracle</li>
-          <li>AWS</li>
-        </ul>
-      </section>
+          {/* 왼쪽 로고 영역 */}
+          <div className="hero-logo">
+            <div className="hero-logo-circle">JH</div>
+            <span className="hero-logo-text">j_hyun&apos;s</span>
+          </div>
 
-      {/* 프로젝트 */}
-      <section className="section">
-        <h2>📂 Projects</h2>
+          {/* 오른쪽 네비게이션 */}
+          <nav className="hero-nav">
+            <a href="#home">홈</a>
+            <a href="#about">소개</a>
+            <a href="#education">교육</a>
+            <a href="#skills">스킬</a>
+            <a href="#projects">프로젝트</a>
+          </nav>
 
-        <div className="project-card">
-          <h3>프로젝트 1</h3>
-          <p>사용자 기반 메뉴 추천 시스템</p>
+        </header>
+
+        {/* 🔵 메인 인사 영역 */}
+        <main className="hero-main" id="home">
+          <div className="hero-greeting">
+            <p>안녕하세요👋</p>
+            <p>몸과 마음이 건강한 개발자</p>
+            <p>
+              저는 <span className="highlight-name">이정현</span> 입니다
+            </p>
+          </div>
+
+          <p className="hero-role">Data Engineer &amp; Backend Developer</p>
+
+          {/* Strengths */}
+          <section className="hero-strengths">
+            <h2 className="hero-strengths-title">KEY STRENGTHS</h2>
+            <p className="hero-strengths-text">
+              Hard worker · Fast learner · Great and Reliable worker · Activity and friendly
+            </p>
+          </section>
+        </main>
+
+        {/* Scroll indicator */}
+        <div className="hero-scroll">
+          <span>Scroll</span>
+          <span className="hero-scroll-arrow">⌄</span>
         </div>
 
-        <div className="project-card">
-          <h3>프로젝트 2</h3>
-          <p>React + GitHub Pages 기반 포트폴리오</p>
-        </div>
-      </section>
-
-      {/* 연락 */}
-      <section className="section">
-        <h2>📬 Contact</h2>
-        <p>Email: kyn05165@naver.com</p>
-        <p>GitHub: <a href="https://github.com/jhyungit" target="_blank">github.com/jhyungit</a></p>
-      </section>
-
-      <footer className="footer">
-        © 2025 이정현. All rights reserved.
-      </footer>
+      </div>
     </div>
   );
 }

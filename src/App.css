@@ -1,102 +1,207 @@
-/* 전체 다크 테마 */
+/* ===== 공통 설정 ===== */
+:root {
+  --bg-main: #020617;   /* 바깥 진한 다크 */
+  --bg-hero: #021529;   /* 안쪽 네이비 */
+  --text-main: #ffffff;
+  --text-sub: #a1b5d8;
+  --text-muted: #8b9bb8;
+  --accent-blue: #5fb3ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #0d0d0d;
-  color: #e5e5e5;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Noto Sans KR',
+    sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
 }
 
-/* 메인 컨테이너 */
-.container {
-  width: 90%;
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-
-/* 제목/헤더 */
-.header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.3rem);
-  opacity: 0.85;
-  color: #9f9f9f;
-}
-
-/* 섹션 */
-.section {
-  margin-bottom: 50px;
-}
-
-.section h2 {
-  font-size: 1.8rem;
-  border-left: 6px solid #4f7df3;
-  padding-left: 12px;
-  margin-bottom: 20px;
-  color: #c3d4ff;
-}
-
-/* 스킬 */
-.skills {
-  list-style: none;
-  padding: 0;
+/* ===== 전체 래퍼 ===== */
+.app {
+  min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+
+/* 1440 x 900 느낌의 메인 박스 */
+.hero {
+  width: 100%;
+  max-width: 1440px;
+  min-height: calc(100vh);
+  background: var(--bg-hero);
+  padding: 24px 32px 40px; /* 🔥 상하좌우 패딩 축소 */
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== 헤더 영역 ===== */
+.hero-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+/* 왼쪽 로고 묶음 */
+.hero-logo {
+  display: flex;
+  align-items: center;
   gap: 12px;
 }
 
-.skills li {
-  background-color: #1a1a1a;
-  padding: 10px 16px;
-  border-radius: 8px;
-  color: #d6d6d6;
-  font-size: 0.95rem;
-  border: 1px solid #2a2a2a;
+/* 동그란 JH */
+.hero-logo-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
 }
 
-/* 프로젝트 카드 */
-.project-card {
-  background-color: #141414;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #2a2a2a;
-  margin-bottom: 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* j_hyun's 텍스트 */
+.hero-logo-text {
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: #ffffff;
 }
 
-.project-card h3 {
-  margin-top: 0;
-  color: #dbe5ff;
+/* 오른쪽 메뉴 */
+.hero-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(100, 100, 255, 0.2);
-}
-
-/* 링크 */
-a {
-  color: #6b8cff;
+.hero-nav a {
+  color: var(--text-sub);
   text-decoration: none;
+  font-size: 14px;
 }
 
-a:hover {
-  text-decoration: underline;
+.hero-nav a:hover {
+  color: var(--accent-blue);
 }
 
-/* 푸터 */
-.footer {
+/* ===== 메인 인사 영역 ===== */
+.hero-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin-top: 40px;
-  color: #7c7c7c;
-  font-size: 0.9rem;
+  gap: 16px;
+}
+
+.hero-greeting p {
+  margin: 4px 0;
+  font-size: clamp(20px, 2.1vw, 26px);
+}
+
+.hero-greeting p:first-child {
+  margin-top: 0;
+}
+
+.highlight-name {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* 직무 라인 */
+.hero-role {
+  margin: 8px 0 0;
+  font-size: clamp(18px, 1.9vw, 24px);
+  color: var(--text-sub);
+}
+
+/* ===== Strengths 섹션 ===== */
+.hero-strengths {
+  margin-top: 64px;
+}
+
+.hero-strengths-title {
+  font-size: 14px;
+  letter-spacing: 0.24em;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.hero-strengths-text {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ===== Scroll 인디케이터 ===== */
+.hero-scroll {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: var(--text-sub);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-scroll-arrow {
+  font-size: 18px;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 900px) {
+  .hero {
+    padding: 24px 20px 32px;
+  }
+
+  .hero-header {
+    font-size: 13px;
+  }
+
+  .hero-logo-text {
+    font-size: 14px;
+  }
+
+  .hero-nav {
+    gap: 14px;
+  }
+
+  .hero-greeting p {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
+  .hero-role {
+    font-size: clamp(16px, 4.2vw, 20px);
+  }
+
+  .hero-strengths {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-inline: 16px;
+  }
+
+  .hero-nav {
+    display: none; /* 모바일에서는 메뉴 숨기고 나중에 햄버거 메뉴로 바꿔도 됨 */
+  }
+
+  .hero-strengths-text {
+    font-size: 13px;
+  }
 }
