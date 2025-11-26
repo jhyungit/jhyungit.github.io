@@ -57,43 +57,49 @@ const handleNavClick = (e) => {
         <header
           className={`hero-header ${isHeaderScrolled ? "hero-header-scrolled" : ""}`}
         >
-          {/* 왼쪽 로고 */}
-          <div className="hero-logo">
-            <div className="hero-logo-circle">JH</div>
-            <span className="hero-logo-text">j_hyun&apos;s</span>
+          <div className="hero-header-inner">
+            {/* 왼쪽 로고 */}
+            <div className="hero-logo">
+              <div className="hero-logo-circle">JH</div>
+              <span className="hero-logo-text">j_hyun&apos;s</span>
+            </div>
+
+            {/* 오른쪽 영역: PC메뉴 + 햄버거 + 모바일메뉴 */}
+            <div className="hero-header-right">
+              {/* PC용 메뉴 */}
+              <nav className="hero-nav">
+                <a href="#home" onClick={handleNavClick}>홈</a>
+                <a href="#about" onClick={handleNavClick}>소개</a>
+                <a href="#education" onClick={handleNavClick}>교육</a>
+                <a href="#skills" onClick={handleNavClick}>스킬</a>
+                <a href="#projects" onClick={handleNavClick}>프로젝트</a>
+              </nav>
+
+              {/* 햄버거 버튼 */}
+              <button
+                className="hero-menu-toggle"
+                onClick={handleToggleMenu}
+                aria-label="메뉴 열기"
+              >
+                <span />
+                <span />
+                <span />
+              </button>
+
+              {/* 모바일 드롭다운 메뉴 */}
+              {isMenuOpen && (
+                <nav className="hero-nav-mobile">
+                  <a href="#home" onClick={handleNavClick}>홈</a>
+                  <a href="#about" onClick={handleNavClick}>소개</a>
+                  <a href="#education" onClick={handleNavClick}>교육</a>
+                  <a href="#skills" onClick={handleNavClick}>스킬</a>
+                  <a href="#projects" onClick={handleNavClick}>프로젝트</a>
+                </nav>
+              )}
+            </div>
           </div>
-
-          {/* 오른쪽 메뉴 (PC용) */}
-          <nav className="hero-nav">
-            <a href="#home" onClick={handleNavClick}>홈</a>
-            <a href="#about" onClick={handleNavClick}>소개</a>
-            <a href="#education" onClick={handleNavClick}>교육</a>
-            <a href="#skills" onClick={handleNavClick}>스킬</a>
-            <a href="#projects" onClick={handleNavClick}>프로젝트</a>
-          </nav>
-
-          {/* 햄버거 버튼 (모바일/좁은 화면용) */}
-          <button
-            className="hero-menu-toggle"
-            onClick={handleToggleMenu}
-            aria-label="메뉴 열기"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
         </header>
 
-        {/* 모바일 드롭다운 메뉴 */}
-        {isMenuOpen && (
-          <nav className="hero-nav-mobile">
-            <a href="#home" onClick={handleNavClick}>홈</a>
-            <a href="#about" onClick={handleNavClick}>소개</a>
-            <a href="#education" onClick={handleNavClick}>교육</a>
-            <a href="#skills" onClick={handleNavClick}>스킬</a>
-            <a href="#projects" onClick={handleNavClick}>프로젝트</a>
-          </nav>
-        )}
 
         {/* 이하 hero-main / scroll 부분은 그대로 */}
         <main className="hero-main" id="home">
