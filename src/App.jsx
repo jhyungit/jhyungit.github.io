@@ -1,21 +1,30 @@
 // src/App.jsx
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(prev => !prev);
+  };
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false); // 메뉴에서 항목 클릭하면 닫히게
+  };
+
   return (
     <div className="app">
       <div className="hero">
-
-        {/* 🔵 헤더 (피그마 기준으로 수정된 버전) */}
+        {/* 헤더 */}
         <header className="hero-header">
-
-          {/* 왼쪽 로고 영역 */}
+          {/* 왼쪽 로고 */}
           <div className="hero-logo">
             <div className="hero-logo-circle">JH</div>
             <span className="hero-logo-text">j_hyun&apos;s</span>
           </div>
 
-          {/* 오른쪽 네비게이션 */}
+          {/* 오른쪽 메뉴 (PC용) */}
           <nav className="hero-nav">
             <a href="#home">홈</a>
             <a href="#about">소개</a>
@@ -24,9 +33,30 @@ function App() {
             <a href="#projects">프로젝트</a>
           </nav>
 
+          {/* 햄버거 버튼 (모바일/좁은 화면용) */}
+          <button
+            className="hero-menu-toggle"
+            onClick={handleToggleMenu}
+            aria-label="메뉴 열기"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
         </header>
 
-        {/* 🔵 메인 인사 영역 */}
+        {/* 모바일 드롭다운 메뉴 */}
+        {isMenuOpen && (
+          <nav className="hero-nav-mobile">
+            <a href="#home" onClick={handleNavClick}>홈</a>
+            <a href="#about" onClick={handleNavClick}>소개</a>
+            <a href="#education" onClick={handleNavClick}>교육</a>
+            <a href="#skills" onClick={handleNavClick}>스킬</a>
+            <a href="#projects" onClick={handleNavClick}>프로젝트</a>
+          </nav>
+        )}
+
+        {/* 이하 hero-main / scroll 부분은 그대로 */}
         <main className="hero-main" id="home">
           <div className="hero-greeting">
             <p>안녕하세요👋</p>
@@ -38,7 +68,6 @@ function App() {
 
           <p className="hero-role">Data Engineer &amp; Backend Developer</p>
 
-          {/* Strengths */}
           <section className="hero-strengths">
             <h2 className="hero-strengths-title">KEY STRENGTHS</h2>
             <p className="hero-strengths-text">
@@ -47,12 +76,10 @@ function App() {
           </section>
         </main>
 
-        {/* Scroll indicator */}
         <div className="hero-scroll">
           <span>Scroll</span>
           <span className="hero-scroll-arrow">⌄</span>
         </div>
-
       </div>
     </div>
   );
