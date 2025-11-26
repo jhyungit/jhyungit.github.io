@@ -1,8 +1,24 @@
 // src/App.jsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [isHeaderScrolled, setIsHeaderScrolled] = useState(false);
+  
+    useEffect(() => {
+    const handleScroll = () => {
+      // 스크롤이 10px 이상 내려가면 scrolled 처리
+      if (window.scrollY > 10) {
+        setIsHeaderScrolled(true);
+      } else {
+        setIsHeaderScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleToggleMenu = () => {
@@ -10,18 +26,17 @@ function App() {
   };
 
 const handleNavClick = (e) => {
-  e.preventDefault(); // 기본 링크 이동 막기
+  e.preventDefault(); // a 태그 기본 동작 막기
 
   const targetId = e.target.getAttribute("href").replace("#", "");
 
   if (targetId === "home") {
-    // Home은 페이지 최상단으로 이동
+    // Home일 때는 그냥 페이지 최상단으로
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   } else {
-    // 다른 섹션은 scrollIntoView로 이동
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({
@@ -31,7 +46,7 @@ const handleNavClick = (e) => {
     }
   }
 
-  // 클릭 시 모바일 메뉴 닫기
+  // 모바일 메뉴 닫기
   setIsMenuOpen(false);
 };
 
@@ -39,7 +54,9 @@ const handleNavClick = (e) => {
     <div className="app">
       <div className="hero">
         {/* 헤더 */}
-        <header className="hero-header">
+        <header
+          className={`hero-header ${isHeaderScrolled ? "hero-header-scrolled" : ""}`}
+        >
           {/* 왼쪽 로고 */}
           <div className="hero-logo">
             <div className="hero-logo-circle">JH</div>
@@ -48,11 +65,11 @@ const handleNavClick = (e) => {
 
           {/* 오른쪽 메뉴 (PC용) */}
           <nav className="hero-nav">
-            <a href="#home">홈</a>
-            <a href="#about">소개</a>
-            <a href="#education">교육</a>
-            <a href="#skills">스킬</a>
-            <a href="#projects">프로젝트</a>
+            <a href="#home" onClick={handleNavClick}>홈</a>
+            <a href="#about" onClick={handleNavClick}>소개</a>
+            <a href="#education" onClick={handleNavClick}>교육</a>
+            <a href="#skills" onClick={handleNavClick}>스킬</a>
+            <a href="#projects" onClick={handleNavClick}>프로젝트</a>
           </nav>
 
           {/* 햄버거 버튼 (모바일/좁은 화면용) */}
@@ -82,7 +99,7 @@ const handleNavClick = (e) => {
         <main className="hero-main" id="home">
           <div className="hero-greeting">
             <p>안녕하세요👋</p>
-            <p>몸과 마음이 건강한 개발자</p>
+            <p>건강한 개발자</p>
             <p>
               저는 <span className="highlight-name">이정현</span> 입니다
             </p>

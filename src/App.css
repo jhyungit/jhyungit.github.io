@@ -22,6 +22,7 @@ body {
 
 /* ===== 전체 래퍼 ===== */
 .app {
+  padding-top: 56px;  /* 헤더 높이만큼 (직접 보면서 56~80px 사이로 조절) */
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -43,10 +44,26 @@ body {
 
 /* ===== 헤더 영역 ===== */
 .hero-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
+  padding: 12px 16px;
+
+  /* 처음 상태: 투명 */
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* 스크롤 후 상태 */
+.hero-header.hero-header-scrolled {
+  background: #020617;          /* 또는 rgba(2, 6, 23, 0.9) */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);  /* 살짝 그림자 */
 }
 
 /* 왼쪽 로고 묶음 */
