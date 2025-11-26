@@ -30,7 +30,7 @@ const handleNavClick = (e) => {
 
   const targetId = e.target.getAttribute("href").replace("#", "");
 
-  if (targetId === "home") {
+  if (targetId == "home") {
     // Home일 때는 그냥 페이지 최상단으로
     window.scrollTo({
       top: 0,

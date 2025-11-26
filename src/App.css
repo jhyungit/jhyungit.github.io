@@ -155,7 +155,7 @@ body {
   box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 
   /* 🔥 세로 메뉴 아이템 안정적 배치 */
-  min-width: 120px;
+  min-width: 100px;
   white-space: nowrap;
   text-align: left; /* center로 바꿔도 됨 */
 
@@ -166,7 +166,7 @@ body {
 
 .hero-nav-mobile a {
   color: var(--text-sub);
-  padding: 2px 0;
+  padding: 1px 0;
   border-radius: 6px;
   transition: 0.2s;
 }
@@ -297,6 +297,6 @@ body {
     font-size: 13px;
   }
   .hero-scroll {
-    bottom: 100px; /* 모바일에서 Scroll 표시 보이게 */
+    bottom: 110px; /* 모바일에서 Scroll 표시 보이게 */
   }
 }
