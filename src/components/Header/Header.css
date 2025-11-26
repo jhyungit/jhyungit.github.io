@@ -1,0 +1,157 @@
+/* src/components/Header/Header.css */
+
+/* 1440px 폭 맞춰주는 컨테이너 */
+.hero-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  font-size: 14px;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 32px;
+}
+
+.hero-header-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 스크롤 후 상태 */
+.hero-header.hero-header-scrolled {
+  background: #020617;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 로고 */
+.hero-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-logo-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.hero-logo-text {
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+}
+
+/* PC용 메뉴 */
+.hero-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-nav a {
+  color: var(--text-sub);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero-nav a:hover {
+  color: var(--accent-blue);
+}
+
+/* 햄버거 버튼 */
+.hero-menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-menu-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--text-main);
+  border-radius: 999px;
+  display: block;
+}
+
+/* 모바일 드롭다운 메뉴 */
+.hero-nav-mobile {
+  position: absolute;
+  top: 120%;
+  right: -80%;
+  background: rgba(2, 6, 23, 0.96);
+  padding: 8px 16px;
+  border-radius: 12px;
+  z-index: 1100;
+  display: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  min-width: 100px;
+  white-space: nowrap;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-nav-mobile a {
+  color: var(--text-sub);
+  padding: 1px 0;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.hero-nav-mobile a:hover {
+  color: var(--accent-blue);
+  background: rgba(255,255,255,0.04);
+}
+
+/* 반응형 - 헤더 관련만 */
+@media (max-width: 900px) {
+  .hero-header {
+    font-size: 13px;
+  }
+
+  .hero-logo-text {
+    font-size: 14px;
+  }
+
+  .hero-nav {
+    display: none;
+  }
+
+  .hero-menu-toggle {
+    display: inline-flex;
+  }
+
+  .hero-nav-mobile {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+  }
+}

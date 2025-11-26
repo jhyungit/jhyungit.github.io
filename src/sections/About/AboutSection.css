@@ -1,0 +1,227 @@
+/* src/sections/About/AboutSection.css */
+
+/* 섹션 전체 배경 */
+.about {
+  background: var(--bg-hero);
+  display: flex;
+  justify-content: center;
+  padding: 80px 32px 100px;
+}
+
+/* 내부 1440 박스 */
+.about-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  gap: 64px;
+}
+
+/* 왼쪽: 사진 영역 */
+.about-left {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* 큰 프로필 원 사진 */
+.about-photo-large-wrapper {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.about-photo-large {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 장식용 원 공통 */
+.about-circle {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(148, 184, 208, 0.32);
+}
+
+/* 위쪽 중간 원 */
+.about-circle--top {
+  width: 150px;
+  height: 150px;
+  top: -10%;
+  right: -6%;
+}
+
+/* 아래쪽 작은 원 */
+.about-circle--bottom {
+  width: 90px;
+  height: 90px;
+  bottom: -8%;
+  left: 4%;
+  background: rgba(156, 166, 180, 0.25);
+}
+
+/* 야구 사진 (작은 원) */
+.about-photo-small-wrapper {
+  width: 140px;
+  height: 140px;
+  border-radius: 999px;
+  overflow: hidden;
+  align-self: flex-end;
+  margin-right: 32px;
+}
+
+.about-photo-small {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 오른쪽: 텍스트 영역 */
+.about-right {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-main);
+}
+
+/* 제목 블록 */
+.about-title-block {
+  margin-bottom: 32px;
+}
+
+.about-title {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.about-title-underline {
+  width: 72px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: #b38cff; /* 보라색 포인트 라인 */
+}
+
+/* 메인 메시지 */
+.about-heading {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+/* 가로 라인 */
+.about-divider {
+  width: 100%;
+  max-width: 420px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.24);
+  margin: 0 0 20px;
+}
+
+/* 본문 텍스트 */
+.about-text {
+  font-size: 15px;
+  color: var(--text-sub);
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+/* ========== 반응형: 900px 이하 (모바일/태블릿) ========== */
+
+@media (max-width: 900px) {
+  .about {
+    padding: 72px 20px 80px;
+  }
+
+  .about-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .about-left {
+    align-items: center;
+  }
+
+  .about-photo-large-wrapper {
+    width: 260px;
+    height: 260px;
+  }
+
+  /* 모바일에선 야구 원형 사진 숨김 (원하면 보이게 바꿔도 됨) */
+  .about-photo-small-wrapper {
+    display: none;
+  }
+
+  .about-right {
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-title-block {
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
+
+  .about-title {
+    font-size: 24px;
+  }
+
+  .about-title-underline {
+    margin: 8px auto 0;
+  }
+
+  .about-heading {
+    font-size: 20px;
+  }
+
+  .about-divider {
+    max-width: 360px;
+    margin: 16px auto 20px;
+  }
+
+  .about-text {
+    max-width: 360px;
+    font-size: 14px;
+  }
+
+  /* 모바일에서 장식 원 살짝 조정 */
+  .about-circle--top {
+    width: 130px;
+    height: 130px;
+    top: -8%;
+    right: -10%;
+  }
+
+  .about-circle--bottom {
+    width: 80px;
+    height: 80px;
+    bottom: -10%;
+    left: 8%;
+  }
+}
+
+/* ========== 아주 작은 폰 (600 이하) ========== */
+
+@media (max-width: 600px) {
+  .about {
+    padding-inline: 16px;
+  }
+
+  .about-photo-large-wrapper {
+    width: 230px;
+    height: 230px;
+  }
+
+  .about-text {
+    max-width: 320px;
+  }
+}

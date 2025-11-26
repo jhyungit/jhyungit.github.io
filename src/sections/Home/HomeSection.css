@@ -1,0 +1,114 @@
+/* src/sections/Home/HomeSection.css */
+
+/* 메인 박스 */
+.hero {
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  background: var(--bg-hero);
+  padding: 24px 32px 40px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 메인 인사 영역 */
+.hero-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.hero-greeting p {
+  margin: 4px 0;
+  font-size: clamp(20px, 2.1vw, 26px);
+}
+
+.hero-greeting p:first-child {
+  margin-top: 0;
+}
+
+.highlight-name {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* 직무 라인 */
+.hero-role {
+  margin: 8px 0 0;
+  font-size: clamp(18px, 1.9vw, 24px);
+  color: var(--text-sub);
+}
+
+/* Strengths 섹션 */
+.hero-strengths {
+  margin-top: 64px;
+}
+
+.hero-strengths-title {
+  font-size: 14px;
+  letter-spacing: 0.24em;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.hero-strengths-text {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Scroll 인디케이터 */
+.hero-scroll {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: var(--text-sub);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.hero-scroll-arrow {
+  font-size: 20px;
+}
+
+/* 반응형 - Home 관련만 */
+@media (max-width: 900px) {
+  .hero {
+    padding: 24px 20px 32px;
+  }
+
+  .hero-greeting p {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
+  .hero-role {
+    font-size: clamp(16px, 4.2vw, 20px);
+  }
+
+  .hero-strengths {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-inline: 16px;
+  }
+
+  .hero-strengths-text {
+    font-size: 13px;
+  }
+
+  .hero-scroll {
+    bottom: 110px;
+  }
+}
