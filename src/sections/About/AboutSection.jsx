@@ -12,25 +12,18 @@ function AboutSection() {
       <div className="about-inner">
         {/* 왼쪽: 사진 영역 (웹 기준) */}
         <div className="about-left">
-          <div className="about-photo-large-wrapper">
-            <img
-              src={mainPhoto}
-              alt="이정현 우수상 수상 사진"
-              className="about-photo-large"
-            />
+          {/* 데코 원들 - 사진 바깥에! */}
+          <div className="about-circle about-circle--top" />
+          <div className="about-circle about-circle--bottom" />
 
-            {/* 장식용 원들 */}
-            <div className="about-circle about-circle--top" />
-            <div className="about-circle about-circle--bottom" />
+          {/* 큰 사진 원 */}
+          <div className="about-photo-large-wrapper">
+            <img src={mainPhoto} className="about-photo-large" />
           </div>
 
-          {/* 야구 사진 (웹에서만 보이게, 모바일에서는 숨김) */}
+          {/* 작은 사진 */}
           <div className="about-photo-small-wrapper">
-            <img
-              src={baseballPhoto}
-              alt="사회인 야구 활동 사진"
-              className="about-photo-small"
-            />
+            <img src={baseballPhoto} className="about-photo-small" />
           </div>
         </div>
 

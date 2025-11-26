@@ -1,5 +1,9 @@
 /* App.css 에 남겨둘 것 */
 
+html, body {
+  overflow-x: hidden;
+}
+
 /* ===== 공통 설정 ===== */
 :root {
   --bg-main: #020617;
