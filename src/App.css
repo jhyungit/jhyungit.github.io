@@ -256,6 +256,19 @@ body {
     font-size: 13px;
   }
   .hero-scroll {
-    bottom: 6px; /* 모바일에서 Scroll 표시 보이게 */
+    bottom: 28px; /* 모바일에서 Scroll 표시 보이게 */
   }
 }
+
+/* .hero-scroll {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: var(--text-sub);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+} */
