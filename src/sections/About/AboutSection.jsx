@@ -26,7 +26,7 @@ function AboutSection() {
             <img src={baseballPhoto} className="about-photo-small" />
           </div>
         </div>
-
+        
         {/* 오른쪽: 텍스트 영역 */}
         <div className="about-right">
           <div className="about-title-block">

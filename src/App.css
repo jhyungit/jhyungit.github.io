@@ -1,34 +1,46 @@
-/* App.css 에 남겨둘 것 */
+/* ===== 전역 배경 / overscroll 설정 ===== */
 
-html, body {
-  overflow-x: hidden;
+/* overscroll 영역까지 색 통일 */
+html {
+  background-color: var(--bg-main);
 }
 
-/* ===== 공통 설정 ===== */
+/* body 내부(콘텐츠 영역)의 배경 및 스크롤 설정 */
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif;
+
+  /* 화면 안쪽 실제 콘텐츠 영역 색 */
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+
+/* ===== 공통 CSS 변수 ===== */
+
 :root {
-  --bg-main: #020617;
-  --bg-hero: #021529;
+  --bg-main: #020617;  /* 전체 바깥/overscroll까지 포함한 기본 다크 네이비 */
+  --bg-hero: #021529;  /*섹션 내부 박스용 네이비*/
   --text-main: #ffffff;
   --text-sub: #a1b5d8;
   --text-muted: #8b9bb8;
   --accent-blue: #5fb3ff;
 }
 
+
+/* ===== Global Reset ===== */
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Noto Sans KR',
-    sans-serif;
-  background: var(--bg-main);
-  color: var(--text-main);
-}
 
-/* 전체 래퍼 */
+/* ===== 전체 래퍼 ===== */
+
 .app {
-  padding-top: 56px;
+  padding-top: 56px;   /* 헤더 fixed 높이 대응 */
   min-height: 100vh;
   padding: 0;
 }
