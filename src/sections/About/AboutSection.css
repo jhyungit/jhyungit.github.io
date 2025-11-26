@@ -4,8 +4,10 @@
 .about {
   background: #0A1E33;
   display: flex;
-  justify-content: center;
-  padding: 120px 32px 100px;
+  flex-direction: column;   /* 🔹 타이틀 위, 내용 아래 */
+  align-items: center;
+  padding: 80px 32px 100px; /* 위쪽 여백 넉넉히 */
+  position: relative;
 }
 
 /* 내부 1440 박스 */
@@ -56,12 +58,12 @@
 
 /* 위쪽 중간 원 */
 .about-circle--top {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   top: -40px;      /* 큰 원 위로 살짝 */
   right: 80px;     /* 큰 원 오른쪽으로 조금 */
   background: #9AD5D9;
-  opacity: 0.2;
+  opacity: 0.1;
   
   z-index: 3; /* 🔥 사진보다 앞으로 */
 }
@@ -72,8 +74,8 @@
   height: 110px;
   bottom: 80px;   /* 큰 원 아래로 조금 내려오게 */
   left: 200px;      /* 왼쪽에서 살짝 안쪽으로 */
-  background: #D9BE9A;
-  opacity: 0.4;
+  background: #FFA305;
+  opacity: 0.3;
 }
 
 /* 야구 사진 (작은 원) */
@@ -97,6 +99,7 @@
 /* 오른쪽: 텍스트 영역 */
 .about-right {
   flex: 0 0 50%;
+  padding: 0 50px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,16 +111,21 @@
   margin-bottom: 32px;
 }
 
+/* 제목 블록 - 데스크톱에서 섹션 위 중앙 */
+.about-title-block-top {
+  text-align: center;
+  margin-bottom: 48px;   /* 제목 아래 여백 */
+}
+
 .about-title {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 500;
-  text-align: left;
 }
 
 .about-title-underline {
-  width: 72px;
+  width: 80px;
   height: 3px;
-  margin-top: 8px;
+  margin: 8px auto 0;
   border-radius: 999px;
   background: #b38cff; /* 보라색 포인트 라인 */
 }
@@ -151,8 +159,8 @@
 
 @media (max-width: 900px) {
   .about {
-    padding: 120px 20px 80px;
-  }
+    padding: 72px 20px 80px;
+  } 
 
   .about-inner {
     flex-direction: column;
@@ -189,7 +197,7 @@
   }
 
   .about-title-underline {
-    margin: 8px auto 0;
+    margin-top: 6px;
   }
 
   .about-heading {

@@ -10,6 +10,7 @@ function App() {
       <Header /> {/* 헤더 부분 */}
       <HomeSection /> {/* 홈 부분 구현 */}
       <AboutSection/> {/* 소개 부분 구현*/}
+      
       {/* 앞으로 EducationSection, SkillsSection, ProjectsSection 추가 */}
     </div>
   );

@@ -9,6 +9,12 @@ import baseballPhoto from '../../assets/about-baseball.jpg';
 function AboutSection() {
   return (
     <section className="about" id="about">
+      {/* 🔹 섹션 맨 위 중앙 타이틀 */}
+      <div className="about-title-block about-title-block-top">
+        <h2 className="about-title">About Me</h2>
+        <div className="about-title-underline" />
+      </div>
+      
       <div className="about-inner">
         {/* 왼쪽: 사진 영역 (웹 기준) */}
         <div className="about-left">
@@ -29,11 +35,6 @@ function AboutSection() {
         
         {/* 오른쪽: 텍스트 영역 */}
         <div className="about-right">
-          <div className="about-title-block">
-            <h2 className="about-title">About Me</h2>
-            <div className="about-title-underline" />
-          </div>
-
           <h3 className="about-heading">
             저는 긍정적이고 체력을 겸비한
             <br />
