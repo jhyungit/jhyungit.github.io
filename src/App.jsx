@@ -9,9 +9,31 @@ function App() {
     setIsMenuOpen(prev => !prev);
   };
 
-  const handleNavClick = () => {
-    setIsMenuOpen(false); // 메뉴에서 항목 클릭하면 닫히게
-  };
+const handleNavClick = (e) => {
+  e.preventDefault(); // 기본 링크 이동 막기
+
+  const targetId = e.target.getAttribute("href").replace("#", "");
+
+  if (targetId === "home") {
+    // Home은 페이지 최상단으로 이동
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  } else {
+    // 다른 섹션은 scrollIntoView로 이동
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }
+
+  // 클릭 시 모바일 메뉴 닫기
+  setIsMenuOpen(false);
+};
 
   return (
     <div className="app">
