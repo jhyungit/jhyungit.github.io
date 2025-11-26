@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',        // 유저 페이지라 반드시 '/' !
+  base: '/',         // ✔ user page라 반드시 '/'
   build: {
-    outDir: 'docs', // GitHub Pages에서 docs 폴더를 배포용으로 사용
+    outDir: 'dist',  // ✔ Actions는 dist를 배포하므로 반드시 dist!
   },
 })
