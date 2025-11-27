@@ -1,0 +1,308 @@
+/* src/sections/Career.css */
+
+/* 섹션 전체 배경 */
+.career-section {
+  padding: 80px 32px 100px;
+  background-color: #0A1E33; /* 페이지 전체 배경과 맞추기 */
+  color: #f5f5f5;
+}
+
+.career-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.career-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.career-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.career-title-underline {
+  width: 80px;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #e76df5, #9b7bff);
+}
+
+/* 레이아웃 */
+
+.career-content {
+  display: flex;
+  gap: 48px;
+}
+
+/* 왼쪽 레일 전체 */
+.career-rail {
+  position: relative;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 전체를 조금 아래로 내려서 어학연수/인턴/달리셔스 카드 높이에 맞춤 */
+  margin-top: 80px; /* 필요에 따라 60~120 사이에서 조절해줘 */
+}
+
+/* 세로 줄 하나 */
+.career-rail-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(212, 179, 255, 0.4),
+    rgba(212, 179, 255, 0)
+  );
+  /* 약간 오른쪽으로 옮기고 싶으면 left 값 조절 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.career-rail-icon {
+  font-size: 22px;
+}
+
+.career-rail-label {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* 🔥 여기서 각 트로피의 세로 위치를 카드에 맞춰 조정 */
+/* 숫자는 대략적인 값이라, 눈으로 보면서 조금씩 조정하면 돼 */
+
+.rail-item-1 {
+  top: 600px;  /* 우수학생 → 어학연수 카드 높이 근처 */
+}
+
+.rail-item-2 {
+  top: 1000px;  /* 우수팀 우수인턴 → IBK 인턴 카드 옆으로 */
+}
+
+.rail-item-3 {
+  top: 1300px;  /* 우수상 → 달리셔스 카드 옆으로 */
+}
+
+/* 공통 아이템 스타일 */
+.career-rail-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transform: translateX(-50%);
+  left: 50%; /* 세로줄 중심에 맞추기 */
+}
+
+/* 오른쪽 본문 */
+
+.career-main {
+  flex: 1;
+}
+
+.career-group {
+  margin-bottom: 56px;
+}
+
+.career-group-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* 카드 */
+
+.career-group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.career-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+  padding: 20px 24px 24px;
+  border-radius: 18px;
+  background-color: #162235; /* 배경보다 10~15% 밝게 */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.career-card-period {
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(12, 21, 40, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.career-card-image {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  object-fit: cover;
+}
+
+.career-card-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.career-card-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.career-card-link-btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #b8c2ff;
+  font-size: 18px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.85;
+}
+
+.career-card-link-btn:hover {
+  opacity: 1;
+}
+
+.career-card-link-label {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.career-card-desc {
+  margin: 0;
+  padding: 10px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: #dde4f5;
+}
+
+.career-card-desc li {
+  line-height: 1.45;
+}
+
+.career-card-tag {
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: #02040a;
+  color: #e3d5ff;
+}
+
+/* 자격 뱃지 */
+
+.career-cert-group {
+  margin-top: 40px;
+}
+
+.career-cert-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.career-cert-badge {
+  padding: 10px 24px;
+  border-radius: 999px;
+  background-color: #d3d5da;
+  opacity: 0.9;
+  color: #1f242b;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+}
+
+/* 반응형 */
+
+@media (max-width: 960px) {
+  .career-rail {
+    display: none
+  }
+  
+  /* 카드 헤더 정렬 조금 수정 */
+  .career-card-header-row {
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  /* 이제 카드 안 트로피 뱃지 보이게 */
+  .career-card-award-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(255, 215, 0, 0.08);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  
+  .career-card-award-badge .award-icon {
+    font-size: 14px;
+  }
+
+  .career-card-award-badge .award-text {
+    letter-spacing: 0.02em;
+  }
+}
+
+/* 모바일 환경 */
+@media (max-width: 640px) {
+  .career-section {
+    padding-top: 90px;
+  }
+
+  .career-title {
+    font-size: 24px;
+  }
+  .career-group-title {
+    font-size: 16px;
+  }
+
+  .career-inner {
+    padding: 0 16px;
+  }
+
+  .career-card {
+    padding: 16px 14px 18px;
+  }
+
+  .career-card-desc {
+    font-size: 13px;
+  }
+  .career-card-period {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+  
+  .career-cert-badges {
+    gap: 8px;
+  }
+
+  .career-cert-badge {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+}

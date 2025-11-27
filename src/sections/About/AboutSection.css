@@ -155,9 +155,13 @@
   margin: 0 0 16px;
 }
 
-/* ========== 반응형: 900px 이하 (모바일/태블릿) ========== */
+.career-card-award-badge{
+  display: none;
+}
 
-@media (max-width: 900px) {
+/* ========== 반응형: 960px 이하 (모바일/태블릿) ========== */
+
+@media (max-width: 960px) {
   .about {
     padding: 72px 20px 80px;
   } 
@@ -232,7 +236,7 @@
 
 /* ========== 아주 작은 폰 (600 이하) ========== */
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .about {
     padding-inline: 16px;
   }

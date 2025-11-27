@@ -131,7 +131,7 @@
 }
 
 /* 반응형 - 헤더 관련만 */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .hero-header {
     font-size: 13px;
   }
