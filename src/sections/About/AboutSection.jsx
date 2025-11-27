@@ -3,8 +3,8 @@ import '../../App.css';
 import './AboutSection.css';
 
 // 이미지 경로는 네 프로젝트에 맞게 수정해줘!
-import mainPhoto from '../../assets/about-main.jpg';
-import baseballPhoto from '../../assets/about-baseball.jpg';
+import mainPhoto from '../../assets/about-photo/about-main.jpg';
+import baseballPhoto from '../../assets/about-photo/about-baseball.jpg';
 
 function AboutSection() {
   return (

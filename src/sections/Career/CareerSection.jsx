@@ -1,11 +1,13 @@
 // src/sections/Career.jsx
-import React from "react";
+import React, { useState } from "react";
 import "./CareerSection.css";
-import asacLogo from "../../assets/asac-logo.png";
-import mjuLogo from "../../assets/mju-logo.png";
-import ilscPhoto from "../../assets/ilsc-photo.png";
-import ibkIntern from "../../assets/ibk-intern.png";
-import deliciousLogo from "../../assets/delicious-logo.png";
+import asacLogo from "../../assets/career-photo/asac-logo.png";
+import mjuLogo from "../../assets/career-photo/mju-logo.png";
+import ilscPhoto from "../../assets/career-photo/ilsc-photo.png";
+import ilscAward from "../../assets/career-photo/ilsc-award.png";
+import ibkIntern from "../../assets/career-photo/ibk-intern.png";
+import ibkAward from "../../assets/career-photo/ibk-award.png";
+import deliciousLogo from "../../assets/career-photo/delicious-logo.png";
 
 const educationList = [
   {
@@ -13,7 +15,7 @@ const educationList = [
     tag: "부트캠프",
     title: "ASAC 빅데이터 분석가 과정 1기",
     descriptionLines: [
-      "920시간 교육 과정, 한국고용노동부, SK planet 주관",
+      "920시간, 한국고용노동부, SK planet 주관",
       "데이터 수집, 전처리, EDA, 모델링 등 데이터 분석 전 과정 실습",
       "PyTorch 및 TensorFlow 기반 ML/DL 모델 개발 및 프로젝트 수행",
       "PySpark와 SQL을 활용한 대용량 데이터 처리 및 분석",
@@ -48,8 +50,10 @@ const educationList = [
     ],
     imageAlt: "어학연수 사진",
     imageUrl: ilscPhoto,
-    awardLabel: "우수 학생", // 🔥 작은 화면에서 카드 안에 보여줄 수상 뱃지 텍스트
-    link: "https://example.com"
+    imageType: "photo",
+    awardLabel: "우수 학생", // 작은 화면에서 카드 안에 보여줄 수상 뱃지 텍스트
+    openType: "image",    // 팝업으로 열기
+    link: ilscAward
   }
 ];
 
@@ -66,8 +70,9 @@ const experienceList = [
     ],
     imageAlt: "IBK 인턴 사진",
     imageUrl: ibkIntern,
-    link: "https://example.com",
-    // 🔥 작은 화면에서 카드 안에 보여줄 수상 뱃지 텍스트
+    link: ibkAward,
+    imageType: "photo",
+    openType: "image",
     awardLabel: "우수팀 · 우수인턴"
   },
   {
@@ -93,11 +98,15 @@ const certifications = [
   { label: "자동차 운전면허" }
 ];
 
-function CareerCard({ item }) {
+function CareerCard({ item, onOpenImage }) {
   return (
     <article className="career-card">
       <div className="career-card-left">
-        <div className="career-card-period">{item.period}</div>
+        <div className="career-card-top-row">
+            {item.tag && <span className="career-card-tag">{item.tag}</span>}
+            <div className="career-card-period">{item.period}</div>
+        </div>
+        
         {item.imageUrl && (
           <div className="career-card-image-wrapper">
             <img
@@ -115,10 +124,20 @@ function CareerCard({ item }) {
 
           <button
             className="career-card-link-btn"
-            onClick={() => window.open(item.link, "_blank")}
+            onClick={() => {
+              if (item.openType === "image") {
+                // 🔥 팝업으로 이미지 보여주기
+                onOpenImage?.(item.link);
+              } else if (item.link) {
+                // 🔗 기본: 외부 링크 새 탭
+                window.open(item.link, "_blank");
+              }
+            }}
           >
             ↗
-            <span className="career-card-link-label">Click Here</span>
+            <span className="career-card-link-label">
+                 {item.openType === "image" ? "Check Photo" : "Visit now"}
+            </span>
           </button>
         </div>
 
@@ -127,8 +146,6 @@ function CareerCard({ item }) {
             <li key={idx}>{line}</li>
           ))}
         </ul>
-        
-        {item.tag && <span className="career-card-tag">{item.tag}</span>}
         
         {/* 🔥 작은 화면에서만 보이도록 CSS로 제어할 우측 트로피 뱃지 */}
           {item.awardLabel && (
@@ -143,6 +160,7 @@ function CareerCard({ item }) {
 }
 
 export default function Career() {
+  const [popupImage, setPopupImage] = useState(null);
   return (
     <section className="career-section" id="career">
       <div className="career-inner">
@@ -184,7 +202,11 @@ export default function Career() {
               <h3 className="career-group-title">교육</h3>
               <div className="career-group-list">
                 {educationList.map((item, idx) => (
-                  <CareerCard key={idx} item={item} />
+                    <CareerCard
+                    key={idx}
+                    item={item}
+                    onOpenImage={(src) => setPopupImage(src)}
+                    />
                 ))}
               </div>
             </section>
@@ -194,7 +216,11 @@ export default function Career() {
               <h3 className="career-group-title">경력</h3>
               <div className="career-group-list">
                 {experienceList.map((item, idx) => (
-                  <CareerCard key={idx} item={item} />
+                    <CareerCard
+                    key={idx}
+                    item={item}
+                    onOpenImage={(src) => setPopupImage(src)}
+                    />
                 ))}
               </div>
             </section>
@@ -213,6 +239,27 @@ export default function Career() {
           </main>
         </div>
       </div>
+      
+    {/* 팝업 모달 넣는 자리 */}
+      {popupImage && (
+        <div
+          className="career-image-modal"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setPopupImage(null);
+          }}
+        >
+          <div className="career-image-modal-content">
+            <button
+              className="career-image-modal-close"
+              onClick={() => setPopupImage(null)}
+            >
+              ✕
+            </button>
+            <img src={popupImage} alt="상세 이미지" />
+          </div>
+        </div>
+      )}
+      {/* 팝업 모달 */}
     </section>
   );
 }
