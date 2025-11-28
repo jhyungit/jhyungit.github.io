@@ -1,0 +1,200 @@
+/* 전체 섹션 */
+.skill-section {
+  padding: 120px 0;
+  background-color: #061629; /* 기존 포트폴리오 배경 톤에 맞춰 조정 */
+  color: #f5f5ff;
+}
+
+.skill-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 타이틀 */
+.skill-title-block {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.skill-title {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.skill-title-underline {
+  width: 80px;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #c471f5, #6c63ff);
+}
+
+/* 탭 버튼 */
+.skill-tab-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.skill-tab-btn {
+  min-width: 180px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #242430;
+  color: #f0f0ff;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+}
+
+.skill-tab-btn:hover {
+  background-color: #2f2f3b;
+}
+
+.skill-tab-btn.is-active {
+  background: #6c63ff;
+  color: #ffffff;
+  box-shadow: 0 10px 26px rgba(108, 99, 255, 0.5);
+}
+
+/* 카드 가로 스크롤 영역 */
+.skill-card-row-wrapper {
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 32px;
+}
+
+/* 스크롤바 살짝만 보이게 (선택) */
+.skill-card-row-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+.skill-card-row-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.skill-card-row {
+  display: inline-flex;
+  gap: 20px;
+  min-width: 100%;
+}
+
+/* 카드 */
+.skill-card {
+  width: 140px;
+  min-width: 140px;
+  height: 210px;
+  border-radius: 26px;
+  background: #111827;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.6);
+  background: #151c2b;
+}
+
+.skill-card-label {
+  align-self: flex-start;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background-color: #2a2c36;
+  font-size: 12px;
+  color: #e5e5ff;
+  letter-spacing: 0.04em;
+}
+
+/* 로고 */
+.skill-card-logo-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card-logo {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+/* 레벨 점 (별 대신 dot) */
+.skill-card-level-dots {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.skill-level-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.skill-level-dot.is-on {
+  background-color: #b2ff5c; /* 연두색 포인트 */
+}
+
+/* 비어 있을 때 */
+.skill-empty {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  padding: 20px 0;
+}
+
+/* 설명 문장 */
+.skill-description {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(228, 236, 252, 0.9);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .skill-section {
+    padding: 80px 0;
+  }
+
+  .skill-title {
+    font-size: 32px;
+  }
+
+  .skill-tab-row {
+    gap: 12px;
+  }
+
+  .skill-tab-btn {
+    min-width: 140px;
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+
+  .skill-card {
+    width: 130px;
+    min-width: 130px;
+    height: 190px;
+  }
+
+  .skill-description {
+    font-size: 14px;
+  }
+}
