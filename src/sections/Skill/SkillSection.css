@@ -126,11 +126,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
+
 /* 스킬 아이콘 크기 조정 */
 .skill-card-logo {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 64px;
+  max-height: 64px;
   object-fit: contain;
 }
 .dot {

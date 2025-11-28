@@ -1,6 +1,6 @@
 // src/data/skills.js
 
-// 로고 이미지 경로는 네 프로젝트 구조에 맞게 수정해줘!
+// DataEngineering 로고
 import pythonLogo from "../assets/skill-logos/python.png";
 import pandasLogo from "../assets/skill-logos/pandas.png";
 import numpyLogo from "../assets/skill-logos/numpy.png";
@@ -12,6 +12,7 @@ import jupyterLogo from "../assets/skill-logos/jupyter.png";
 import bs4Logo from "../assets/skill-logos/bs4.png";
 import kerasLogo from "../assets/skill-logos/keras.png";
 
+// Backend 로고
 import reactLogo from "../assets/skill-logos/react.png";
 import flaskLogo from "../assets/skill-logos/flask.png";
 import javaLogo from "../assets/skill-logos/java.png";
@@ -21,6 +22,11 @@ import cLogo from "../assets/skill-logos/c.png";
 import cssLogo from "../assets/skill-logos/css.png";
 import htmlLogo from "../assets/skill-logos/html.png";
 import androidstudioLogo from "../assets/skill-logos/androidstudio.png";
+
+// DB 로고
+import mysqlLogo from "../assets/skill-logos/mysql.png";
+import apachetomcatLogo from "../assets/skill-logos/apachetomcat.png";
+// import oracleLogo from "../assets/skill-logos/oracledb.png";
 
 const skillCategories = [
   {
@@ -49,10 +55,10 @@ const skillCategories = [
       { id: "flask", name: "Flask", logo: flaskLogo, level: 2.5 },
       { id: "java", name: "Java", logo: javaLogo, level: 2 },
       { id: "javascript", name: "JavaScript", logo: jsLogo, level: 2 },
-      { id: "cpp", name: "Cpp", logo: cppLogo, level: 2 },
+      { id: "cpp", name: "C++", logo: cppLogo, level: 2 },
       { id: "c", name: "C", logo: cLogo, level: 2 },
-      { id: "css", name: "Css", logo: cssLogo, level: 2 },
-      { id: "html", name: "Html", logo: htmlLogo, level: 2 },
+      { id: "css", name: "CSS", logo: cssLogo, level: 2 },
+      { id: "html", name: "HTML", logo: htmlLogo, level: 2 },
       { id: "androidstudio", name: "AndroidStudio", logo: androidstudioLogo, level: 2 },
     ],
   },
@@ -60,7 +66,11 @@ const skillCategories = [
     id: "db",
     label: "Database",
     description: "관계형 DB 모델링 및 SQL 작성 경험",
-    skills: [],
+    skills: [
+      { id: "mysql", name: "MySQL", logo: mysqlLogo, level: 5 },
+      { id: "apache", name: "ApacheTomcat", logo: apachetomcatLogo, level: 2 }
+      // { id: "oracle", name: "OracleDB", logo: oracleLogo, level: 2 },
+    ],
   },
   {
     id: "infra",
