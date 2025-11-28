@@ -122,12 +122,13 @@
   font-weight: 500;
 }
 
+  
 .about-title-underline {
   width: 80px;
-  height: 3px;
-  margin: 8px auto 0;
+  height: 4px;
+  margin: 0 auto;
   border-radius: 999px;
-  background: #b38cff; /* 보라색 포인트 라인 */
+  background: linear-gradient(90deg, #e76df5, #9b7bff); /* 보라색 포인트 라인 */
 }
 
 /* 메인 메시지 */

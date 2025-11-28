@@ -1,8 +1,7 @@
 // src/sections/About/AboutSection.jsx
 import '../../App.css';
 import './AboutSection.css';
-
-// 이미지 경로는 네 프로젝트에 맞게 수정해줘!
+// 이미지 경로
 import mainPhoto from '../../assets/about-photo/about-main.jpg';
 import baseballPhoto from '../../assets/about-photo/about-baseball.jpg';
 
@@ -44,17 +43,15 @@ function AboutSection() {
           <div className="about-divider" />
 
           <p className="about-text">
-            데이터 수집 · 전처리 · 모델링 역량을 기반으로
-            <br />
-            팀의 안정적 운영에 기여하는 개발자입니다.
+            데이터 수집 · 전처리 · 모델링 역량으로
+            <br/>
+            팀의 안정적 운영에 기여합니다.
           </p>
 
           <p className="about-text">
-            사회인 야구 활동을 통해
-            <br />
-            꾸준한 체력 관리와 팀워크 역량을 기르고,
-            <br />
-            시즌 MVP로 선정된 경험이 있습니다.
+            사회인 야구를 통해 꾸준한 체력 관리와
+            <br/>
+            팀워크 역량을 실천하며 MVP로 선정되었습니다.
           </p>
         </div>
       </div>
