@@ -99,6 +99,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   flex-shrink: 0;
   transition: transform 0.15s ease, box-shadow 0.15s ease,
     background-color 0.15s ease;
@@ -111,7 +112,6 @@
 }
 
 .skill-card-label {
-  align-self: flex-start;
   padding: 4px 14px;
   border-radius: 999px;
   background-color: #2a2c36;
@@ -127,11 +127,33 @@
   align-items: center;
   justify-content: center;
 }
-
+/* 스킬 아이콘 크기 조정 */
 .skill-card-logo {
-  max-width: 70%;
-  max-height: 70%;
+  max-width: 80%;
+  max-height: 80%;
   object-fit: contain;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+/* 완전 채워진 */
+.dot.full {
+  background: #b2ff5c;
+}
+
+/* 비어 있는 */
+.dot.empty {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 반만 채워진 dot */
+.dot.half {
+  background: linear-gradient(to right, #b2ff5c 50%, rgba(255,255,255,0.15) 50%);
 }
 
 /* 레벨 점 (별 대신 dot) */
@@ -139,17 +161,6 @@
   display: flex;
   justify-content: center;
   gap: 4px;
-}
-
-.skill-level-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.18);
-}
-
-.skill-level-dot.is-on {
-  background-color: #b2ff5c; /* 연두색 포인트 */
 }
 
 /* 비어 있을 때 */
@@ -169,7 +180,7 @@
 }
 
 /* 반응형 */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .skill-section {
     padding: 80px 0;
   }

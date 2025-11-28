@@ -50,15 +50,18 @@ const SkillSection = () => {
                   />
                 </div>
                 <div className="skill-card-level-dots">
-                  {Array.from({ length: 5 }).map((_, idx) => (
-                    <span
-                      key={idx}
-                      className={
-                        "skill-level-dot" +
-                        (idx < (skill.level || 0) ? " is-on" : "")
-                      }
-                    />
-                  ))}
+                {Array.from({ length: 5 }).map((_, idx) => {
+                  const full = Math.floor(skill.level);   // 정수
+                  const half = skill.level % 1 !== 0;     // 소수점 존재 여부
+
+                  if (idx < full) {
+                    return <span key={idx} className="dot full" />;
+                  } 
+                  if (idx === full && half) {
+                    return <span key={idx} className="dot half" />;
+                  }
+                  return <span key={idx} className="dot empty" />;
+                })}
                 </div>
               </article>
             ))}

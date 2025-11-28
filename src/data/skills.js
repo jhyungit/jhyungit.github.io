@@ -9,6 +9,18 @@ import tensorflowLogo from "../assets/skill-logos/tensorflow.png";
 import pysparkLogo from "../assets/skill-logos/pyspark.png";
 import seleniumLogo from "../assets/skill-logos/selenium.png";
 import jupyterLogo from "../assets/skill-logos/jupyter.png";
+import bs4Logo from "../assets/skill-logos/bs4.png";
+import kerasLogo from "../assets/skill-logos/keras.png";
+
+import reactLogo from "../assets/skill-logos/react.png";
+import flaskLogo from "../assets/skill-logos/flask.png";
+import javaLogo from "../assets/skill-logos/java.png";
+import jsLogo from "../assets/skill-logos/javascript.png";
+import cppLogo from "../assets/skill-logos/cpp.png";
+import cLogo from "../assets/skill-logos/c.png";
+import cssLogo from "../assets/skill-logos/css.png";
+import htmlLogo from "../assets/skill-logos/html.png";
+import androidstudioLogo from "../assets/skill-logos/androidstudio.png";
 
 const skillCategories = [
   {
@@ -16,14 +28,16 @@ const skillCategories = [
     label: "Data Engineering",
     description: "데이터 수집·전처리·EDA·모델링·ML/DL 개발 경험",
     skills: [
-      { id: "python", name: "Python", logo: pythonLogo, level: 5 },
-      { id: "pandas", name: "Pandas", logo: pandasLogo, level: 5 },
-      { id: "numpy", name: "Numpy", logo: numpyLogo, level: 5 },
-      { id: "sklearn", name: "sklearn", logo: sklearnLogo, level: 4 },
-      { id: "tf", name: "TensorFlow", logo: tensorflowLogo, level: 4 },
-      { id: "pyspark", name: "PySpark", logo: pysparkLogo, level: 4 },
-      { id: "selenium", name: "Selenium", logo: seleniumLogo, level: 4 },
-      { id: "jupyter", name: "Jupyter", logo: jupyterLogo, level: 5 },
+      { id: "python", name: "Python", logo: pythonLogo, level: 4 },
+      { id: "pandas", name: "Pandas", logo: pandasLogo, level: 4 },
+      { id: "numpy", name: "Numpy", logo: numpyLogo, level: 4 },
+      { id: "sklearn", name: "sklearn", logo: sklearnLogo, level: 2.5 },
+      { id: "tf", name: "TensorFlow", logo: tensorflowLogo, level: 2.5 },
+      { id: "pyspark", name: "PySpark", logo: pysparkLogo, level: 2.5 },
+      { id: "selenium", name: "Selenium", logo: seleniumLogo, level: 3 },
+      { id: "jupyter", name: "Jupyter", logo: jupyterLogo, level: 4 },
+      { id: "keras", name: "Keras", logo: kerasLogo, level: 2.5 },
+      { id: "bs4", name: "BeautifulSoup", logo: bs4Logo, level: 3 },
     ],
   },
   {
@@ -31,8 +45,15 @@ const skillCategories = [
     label: "Backend",
     description: "Python·Java 기반 서버 개발 및 REST API 구현 경험",
     skills: [
-      // 나중에 실제 로고/이미지 준비되면 추가
-      // { id: "flask", name: "Flask", logo: flaskLogo, level: 4 },
+      { id: "react", name: "React", logo: reactLogo, level: 2.5 },
+      { id: "flask", name: "Flask", logo: flaskLogo, level: 2.5 },
+      { id: "java", name: "Java", logo: javaLogo, level: 2 },
+      { id: "javascript", name: "JavaScript", logo: jsLogo, level: 2 },
+      { id: "cpp", name: "Cpp", logo: cppLogo, level: 2 },
+      { id: "c", name: "C", logo: cLogo, level: 2 },
+      { id: "css", name: "Css", logo: cssLogo, level: 2 },
+      { id: "html", name: "Html", logo: htmlLogo, level: 2 },
+      { id: "androidstudio", name: "AndroidStudio", logo: androidstudioLogo, level: 2 },
     ],
   },
   {
