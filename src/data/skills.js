@@ -26,7 +26,7 @@ import androidstudioLogo from "../assets/skill-logos/androidstudio.png";
 // DB 로고
 import mysqlLogo from "../assets/skill-logos/mysql.png";
 import apachetomcatLogo from "../assets/skill-logos/apachetomcat.png";
-// import oracleLogo from "../assets/skill-logos/oracledb.png";
+import oracleLogo from "../assets/skill-logos/oracledb.png";
 
 const skillCategories = [
   {
@@ -68,8 +68,8 @@ const skillCategories = [
     description: "관계형 DB 모델링 및 SQL 작성 경험",
     skills: [
       { id: "mysql", name: "MySQL", logo: mysqlLogo, level: 5 },
-      { id: "apache", name: "ApacheTomcat", logo: apachetomcatLogo, level: 2 }
-      // { id: "oracle", name: "OracleDB", logo: oracleLogo, level: 2 },
+      { id: "apache", name: "ApacheTomcat", logo: apachetomcatLogo, level: 2 },
+      { id: "oracle", name: "OracleDB", logo: oracleLogo, level: 2 },
     ],
   },
   {

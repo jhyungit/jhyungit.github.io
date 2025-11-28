@@ -55,7 +55,7 @@ function Header() {
             <a href="#home" onClick={handleNavClick}>홈</a>
             <a href="#about" onClick={handleNavClick}>소개</a>
             <a href="#career" onClick={handleNavClick}>경력</a>
-            <a href="#skills" onClick={handleNavClick}>스킬</a>
+            <a href="#skill" onClick={handleNavClick}>스킬</a>
             <a href="#projects" onClick={handleNavClick}>프로젝트</a>
           </nav>
 
@@ -72,7 +72,7 @@ function Header() {
               <a href="#home" onClick={handleNavClick}>홈</a>
               <a href="#about" onClick={handleNavClick}>소개</a>
               <a href="#career" onClick={handleNavClick}>경력</a>
-              <a href="#skills" onClick={handleNavClick}>스킬</a>
+              <a href="#skill" onClick={handleNavClick}>스킬</a>
               <a href="#projects" onClick={handleNavClick}>프로젝트</a>
             </nav>
           )}
