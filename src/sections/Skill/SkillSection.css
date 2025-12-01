@@ -1,6 +1,6 @@
 /* 전체 섹션 */
 .skill-section {
-  padding: 120px 0;
+  padding: 80px 32px 100px; /* 위쪽 여백 넉넉히 */
   background-color: #0A1E33;
   color: #f5f5ff;
 }

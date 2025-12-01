@@ -101,11 +101,11 @@
 
 @media (max-width: 600px) {
   .hero {
-    padding-inline: 16px;
+    padding-inline: 0px;
   }
 
   .hero-strengths-text {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .hero-scroll {

@@ -44,7 +44,7 @@ const skillCategories = [
   {
     id: "data",
     label: "Data Engineering",
-    description: "데이터 수집·전처리·EDA·모델링·ML/DL 개발 경험",
+    description: "데이터 수집 · 전처리 · EDA · 모델링 · ML/DL 개발 경험",
     skills: [
       { id: "python", name: "Python", logo: pythonLogo, level: 4 },
       { id: "pandas", name: "Pandas", logo: pandasLogo, level: 4 },
@@ -61,7 +61,7 @@ const skillCategories = [
   {
     id: "backend",
     label: "Backend",
-    description: "Python·Java 기반 서버 개발 및 REST API 구현 경험",
+    description: "Python · Java 기반 서버 개발 및 REST API 구현 경험",
     skills: [
       { id: "react", name: "React", logo: reactLogo, level: 2.5 },
       { id: "flask", name: "Flask", logo: flaskLogo, level: 2.5 },
@@ -87,7 +87,7 @@ const skillCategories = [
   {
     id: "infra",
     label: "Infra & Tools",
-    description: "개발·협업 환경 구성 및 다양한 도구 활용 경험",
+    description: "개발 · 협업 환경 구성 및 다양한 도구 활용 경험",
     skills: [
       // { id: "jupyter", name: "Jupyter", logo: jupyterLogo, level: 3.5 },
       // { id: "androidstudio", name: "Android Studio", logo: androidstudioLogo, level: 2 },
