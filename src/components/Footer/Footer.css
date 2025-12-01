@@ -1,0 +1,30 @@
+.footer {
+  text-align: center;
+  background-color: #020617;
+  padding: 40px 0 60px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.footer-divider {
+  width: 100%;
+  max-width: 480px;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 0 auto 20px;
+}
+
+.footer-credit {
+  font-size: 11px;
+  opacity: 0.45;
+}
+
+.footer-email {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+}
+
+.footer-email:hover {
+  color: #c471f5;
+}

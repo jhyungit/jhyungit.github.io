@@ -74,7 +74,7 @@
 
 /* 스크롤바 살짝만 보이게 (선택) */
 .skill-card-row-wrapper::-webkit-scrollbar {
-  height: 6px;
+  height: 10px;
 }
 .skill-card-row-wrapper::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.15);
@@ -135,6 +135,7 @@
   max-height: 64px;
   object-fit: contain;
 }
+
 .dot {
   width: 8px;
   height: 8px;
@@ -158,7 +159,7 @@
   background: linear-gradient(to right, #b2ff5c 50%, rgba(255,255,255,0.15) 50%);
 }
 
-/* 레벨 점 (별 대신 dot) */
+/* 숙련도 칸 */
 .skill-card-level-dots {
   display: flex;
   justify-content: center;
@@ -202,12 +203,29 @@
   }
 
   .skill-card {
-    width: 130px;
-    min-width: 130px;
-    height: 190px;
+    width: 100px;
+    min-width: 80px;
+    height: 130px;
+    border-radius: 26px;
   }
+  
+  .skill-card-label {
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
 
   .skill-description {
     font-size: 14px;
   }
+  
+  /* 스킬 아이콘 크기 조정 */
+ .skill-card-logo {
+  max-width: 50px;
+  max-height: 50px;
+}
+  .dot {
+  width: 6px;
+  height: 6px;
+  
+}
 }

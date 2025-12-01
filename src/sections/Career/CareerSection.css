@@ -36,13 +36,13 @@
 
 .career-content {
   display: flex;
-  gap: 48px;
+  gap: 24px;        /* 48 → 24 */
 }
 
 /* 왼쪽 레일 전체 */
 .career-rail {
   position: relative;
-  width: 120px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -169,8 +169,8 @@
 
 /* 🔥 여기 추가 */
 .career-card-image-wrapper {
-  width: cover;      /* 이미지 박스 공통 가로 */
-  height: cover;     /* 이미지 박스 공통 세로 */
+  width: 140px;      /* 이미지 박스 공통 가로 */
+  height: auto;     /* 이미지 박스 공통 세로 */
   align-self: center;
   border-radius: 16px;
   overflow: hidden;  /* 밖으로 튀는 부분 잘라내기 */
@@ -308,15 +308,22 @@
   }
 
   .career-inner {
-    padding: 0 16px;
+    padding: 0 10px;
   }
 
   .career-card {
-    padding: 16px 14px 18px;
+    padding: 16px 10px 18px;
+    grid-template-columns: 150px 1fr; /* 🔥 모바일에서도 이미지+텍스트 가로 배치 유지 */
+    column-gap: 16px;
+    align-items: flex-start;
+  }
+  
+  .career-card-image-wrapper {
+    width: 120px;        /* 🔥 모바일용 이미지 너비 조금 줄이기 */
   }
 
   .career-card-desc {
-    font-size: 13px;
+    font-size: 14px;
   }
   .career-card-period {
     font-size: 12px;
@@ -324,7 +331,7 @@
   }
   
   .career-cert-badges {
-    gap: 8px;
+    gap: 18px;
   }
 
   .career-cert-badge {
