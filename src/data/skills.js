@@ -28,6 +28,18 @@ import mysqlLogo from "../assets/skill-logos/mysql.png";
 import apachetomcatLogo from "../assets/skill-logos/apachetomcat.png";
 import oracleLogo from "../assets/skill-logos/oracledb.png";
 
+// Infra & Tools 로고
+import linuxLogo from "../assets/skill-logos/linux.png";
+import gitLogo from "../assets/skill-logos/git.png";
+import vscodelLogo from "../assets/skill-logos/vscode.png";
+import vsLogo from "../assets/skill-logos/vs.png";
+import eclipseLogo from "../assets/skill-logos/eclipse.svg";
+import figmaLogo from "../assets/skill-logos/figma.png";
+import excelLogo from "../assets/skill-logos/excel.png";
+import pptLogo from "../assets/skill-logos/ppt.svg";
+import wordLogo from "../assets/skill-logos/word.svg";
+import hangeulLogo from "../assets/skill-logos/hangeul.png";
+
 const skillCategories = [
   {
     id: "data",
@@ -54,12 +66,12 @@ const skillCategories = [
       { id: "react", name: "React", logo: reactLogo, level: 2.5 },
       { id: "flask", name: "Flask", logo: flaskLogo, level: 2.5 },
       { id: "java", name: "Java", logo: javaLogo, level: 2 },
-      { id: "javascript", name: "JavaScript", logo: jsLogo, level: 2 },
-      { id: "cpp", name: "C++", logo: cppLogo, level: 2 },
-      { id: "c", name: "C", logo: cLogo, level: 2 },
-      { id: "css", name: "CSS", logo: cssLogo, level: 2 },
-      { id: "html", name: "HTML", logo: htmlLogo, level: 2 },
-      { id: "androidstudio", name: "AndroidStudio", logo: androidstudioLogo, level: 2 },
+      { id: "javascript", name: "JavaScript", logo: jsLogo, level: 2.5 },
+      { id: "cpp", name: "C++", logo: cppLogo, level: 3.5 },
+      { id: "c", name: "C", logo: cLogo, level: 3.5 },
+      { id: "css", name: "CSS", logo: cssLogo, level: 3 },
+      { id: "html", name: "HTML", logo: htmlLogo, level: 3.5 },
+      { id: "androidstudio", name: "Android Studio", logo: androidstudioLogo, level: 3 },
     ],
   },
   {
@@ -69,14 +81,27 @@ const skillCategories = [
     skills: [
       { id: "mysql", name: "MySQL", logo: mysqlLogo, level: 5 },
       { id: "apache", name: "ApacheTomcat", logo: apachetomcatLogo, level: 2 },
-      { id: "oracle", name: "OracleDB", logo: oracleLogo, level: 2 },
+      { id: "oracle", name: "Oracle DB", logo: oracleLogo, level: 2 },
     ],
   },
   {
     id: "infra",
     label: "Infra & Tools",
     description: "개발·협업 환경 구성 및 다양한 도구 활용 경험",
-    skills: [],
+    skills: [
+      // { id: "jupyter", name: "Jupyter", logo: jupyterLogo, level: 3.5 },
+      // { id: "androidstudio", name: "Android Studio", logo: androidstudioLogo, level: 2 },
+      { id: "linux", name: "Linux", logo: linuxLogo, level: 3 },
+      { id: "git", name: "Git", logo: gitLogo, level: 3.5 },
+      { id: "vs", name: "Visual Studio", logo: vsLogo, level: 3.5 },
+      { id: "vscode", name: "VS Code", logo: vscodelLogo, level: 4.5 },
+      { id: "eclipse", name: "Eclipse", logo: eclipseLogo, level: 2 },
+      { id: "figma", name: "Figma", logo: figmaLogo, level: 3 },
+      { id: "word", name: "Word", logo: wordLogo, level: 4.5 },
+      { id: "excel", name: "Excel", logo: excelLogo, level: 3.5 },
+      { id: "ppt", name: "PowerPoint", logo: pptLogo, level: 4.5 },
+      { id: "hangeul", name: "한글", logo: hangeulLogo, level: 4 },
+    ],
   },
 ];
 

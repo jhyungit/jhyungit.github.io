@@ -65,13 +65,6 @@ const SkillSection = () => {
                 </div>
               </article>
             ))}
-
-            {/* 스킬이 비어 있을 때 안내 문구 */}
-            {activeCategory.skills.length === 0 && (
-              <div className="skill-empty">
-                이 카테고리는 추후 업데이트 예정입니다.
-              </div>
-            )}
           </div>
         </div>
 
