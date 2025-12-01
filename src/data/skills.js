@@ -33,11 +33,11 @@ import linuxLogo from "../assets/skill-logos/linux.png";
 import gitLogo from "../assets/skill-logos/git.png";
 import vscodelLogo from "../assets/skill-logos/vscode.png";
 import vsLogo from "../assets/skill-logos/vs.png";
-import eclipseLogo from "../assets/skill-logos/eclipse.svg";
+import eclipseLogo from "../assets/skill-logos/eclipse.png";
 import figmaLogo from "../assets/skill-logos/figma.png";
 import excelLogo from "../assets/skill-logos/excel.png";
-import pptLogo from "../assets/skill-logos/ppt.svg";
-import wordLogo from "../assets/skill-logos/word.svg";
+import pptLogo from "../assets/skill-logos/ppt.png";
+import wordLogo from "../assets/skill-logos/word.png";
 import hangeulLogo from "../assets/skill-logos/hangeul.png";
 
 const skillCategories = [
@@ -71,7 +71,7 @@ const skillCategories = [
       { id: "c", name: "C", logo: cLogo, level: 3.5 },
       { id: "css", name: "CSS", logo: cssLogo, level: 3 },
       { id: "html", name: "HTML", logo: htmlLogo, level: 3.5 },
-      { id: "androidstudio", name: "Android Studio", logo: androidstudioLogo, level: 3 },
+      { id: "androidstudio", name: "AndroidStudio", logo: androidstudioLogo, level: 3 },
     ],
   },
   {
@@ -93,7 +93,7 @@ const skillCategories = [
       // { id: "androidstudio", name: "Android Studio", logo: androidstudioLogo, level: 2 },
       { id: "linux", name: "Linux", logo: linuxLogo, level: 3 },
       { id: "git", name: "Git", logo: gitLogo, level: 3.5 },
-      { id: "vs", name: "Visual Studio", logo: vsLogo, level: 3.5 },
+      { id: "vs", name: "VisualStudio", logo: vsLogo, level: 3.5 },
       { id: "vscode", name: "VS Code", logo: vscodelLogo, level: 4.5 },
       { id: "eclipse", name: "Eclipse", logo: eclipseLogo, level: 2 },
       { id: "figma", name: "Figma", logo: figmaLogo, level: 3 },
