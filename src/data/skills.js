@@ -81,7 +81,7 @@ const skillCategories = [
     skills: [
       { id: "mysql", name: "MySQL", logo: mysqlLogo, level: 5 },
       { id: "apache", name: "ApacheTomcat", logo: apachetomcatLogo, level: 2 },
-      { id: "oracle", name: "Oracle DB", logo: oracleLogo, level: 2 },
+      { id: "oracle", name: "OracleDB", logo: oracleLogo, level: 2 },
     ],
   },
   {
@@ -94,7 +94,7 @@ const skillCategories = [
       { id: "linux", name: "Linux", logo: linuxLogo, level: 3 },
       { id: "git", name: "Git", logo: gitLogo, level: 3.5 },
       { id: "vs", name: "VisualStudio", logo: vsLogo, level: 3.5 },
-      { id: "vscode", name: "VS Code", logo: vscodelLogo, level: 4.5 },
+      { id: "vscode", name: "VScode", logo: vscodelLogo, level: 4.5 },
       { id: "eclipse", name: "Eclipse", logo: eclipseLogo, level: 2 },
       { id: "figma", name: "Figma", logo: figmaLogo, level: 3 },
       { id: "word", name: "Word", logo: wordLogo, level: 4.5 },
