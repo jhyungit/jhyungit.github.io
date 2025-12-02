@@ -43,7 +43,7 @@ const educationList = [
     descriptionLines: [
       "약 1년 간 호주에서 외국 친구들과 함께 영어 학습 및 교류하며 생활",
       "ILSC Sydney - Intermediate → Advanced 과정 수료, 우수 학생 선정",
-      "워킹홀리데이: Waterfront Southgate 근무 (2019.08 ~ 2019.12)"
+      "Waterfront Southgate 근무 (2019.08 ~ 2019.12)"
     ],
     imageAlt: "어학연수 사진",
     imageUrl: ilscPhoto,
