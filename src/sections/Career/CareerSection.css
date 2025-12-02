@@ -285,6 +285,17 @@
     white-space: nowrap;
   }
   
+  .career-cert-badge{
+    font-size: 13px;
+  }
+  
+  .career-cert-badges {
+    display: inline-flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
   .career-card-award-badge .award-icon {
     font-size: 14px;
   }
@@ -292,6 +303,7 @@
   .career-card-award-badge .award-text {
     letter-spacing: 0.02em;
   }
+
 }
 
 /* 모바일 환경 */
@@ -328,10 +340,6 @@
   .career-card-period {
     font-size: 12px;
     padding: 5px 10px;
-  }
-  
-  .career-cert-badges {
-    gap: 18px;
   }
 
   .career-cert-badge {
