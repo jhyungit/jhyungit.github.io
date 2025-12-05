@@ -8,20 +8,15 @@
 }
 
 .career-inner {
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .career-header {
   text-align: center;
-  margin-bottom: 60px;
-}
-
-.career-title {
   font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 48px;
 }
 
 .career-title-underline {
@@ -29,14 +24,14 @@
   height: 4px;
   margin: 0 auto;
   border-radius: 999px;
-  background: linear-gradient(90deg, #e76df5, #9b7bff);
+  background: linear-gradient(90deg, #c471f5, #6c63ff);
 }
 
 /* 레이아웃 */
 
 .career-content {
   display: flex;
-  gap: 24px;        /* 48 → 24 */
+  gap: 24px;
 }
 
 /* 왼쪽 레일 전체 */
@@ -290,12 +285,12 @@
   }
   
   .career-cert-badges {
-    display: inline-flex;
+    display: flex;
     text-align: center;
     flex-direction: column;
+    align-items: flex-start;
     gap: 18px;
   }
-  
   .career-card-award-badge .award-icon {
     font-size: 14px;
   }

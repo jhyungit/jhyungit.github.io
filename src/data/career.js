@@ -92,7 +92,7 @@ const experienceList = [
 const certifications = [
   { label: "OPIc IH" },
   { label: "정보처리기사 · 2024.12" },
-  // { label: "SQLD · 2025.12" },
+  { label: "SQLD (SQL 개발자) · 2025.12" },
   // { label: "자동차 운전면허 (1·2종 보통)" }
 ];
 
