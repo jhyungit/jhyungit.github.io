@@ -1,4 +1,15 @@
 import daliImage from "../assets/project-photo/dali.png";
+import daliHero from "../assets/project-photo/dali-hero.png";
+
+import ibkImage from "../assets/project-photo/ibk.png";
+import ibkPos from "../assets/project-photo/ibkPos.png";
+import ibkBank from "../assets/project-photo/ibkBank.png";
+import ibkProduct from "../assets/project-photo/ibkProduct.png";
+import ibkPay from "../assets/project-photo/ibkPay.png";
+import ibkChang1 from "../assets/project-photo/ibkChang1.png";
+import ibkChang2 from "../assets/project-photo/ibkChang2.png";
+import ibkBoard1 from "../assets/project-photo/ibkBoard1.png";
+import ibkBoard2 from "../assets/project-photo/ibkBoard2.png";
 
 const projectCategories = [
   {
@@ -28,12 +39,14 @@ const projectCategories = [
         "최종 발표 우수상 수상",
       ],
       techStack: ["Python", "sklearn", "Pandas"],
-      heroImage: "/images/projects/kurrant_hero.png", // 네가 가진 경로로 수정
+      heroImage: ibkImage,
+      heroImages: [daliHero],
     },
   },
   {
     id: "supperapp",
     title: "SUPPER APP",
+    image: ibkImage,
     subtitle: "기업은행 슈퍼앱",
     summaryLines: [
       "i-ONE Bank, Box POS 등 4가지 앱",
@@ -42,6 +55,12 @@ const projectCategories = [
     tags: ["Figma", "UX 설계"],
     modal: {
       badge: "프로토타입",
+      caption: [
+        ["포스 홈 - POS 주사용 고객","금융 홈 - 통장거래 주사용 고객"],
+        ["상품몰 - 다양한 상품 빠른 접근","페이 - 보유 카드로 신속한 페이"],
+        ["IBK창공_ver.1","IBK창공_ver.2"],
+        ["IBK BOARD_ver.1","IBK BOARD_ver.2"]
+      ],
       intro: [
         "IBK 기업은행 슈퍼앱 기획/디자인 프로젝트",
         "사용자 플로우 및 IA 설계",
@@ -52,7 +71,7 @@ const projectCategories = [
       ],
       results: ["내부 발표용 프로토타입 완성"],
       techStack: ["Figma", "UX", "ProtoPie"],
-      heroImage: "/images/projects/supperapp_hero.png",
+      heroImages: [[ibkPos,ibkBank],[ibkProduct,ibkPay],[ibkChang1,ibkChang2],[ibkBoard1,ibkBoard2]],
     },
   },
 ];

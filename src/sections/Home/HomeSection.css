@@ -81,7 +81,7 @@
 }
 
 /* 반응형 - Home 관련만 */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .hero {
     padding: 24px 20px 32px;
   }
@@ -99,7 +99,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .hero {
     padding-inline: 0px;
   }

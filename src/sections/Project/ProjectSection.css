@@ -133,29 +133,162 @@
   z-index: 9999;
 }
 
+/* 모달 카드 */
 .project-modal {
   position: relative;
   max-width: 880px;
-  max-height: 80vh;
+  max-height: 90vh;
   width: 100%;
-  padding: 24px 28px 28px;
   border-radius: 24px;
   background: #111319;
   box-shadow: 0 16px 44px rgba(0, 0, 0, 0.6);
-  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 전체 스크롤 제거 */
+}
+
+/* ===== 상단 고정 영역 ===== */
+.project-modal-top {
+  flex: 0 0 auto;
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* ===== 하단 스크롤 영역 ===== */
+.project-modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto; /* ⭐ 설명만 스크롤 */
+  padding: 24px 40px 32px;
+}
+
+/* 스크롤바 최소화 */
+.project-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.project-modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+.project-modal-body::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* 상단 이미지 */
 .project-modal-hero {
-  margin-bottom: 20px;
+  padding-bottom: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* 2장씩 가로 정렬 */
+.hero-slide {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 캡션 때문에 */
+  gap: 32px;
+  width: 100%;
+}
+
+/* 이미지 + 캡션 세트 */
+.hero-image-wrapper {
+  width: 50%;              /* ⭐ 두 장 나란히 유지 */
+  max-width: 280px;        /* ⭐ 목업 크기 제한 */
+  display: flex;
+  flex-direction: column; /* 이미지 위 / 캡션 아래 */
+  align-items: center;
+}
+
+.hero-image-wrapper img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.hero-caption {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .project-modal-hero img {
-  width: 100%;
-  max-height: 260px;
+  width: 50%;
+  height: auto;
+  display: block; /* 이미지 가운데 정렬*/
+  margin: 0 auto; /* 이미지 가운데 정렬*/
   object-fit: cover;
   border-radius: 18px;
 }
+
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  z-index: 5;
+}
+
+.hero-nav-prev{
+  left: 24px;
+  width: 50px;
+  height: 50px;
+  margin-top: auto;
+}
+.hero-nav-next{
+  right: 24px;
+  width: 50px;
+  height: 50px;
+  margin-top: auto;
+}
+
+/* 좌우 버튼 */
+.hero-nav.disabled {
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none; /* 클릭 막기 */
+}
+
+/* 인디케이터 점 – 가운데 정렬 */
+.hero-dots {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+/* 인디케이터 점 */
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #555; /* 기본 점 색 */
+  border-radius: 50%;      /* 동그라미 */
+  border: none;
+  margin: 0 4px;
+  cursor: pointer;
+  padding: 0;              /* 여백 제거 */
+  transition: background-color 0.2s ease;
+}
+
+/* 활성화된 점 */
+.hero-dot.active {
+  width: 18px;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(100,150,255,0.6);
+  background-color: #15d6f8;
+  transform: scale(1.3);
+}
+
+
 
 /* 헤더 */
 .project-modal-header {
@@ -163,6 +296,9 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
+  
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .project-modal-title {
@@ -208,11 +344,11 @@
 /* 닫기 버튼 */
 .project-modal-close {
   position: absolute;
-  top: 10px;
-  right: 14px;
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   border: none;
   cursor: pointer;
 
@@ -220,14 +356,39 @@
   align-items: center;
   justify-content: center;
 
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
   color: #ffffff;
   font-size: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-weight: 300;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  transition: all 0.2s ease;
+  z-index: 10;
 }
 
+/* hover */
 .project-modal-close:hover {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.08);
+}
+
+/* active (클릭 시) */
+.project-modal-close:active {
+  transform: scale(0.95);
+}
+
+/* 키보드 접근성 */
+.project-modal-close:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(120, 160, 255, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* ===== 반응형 ===== */
@@ -240,10 +401,10 @@
   .project-card-row {
     gap: 24px;
   }
-
+  
   .project-card {
     width: 100%;
-    max-width: 420px;
+    max-width: 250px;
   }
 }
 

@@ -16,8 +16,7 @@ function App() {
       <AboutSection/> {/* 소개 부분 구현*/}
       <CareerSection/> {/* 경력 부분 구현 */}
       <SkillSection /> {/* 경력 부분 구현 */}
-      <p>프로젝트 섹션은 추후 개발 예정입니다.</p>
-      {/* <ProjectSection /> 프로젝트 부분 구현 */}
+      <ProjectSection /> {/*프로젝트 부분 구현*/}
       <Footer /> {/* 경력 부분 구현 */}
     </div>
   );
