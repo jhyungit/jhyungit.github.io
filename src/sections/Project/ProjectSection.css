@@ -1,0 +1,535 @@
+/* ── Project Section ── */
+.project-inner {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* ── Carousel ── */
+.project-carousel {
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+  column-gap: 28px;
+}
+
+.project-viewport {
+  overflow: hidden;
+  padding: 12px 6px;
+  margin: -12px -6px;
+}
+
+.project-track {
+  display: flex;
+  gap: 28px;
+  transition: transform 360ms ease;
+  will-change: transform;
+}
+
+/* ── 좌우 버튼 ── */
+.project-carousel-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--project-btn-border);
+  background: var(--project-btn-bg);
+  color: var(--project-btn-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.project-carousel-btn:hover {
+  background: var(--bg-elevated-hover);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.project-carousel-btn.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Dots ── */
+.project-carousel-dots {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.project-carousel-dot {
+  height: 10px;
+  width: 10px;
+  min-width: 10px;
+  border-radius: 999px;
+  padding: 0;
+  border: none;
+  background: var(--project-dot-bg);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.project-carousel-dot.active {
+  width: 20px;
+  min-width: 20px;
+  background: var(--project-dot-active);
+}
+
+.project-carousel-dot:hover {
+  background: var(--color-primary);
+  opacity: 0.7;
+}
+
+/* ── 카드 ── */
+.project-card {
+  flex: 0 0 calc((100% - 56px) / 3);
+  height: 450px;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 22px;
+  background-color: var(--project-card-bg);
+  border: 1px solid var(--border-default);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 6px 20px var(--shadow-color);
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, background-color 0.18s ease-out;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 36px var(--shadow-color);
+  background-color: var(--project-card-bg-hover);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.project-card-top { display: flex; flex-direction: column; }
+
+.project-card-image {
+  width: 100%;
+  height: 200px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-card-image {
+  transform: scale(1.03);
+}
+
+.project-card-body {
+  text-align: center;
+  padding: 22px 24px 84px;
+}
+
+.project-card-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-strong);
+}
+
+/* 카드 전면 메타칩 */
+.project-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin: 8px 0 0;
+}
+
+.project-meta-chip {
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  background: var(--border-subtle);
+  color: var(--text-muted);
+  border: 1px solid var(--border-default);
+  white-space: nowrap;
+}
+
+.project-meta-role {
+  color: var(--color-primary);
+  background: rgba(79, 140, 255, 0.06);
+  border-color: rgba(79, 140, 255, 0.2);
+}
+
+.project-card-summary {
+  font-size: 14px;
+  margin-top: 14px;
+  color: var(--project-summary-color);
+}
+
+.summary-line {
+  margin: 0 0 8px 0;
+  line-height: 1.55;
+}
+
+/* 태그 */
+.project-card-tags {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.project-tag-pill {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--tag-bg-accent);
+  color: var(--tag-color-accent);
+  font-size: 12px;
+}
+
+/* ── Modal ── */
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+.project-modal {
+  position: relative;
+  max-width: 880px;
+  width: 100%;
+  height: 60vh;
+  border-radius: 24px;
+  background: var(--project-modal-bg);
+  border: 1px solid var(--project-modal-border);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-default);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  color: var(--text-strong);
+  font-size: 18px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.project-modal-close:hover {
+  background: var(--bg-elevated-hover);
+  border-color: var(--color-primary);
+  transform: scale(1.06);
+}
+
+.project-modal-close:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.project-modal-top {
+  flex: 0 0 auto;
+  overflow: hidden;
+  padding: 16px 24px 12px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.project-modal-body {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 24px 40px 32px;
+}
+
+.project-modal-body::-webkit-scrollbar       { width: 6px; }
+.project-modal-body::-webkit-scrollbar-thumb { background: var(--project-scrollbar); border-radius: 999px; }
+.project-modal-body::-webkit-scrollbar-track { background: transparent; }
+
+/* 상단 이미지 */
+.project-modal-hero {
+  padding-bottom: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-slide {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  animation: heroFadeIn 0.25s ease;
+}
+
+.hero-image-wrapper {
+  width: 50%;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-image-wrapper img {
+  width: 100%;
+  max-height: 20vh;
+  height: auto;
+  border-radius: 18px;
+  object-fit: contain;
+}
+
+.hero-single {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-single img {
+  width: 65%;
+  max-height: 20vh;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.hero-caption {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--bg-elevated-hover);
+  border: 1px solid var(--border-default);
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--text-base);
+}
+
+/* 모달 이미지 좌우 버튼 */
+.project-modal .hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  color: var(--text-strong);
+  font-size: 22px;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.project-modal .hero-nav:hover {
+  background: var(--bg-elevated-hover);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.project-modal .hero-nav-prev { left: 0; }
+.project-modal .hero-nav-next { right: 0; }
+
+.hero-nav.disabled {
+  opacity: 0.2;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* 인디케이터 */
+.hero-dots {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 6px;
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--project-dot-bg);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.hero-dot.active {
+  width: 18px;
+  border-radius: 999px;
+  background-color: var(--color-primary);
+  transform: scale(1.15);
+}
+
+/* 모달 헤더 */
+.project-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.project-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.project-modal-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: var(--tag-bg);
+  color: var(--tag-color);
+}
+
+/* 섹션 */
+.project-modal-section { margin-bottom: 20px; }
+
+.project-modal-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-strong);
+}
+
+.project-modal-list {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 0;
+  color: var(--text-base);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 모달 성과 정량 배지 */
+.project-modal-result-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.project-result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(79, 140, 255, 0.08);
+  color: var(--color-primary);
+  border: 1px solid rgba(79, 140, 255, 0.22);
+}
+
+.project-result-badge-icon { font-size: 13px; }
+
+.project-modal-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── GitHub 링크 ── */
+.project-modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-modal-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elevated);
+  color: var(--text-base);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.project-modal-link-btn:hover {
+  border-color: var(--color-primary);
+  background: var(--bg-elevated-hover);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.project-modal-link-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.85;
+}
+
+/* ── 반응형 ── */
+@media (max-width: 960px) {
+  .project-inner { padding: 0 12px; }
+  .project-track { gap: 24px; }
+  .project-card  { flex: 0 0 calc((100% - 24px) / 2); height: auto; }
+}
+
+@media (max-width: 640px) {
+  .project-section { padding: 70px 16px 80px; }
+  .title           { font-size: 24px; }
+
+  .project-carousel {
+    grid-template-columns: 48px 1fr 48px;
+    column-gap: 14px;
+  }
+
+  .project-carousel-btn { width: 38px; height: 38px; font-size: 22px; }
+  .project-track { gap: 16px; }
+  .project-card  { flex: 0 0 100%; }
+
+  .project-modal          { border-radius: 18px; }
+  .project-modal-body     { padding: 16px 20px 24px; }
+  .project-modal-hero img { max-height: 220px; }
+}

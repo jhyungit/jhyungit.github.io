@@ -1,0 +1,257 @@
+/* ── Hero Section ── */
+.hero {
+  width: 100%;
+  min-height: calc(100dvh - var(--header-h));
+  min-height: calc(100vh  - var(--header-h));
+  max-width: none;
+  margin: 0;
+  background: var(--bg-hero);
+  padding: 24px 32px 104px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 도트 그리드 배경 */
+.hero {
+  --dot-color: rgba(79, 140, 255, 0.12);
+}
+[data-theme="dark"] .hero {
+  --dot-color: rgba(255, 255, 255, 0.04);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 하단 페이드 */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent 0%, var(--bg-about) 100%);
+  pointer-events: none;
+}
+
+/* ── 중앙 콘텐츠 ── */
+.hero-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes hero-line-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-scroll-enter {
+  from { opacity: 0;    transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 0.85; transform: translateX(-50%) translateY(0); }
+}
+
+.hero-greeting  { animation: hero-line-enter 0.6s ease both; animation-delay:  50ms; }
+.hero-headline  { animation: hero-line-enter 0.6s ease both; animation-delay: 170ms; }
+.hero-value     { animation: hero-line-enter 0.6s ease both; animation-delay: 290ms; }
+.hero-cta       { animation: hero-line-enter 0.6s ease both; animation-delay: 410ms; }
+.hero-strengths { animation: hero-line-enter 0.6s ease both; animation-delay: 530ms; }
+.hero-scroll    { animation: hero-scroll-enter 0.6s ease both; animation-delay: 660ms; }
+
+.hero-greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-hi {
+  margin: 0;
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: var(--hero-text-sub);
+}
+
+.hero-role-label {
+  margin: 0;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+}
+
+.hero-headline {
+  margin: 4px 0 0;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--hero-text);
+}
+
+.highlight-name {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+/* ── 가치제안 / 직무 ── */
+.hero-value {
+  margin: 14px 0 2px;
+  max-width: 720px;
+  line-height: 1.55;
+  font-size: clamp(14px, 1.25vw, 18px);
+  color: var(--hero-text-sub);
+}
+
+.hero-role {
+  margin: 4px 0 0;
+  font-size: clamp(16px, 1.9vw, 24px);
+  color: var(--hero-text-muted);
+}
+
+/* ── CTA 버튼 ── */
+.hero-cta {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--hero-btn-border);
+  background: var(--hero-btn-bg);
+  color: var(--hero-btn-color);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-btn-icon {
+  opacity: 0.9;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 140, 255, 0.15);
+}
+
+.hero-btn:hover .hero-btn-icon[data-direction="out"]  { transform: translate(2px, -2px); opacity: 1; }
+.hero-btn:hover .hero-btn-icon[data-direction="down"] { transform: translateY(3px);      opacity: 1; }
+.hero-btn:active { transform: translateY(0); }
+
+.hero-btn-primary {
+  border-color: var(--hero-btn-primary-border);
+  background: var(--hero-btn-primary-bg);
+}
+
+.hero-btn-primary:hover {
+  border-color: var(--color-primary);
+}
+
+/* ── KEY STRENGTHS ── */
+.hero-strengths {
+  margin-top: 44px;
+}
+
+.hero-strengths-title {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.hero-strengths-text {
+  font-size: 14px;
+  color: var(--hero-text-muted);
+}
+
+/* ── 스크롤 인디케이터 ── */
+.hero-scroll {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.85;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--hero-scroll-bg);
+  border: 1px solid var(--hero-scroll-border);
+  color: var(--hero-scroll-color);
+  backdrop-filter: blur(8px);
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.hero-scroll:hover {
+  transform: translateX(-50%) translateY(-2px);
+  border-color: var(--color-primary);
+  opacity: 1;
+}
+
+.hero-scroll-label {
+  font-size: 12px;
+  animation: scroll-label-fade 4.5s ease-in-out infinite;
+}
+
+@keyframes scroll-label-fade {
+  0%   { opacity: 0;    transform: translateY(4px); }
+  12%  { opacity: 0.95; transform: translateY(0);   }
+  55%  { opacity: 0.55; transform: translateY(0);   }
+  100% { opacity: 0;    transform: translateY(0);   }
+}
+
+.hero-scroll-arrow {
+  font-size: 20px;
+  animation: arrow-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .hero { padding: 24px 20px 110px; }
+  .hero-greeting p  { font-size: clamp(18px, 5vw, 22px);   }
+  .hero-value       { font-size: clamp(13px, 3.6vw, 16px); padding: 0 8px; }
+  .hero-role        { font-size: clamp(15px, 4.2vw, 19px); }
+  .hero-strengths   { margin-top: 40px; }
+}
+
+@media (max-width: 640px) {
+  .hero                  { padding: 70px 16px 80px; }
+  .hero-strengths-text   { font-size: 12px; }
+  .hero-scroll           { bottom: 22px; }
+}

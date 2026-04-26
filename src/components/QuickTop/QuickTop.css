@@ -1,0 +1,100 @@
+.quick-top {
+  position: fixed;
+  right: 24px;
+  bottom: 32px;
+  z-index: 1200;
+
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: 1px solid var(--border-default);
+  background: var(--bg-elevated);
+  color: var(--text-base);
+  box-shadow: var(--shadow-md);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.quick-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.quick-top:hover {
+  background: var(--bg-elevated-hover);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.quick-top:active {
+  transform: translateY(0) scale(0.94);
+}
+
+.quick-top:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.quick-top-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* 툴팁 */
+.quick-top-tooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  background: var(--bg-elevated);
+  color: var(--text-strong);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.quick-top:hover .quick-top-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+@media (max-width: 960px) {
+  .quick-top {
+    width: 42px;
+    height: 42px;
+    right: 16px;
+    bottom: 24px;
+  }
+
+  .quick-top-tooltip { display: none; }
+}

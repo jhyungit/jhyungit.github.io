@@ -1,0 +1,281 @@
+/* ── Skill Section ── */
+.skill-inner {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.skill-title-block {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* ── 탭 버튼 ── */
+.skill-tab-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.skill-tab-btn {
+  min-width: 160px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-default);
+  outline: none;
+  cursor: pointer;
+  background-color: var(--skill-tab-bg);
+  color: var(--skill-tab-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.skill-tab-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.skill-tab-btn.is-active {
+  background: var(--skill-tab-active-bg);
+  color: var(--skill-tab-active-color);
+  border-color: transparent;
+  box-shadow: 0 8px 22px rgba(79, 140, 255, 0.3);
+}
+
+/* ── 카드 스크롤 ── */
+.skill-card-row-wrapper {
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 32px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.skill-card-row-wrapper.is-transitioning {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.skill-card-row-wrapper::-webkit-scrollbar        { height: 6px; }
+.skill-card-row-wrapper::-webkit-scrollbar-thumb  { background: var(--skill-scrollbar); border-radius: 999px; }
+.skill-card-row-wrapper::-webkit-scrollbar-track  { background: transparent; }
+
+.skill-card-row {
+  display: inline-flex;
+  gap: 16px;
+  min-width: 100%;
+}
+
+@keyframes skill-card-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 카드 ── */
+.skill-card {
+  width: 140px;
+  min-width: 140px;
+  height: 210px;
+  border-radius: 22px;
+  background: var(--skill-card-bg);
+  border: 1px solid var(--border-default);
+  box-shadow: 0 6px 20px var(--shadow-color);
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  animation: skill-card-up 0.35s ease both;
+  animation-delay: calc(var(--card-index, 0) * 30ms);
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px var(--shadow-color);
+  background: var(--skill-card-bg-hover);
+}
+
+.skill-card-label {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: var(--skill-label-bg);
+  color: var(--skill-label-color);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* 로고 */
+.skill-card-logo-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.skill-card-logo {
+  max-width: 64px;
+  max-height: 64px;
+  object-fit: contain;
+}
+
+/* ── 숙련도 dots + 툴팁 ── */
+.skill-level-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+}
+
+.skill-card-level-dots {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.skill-level-info {
+  position: relative;
+}
+
+.skill-level-info-btn {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--border-default);
+  color: var(--text-muted);
+  font-size: 9px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+  outline: none;
+}
+
+.skill-level-info-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.skill-level-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 50%;
+  transform: translateX(50%);
+  min-width: 170px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-md);
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--text-base);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  white-space: nowrap;
+  z-index: 20;
+  text-align: left;
+}
+
+.skill-level-tooltip p { margin: 0; }
+
+.skill-level-info:hover .skill-level-tooltip,
+.skill-level-info:focus-within .skill-level-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Documentation 서브그룹 ── */
+.skill-subgroup {
+  margin-top: 24px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.skill-subgroup.is-transitioning { opacity: 0; }
+
+.skill-subgroup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.skill-subgroup-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.skill-subgroup-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-default);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.full  { background: var(--skill-dot-active); }
+.dot.empty { background: var(--skill-dot-empty);  }
+.dot.half  { background: linear-gradient(to right, var(--skill-dot-active) 50%, var(--skill-dot-empty) 50%); }
+
+/* 카테고리 설명 */
+.skill-description {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-base);
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.skill-description.is-transitioning {
+  opacity: 0;
+}
+
+/* ── 반응형 ── */
+@media (max-width: 960px) {
+  .skill-section  { padding: 80px 0; }
+  .title          { font-size: 24px; }
+  .skill-tab-row  { gap: 10px; }
+
+  .skill-tab-btn {
+    min-width: 130px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .skill-card {
+    width: 100px;
+    min-width: 80px;
+    height: 130px;
+    border-radius: 18px;
+  }
+
+  .skill-card-label   { font-size: 10px; }
+  .skill-card-logo    { max-width: 50px; max-height: 50px; }
+  .skill-description  { font-size: 14px; }
+  .dot                { width: 6px; height: 6px; }
+}

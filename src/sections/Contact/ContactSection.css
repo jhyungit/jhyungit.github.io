@@ -1,0 +1,87 @@
+/* ── Contact Section ── */
+.contact-section {
+  background-color: var(--bg-contact);
+}
+
+.contact-inner {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.contact-subtitle {
+  margin: 20px 0 0;
+  font-size: 15px;
+  color: var(--text-base);
+  line-height: 1.6;
+}
+
+/* ── 카드 그리드 ── */
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 36px 40px;
+  border-radius: 22px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  box-shadow: 0 6px 24px var(--shadow-color);
+  text-decoration: none;
+  min-width: 200px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+a.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px var(--shadow-color);
+  border-color: var(--color-primary);
+}
+
+.contact-card-icon {
+  font-size: 28px;
+}
+
+.contact-card-label {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-card-value {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-base);
+  text-align: center;
+  word-break: break-all;
+}
+
+.contact-card-resume {
+  border-color: rgba(79, 140, 255, 0.25);
+}
+
+.contact-card-resume .contact-card-value {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ── 반응형 ── */
+@media (max-width: 640px) {
+  .contact-cards { gap: 16px; }
+  .contact-card  { padding: 28px 24px; min-width: 160px; }
+}
