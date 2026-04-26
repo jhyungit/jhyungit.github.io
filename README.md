@@ -1,6 +1,6 @@
 # JH's Portfolio
 
-Python 개발자 채용 심사 흐름에 맞춰 설계 및 고도화한 개인 포트폴리오 웹사이트입니다.
+개발자 채용 심사 흐름에 맞춰 설계 및 고도화한 개인 포트폴리오 웹사이트입니다.
 
 🔗 **배포 페이지:** https://jhyungit.github.io/
 
@@ -42,17 +42,3 @@ Python 개발자 채용 심사 흐름에 맞춰 설계 및 고도화한 개인 �
 - `prefers-reduced-motion` 전역 대응
 
 ---
-
-## 로컬 실행
-
-```bash
-npm install
-npm run dev
-```
-
-빌드 후 미리보기:
-
-```bash
-npm run build
-npm run preview
-```
