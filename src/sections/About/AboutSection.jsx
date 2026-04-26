@@ -56,14 +56,14 @@ function AboutSection() {
           </h3>
           
           <p className="about-identity">
-            데이터 엔지니어로서 안정적인 파이프라인과 팀 운영을 중요하게 생각합니다.
+            Python 기반 자동화와 데이터 처리로 현업의 효율을 높이는 개발자입니다.
           </p>
 
           <div className="about-divider" />
 
           <p className="about-text">
             데이터 수집·전처리·모델링 역량을 바탕으로
-            팀의 안정적인 운영에 기여해왔습니다.
+            운영 프로세스 자동화와 비즈니스 성과에 기여해왔습니다.
           </p>
 
           <p className="about-text">  

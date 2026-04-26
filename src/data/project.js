@@ -27,7 +27,7 @@ const projectCategories = [
     image: daliImage,
     subtitle: "추천 시스템",
     period: "2023.01–2023.03",
-    role: "Data Engineer",
+    role: "데이터 분석 · 자동화",
     teamSize: "5인 팀",
     summaryLines: [
       "달리셔스, '구독형 외식 중개 플랫폼'",
@@ -51,7 +51,7 @@ const projectCategories = [
         "Contents-based 추천 시스템 구축",
       ],
       results: [
-        "잠재 보유 고객 2만 명 보유 회사와 계약 확립",
+        "운영 프로세스 자동화로 작업시간 90% 단축, 잠재고객 2만 명 보유 기업과 계약 성사",
         "최종 발표 우수상 수상",
       ],
       resultBadges: [
@@ -107,7 +107,7 @@ const projectCategories = [
     image: mlbImage,
     subtitle: "ML Project",
     period: "2023.02",
-    role: "Data Engineer",
+    role: "데이터 분석",
     summaryLines: [
       "MLB 선수의 연봉 예측 프로젝트",
       "Stats API 활용",
@@ -171,7 +171,7 @@ const projectCategories = [
     image: pysparkCard,
     subtitle: "빅데이터 분석",
     period: "2023.01",
-    role: "Data Engineer",
+    role: "데이터 분석",
     summaryLines: [
       "PySpark 활용 마포구 카페 현황 분석",
       "대용량 데이터 처리 및 시각화",

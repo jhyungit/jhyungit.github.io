@@ -15,14 +15,14 @@ function HomeSection() {
       <main className="hero-main">
         <div className="hero-greeting">
           <p className="hero-hi">안녕하세요 👋</p>
-          <p className="hero-role-label">Data Engineer &amp; Backend Developer</p>
+          <p className="hero-role-label">Python Automation Developer</p>
           <h1 className="hero-headline">
             <span className="highlight-name">이정현</span>입니다
           </h1>
         </div>
 
         <p className="hero-value">
-          데이터를 안정적으로 흐르게 만들고, 서비스 성장을 뒷받침합니다.
+          반복 업무를 자동화하고, 데이터로 비즈니스 성장을 만듭니다.
         </p>
 
         {/* CTA: Resume(주) > GitHub > About */}
