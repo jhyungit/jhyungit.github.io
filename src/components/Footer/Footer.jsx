@@ -25,13 +25,13 @@ export default function Footer() {
         <div className="footer-top">
           {/* Left */}
           <div className="footer-col footer-left">
-            <h4 className="footer-heading"> Insite </h4>
-            <p className="footer-insite-desc">Data Engineer · Backend</p>
+            <h4 className="footer-heading">Jeonghyun Lee</h4>
+            <p className="footer-insite-desc">Python Automation Developer</p>
             <div className="footer-mini-grid">
               {footerStats.map((item) => (
                 <div key={item.id} className="footer-mini-item">
                   <span className="footer-mini-label">{item.label}</span>
-                  <span className="footer-mini-value">x {item.value}</span>
+                  <span className="footer-mini-value">{item.value}</span>
                 </div>
               ))}
             </div>
@@ -80,11 +80,8 @@ export default function Footer() {
         {/* Bottom */}
         <div className="footer-bottom">
           <div className="footer-divider" />
-          <p className="footer-copy">© 2025 Jeonghyun Lee. All rights reserved.</p>
-          <a className="footer-email" href="mailto:kyn05165@naver.com">
-            📫 kyn05165@naver.com
-          </a>
-          <p className="footer-credit">⚛️ React · ⚡️ Vite</p>
+          <p className="footer-copy">© 2026 Jeonghyun Lee. All rights reserved.</p>
+          <p className="footer-credit">Built with React · Vite</p>
         </div>
       </div>
     </footer>
