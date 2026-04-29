@@ -40,7 +40,7 @@ const ContactSection = () => {
               <p className="contact-card-value">github.com/jhyungit</p>
             </a>
 
-            <div className="contact-card">
+            <div className="contact-card contact-card-location">
               <span className="contact-card-icon">📍</span>
               <p className="contact-card-label">Location</p>
               <p className="contact-card-value">Seoul, Korea</p>

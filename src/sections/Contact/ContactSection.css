@@ -139,12 +139,13 @@ a.contact-card-resume:hover .contact-card-resume-arrow {
 
 /* ── 반응형 ── */
 @media (max-width: 640px) {
-  .contact-cards-row { gap: 16px; }
-  .contact-card      { padding: 28px 24px; min-width: 140px; }
+  .contact-cards-row   { gap: 12px; }
+  .contact-card        { padding: 24px 16px; min-width: 0; flex: 1; }
+  .contact-card-location { display: none; }
 
   .contact-card-resume {
     flex-direction: column;
-    padding: 28px 24px;
-    gap: 12px;
+    padding: 24px 20px;
+    gap: 10px;
   }
 }
