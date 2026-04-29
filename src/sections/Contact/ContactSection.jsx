@@ -15,7 +15,7 @@ const ContactSection = () => {
         <header className="contact-header">
           <h2 className="title">Contact</h2>
           <div className="title-underline" />
-          <p className="contact-cta-heading">함께 일하고 싶으시다면</p>
+          <p className="contact-cta-heading">새로운 연결을 환영합니다</p>
           <p className="contact-subtitle">
             채용 제안이나 협업 문의는 편하게 연락 주세요.
           </p>

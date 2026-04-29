@@ -88,20 +88,22 @@
 }
 
 /* ── 하단 ── */
-.footer-bottom { text-align: center; }
-
 .footer-divider {
   width: 100%;
-  max-width: 560px;
   height: 1px;
   background: var(--border-default);
-  margin: 0 auto 18px;
+  margin: 0 0 16px;
+}
+
+.footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-copy {
-  margin: 0 0 6px;
+  margin: 0;
   font-size: 13px;
-  line-height: 1.7;
   color: var(--text-base);
 }
 

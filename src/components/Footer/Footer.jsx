@@ -31,7 +31,6 @@ export default function Footer() {
                   title={item.label}
                   {...resolveContactTarget(item.href)}
                 >
-                  {/* SVG 경로 */}
                   <img className="footer-icon-img" src={item.icon} alt={item.label} />
                 </a>
               ))}
@@ -42,8 +41,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="footer-bottom">
           <div className="footer-divider" />
-          <p className="footer-copy">© 2026 Jeonghyun Lee. All rights reserved.</p>
-          <p className="footer-credit">Built with React · Vite</p>
+          <div className="footer-bottom-row">
+            <p className="footer-copy">© 2026 Jeonghyun Lee. All rights reserved.</p>
+            <p className="footer-credit">Built with React · Vite</p>
+          </div>
         </div>
       </div>
     </footer>
