@@ -47,31 +47,6 @@
   color: var(--text-muted);
 }
 
-/* mini blocks */
-.footer-mini-grid {
-  display: flex;
-  gap: 26px;
-  flex-wrap: wrap;
-}
-
-.footer-mini-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.footer-mini-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  text-transform: lowercase;
-}
-
-.footer-mini-value {
-  font-size: 14px;
-  color: var(--text-base);
-  font-weight: 500;
-}
-
 /* ── 소셜 아이콘 ── */
 .footer-icons {
   display: flex;

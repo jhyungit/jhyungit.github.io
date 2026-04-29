@@ -162,6 +162,40 @@
   color: var(--text-base);
 }
 
+/* ── Stats ── */
+.about-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 18px 0 4px;
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.about-stat-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.about-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.about-stat-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border-default);
+}
+
 .about-divider {
   width: 100%;
   max-width: 420px;

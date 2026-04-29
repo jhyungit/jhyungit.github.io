@@ -56,6 +56,18 @@ function AboutSection() {
             Python 기반 자동화와 데이터 처리로 현업의 효율을 높이는 개발자입니다.
           </p>
 
+          <div className="about-stats">
+            <div className="about-stat">
+              <span className="about-stat-value">2</span>
+              <span className="about-stat-label">Awards</span>
+            </div>
+            <div className="about-stat-divider" />
+            <div className="about-stat">
+              <span className="about-stat-value">3</span>
+              <span className="about-stat-label">Certs</span>
+            </div>
+          </div>
+
           <div className="about-divider" />
 
           <p className="about-text">

@@ -1,6 +1,6 @@
 // src/components/Footer/Footer.jsx
 import "./Footer.css";
-import { footerContacts, footerStats } from "../../data/footer";
+import { footerContacts } from "../../data/footer";
 
 export default function Footer() {
   const resolveContactTarget = (href) => {
@@ -14,16 +14,8 @@ export default function Footer() {
         <div className="footer-top">
           {/* Left */}
           <div className="footer-col footer-left">
-            <h4 className="footer-heading">j_hyun</h4>
+            <h4 className="footer-heading">j_hyun's</h4>
             <p className="footer-insite-desc">Python Automation Developer</p>
-            <div className="footer-mini-grid">
-              {footerStats.map((item) => (
-                <div key={item.id} className="footer-mini-item">
-                  <span className="footer-mini-label">{item.label}</span>
-                  <span className="footer-mini-value">{item.value}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right */}
