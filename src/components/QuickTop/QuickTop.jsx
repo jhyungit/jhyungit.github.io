@@ -5,9 +5,14 @@ export default function QuickTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 200);
+    let prevY = window.scrollY;
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      const scrollingUp = currentY < prevY;
+      setVisible(currentY > 200 && scrollingUp);
+      prevY = currentY;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
