@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="footer-top">
           {/* Left */}
           <div className="footer-col footer-left">
-            <h4 className="footer-heading">Jeonghyun Lee</h4>
+            <h4 className="footer-heading">j_hyun</h4>
             <p className="footer-insite-desc">Python Automation Developer</p>
             <div className="footer-mini-grid">
               {footerStats.map((item) => (
