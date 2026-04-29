@@ -1,4 +1,3 @@
-import React from "react";
 import { useInView } from "../../hooks/useInView";
 import resumePdf from "../../data/이정현_CV.pdf";
 import "./ContactSection.css";
@@ -16,33 +15,36 @@ const ContactSection = () => {
         <header className="contact-header">
           <h2 className="title">Contact</h2>
           <div className="title-underline" />
+          <p className="contact-cta-heading">함께 일하고 싶으시다면</p>
           <p className="contact-subtitle">
-            궁금한 점이나 제안이 있으시면 편하게 연락 주세요.
+            채용 제안이나 협업 문의는 편하게 연락 주세요.
           </p>
         </header>
 
         <div className="contact-cards">
-          <a href="mailto:kyn05165@naver.com" className="contact-card">
-            <span className="contact-card-icon">✉</span>
-            <p className="contact-card-label">Email</p>
-            <p className="contact-card-value">kyn05165@naver.com</p>
-          </a>
+          <div className="contact-cards-row">
+            <a href="mailto:kyn05165@naver.com" className="contact-card">
+              <span className="contact-card-icon">✉</span>
+              <p className="contact-card-label">Email</p>
+              <p className="contact-card-value">kyn05165@naver.com</p>
+            </a>
 
-          <a
-            href="https://github.com/jhyungit"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-card"
-          >
-            <span className="contact-card-icon">💻</span>
-            <p className="contact-card-label">GitHub</p>
-            <p className="contact-card-value">github.com/jhyungit</p>
-          </a>
+            <a
+              href="https://github.com/jhyungit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-card"
+            >
+              <span className="contact-card-icon">💻</span>
+              <p className="contact-card-label">GitHub</p>
+              <p className="contact-card-value">github.com/jhyungit</p>
+            </a>
 
-          <div className="contact-card">
-            <span className="contact-card-icon">📍</span>
-            <p className="contact-card-label">Location</p>
-            <p className="contact-card-value">Seoul, Korea</p>
+            <div className="contact-card">
+              <span className="contact-card-icon">📍</span>
+              <p className="contact-card-label">Location</p>
+              <p className="contact-card-value">Seoul, Korea</p>
+            </div>
           </div>
 
           <a
@@ -52,8 +54,11 @@ const ContactSection = () => {
             className="contact-card contact-card-resume"
           >
             <span className="contact-card-icon">📄</span>
-            <p className="contact-card-label">Resume</p>
-            <p className="contact-card-value">Download PDF</p>
+            <div className="contact-card-resume-text">
+              <p className="contact-card-label">Resume</p>
+              <p className="contact-card-value">이력서 PDF 다운로드</p>
+            </div>
+            <span className="contact-card-resume-arrow">↗</span>
           </a>
         </div>
       </div>

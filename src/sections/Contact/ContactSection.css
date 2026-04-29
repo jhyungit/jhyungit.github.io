@@ -1,5 +1,6 @@
 /* ── Contact Section ── */
 .contact-section {
+  background-image: radial-gradient(ellipse 70% 50% at 85% 15%, rgba(79, 140, 255, 0.07) 0%, transparent 65%);
   background-color: var(--bg-contact);
 }
 
@@ -14,19 +15,40 @@
   margin-bottom: 56px;
 }
 
+.contact-cta-heading {
+  margin: 24px 0 10px;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 800;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.3;
+}
+
 .contact-subtitle {
-  margin: 20px 0 0;
+  margin: 0;
   font-size: 15px;
   color: var(--text-base);
   line-height: 1.6;
 }
 
-/* ── 카드 그리드 ── */
+/* ── 카드 레이아웃 ── */
 .contact-cards {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.contact-cards-row {
+  display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .contact-card {
@@ -40,13 +62,14 @@
   border: 1px solid var(--border-default);
   box-shadow: 0 6px 24px var(--shadow-color);
   text-decoration: none;
+  color: inherit;
   min-width: 200px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
 a.contact-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 36px var(--shadow-color);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px var(--shadow-color), 0 0 0 1px rgba(79, 140, 255, 0.15);
   border-color: var(--color-primary);
 }
 
@@ -71,17 +94,57 @@ a.contact-card:hover {
   word-break: break-all;
 }
 
+/* ── Resume CTA 카드 ── */
 .contact-card-resume {
-  border-color: rgba(79, 140, 255, 0.25);
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 48px;
+  background: rgba(79, 140, 255, 0.05);
+  border-color: rgba(79, 140, 255, 0.28);
+}
+
+.contact-card-resume-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
 }
 
 .contact-card-resume .contact-card-value {
   color: var(--color-primary);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 15px;
+  word-break: normal;
+}
+
+.contact-card-resume-arrow {
+  font-size: 22px;
+  color: var(--color-primary);
+  opacity: 0.8;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+a.contact-card-resume:hover {
+  background: rgba(79, 140, 255, 0.10);
+  transform: translateY(-4px);
+}
+
+a.contact-card-resume:hover .contact-card-resume-arrow {
+  transform: translate(2px, -2px);
+  opacity: 1;
 }
 
 /* ── 반응형 ── */
 @media (max-width: 640px) {
-  .contact-cards { gap: 16px; }
-  .contact-card  { padding: 28px 24px; min-width: 160px; }
+  .contact-cards-row { gap: 16px; }
+  .contact-card      { padding: 28px 24px; min-width: 140px; }
+
+  .contact-card-resume {
+    flex-direction: column;
+    padding: 28px 24px;
+    gap: 12px;
+  }
 }
