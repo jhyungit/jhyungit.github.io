@@ -1,6 +1,6 @@
 # JH's Portfolio
 
-개발자 채용 심사 흐름에 맞춰 설계 및 고도화한 개인 포트폴리오 웹사이트입니다.
+React + Vite로 구축한 개발자 포트폴리오 웹사이트입니다.
 
 🔗 **배포 페이지:** https://jhyungit.github.io/
 
@@ -42,3 +42,13 @@
 - `prefers-reduced-motion` 전역 대응
 
 ---
+
+## CI/CD
+
+`main` 브랜치에 푸시하면 GitHub Actions가 자동으로 빌드 후 GitHub Pages에 배포합니다.
+
+---
+
+## License
+
+MIT
