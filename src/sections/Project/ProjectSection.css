@@ -529,7 +529,13 @@
 
   .project-carousel-btn { width: 38px; height: 38px; font-size: 22px; }
   .project-track { gap: 16px; }
-  .project-card  { flex: 0 0 100%; }
+  .project-card  { flex: 0 0 100%; height: auto; }
+
+  .project-card-image   { height: 140px; }
+  .project-card-body    { padding: 16px 18px 72px; }
+  .project-card-subtitle { font-size: 15px; }
+  .project-card-summary { font-size: 13px; margin-top: 10px; }
+  .project-card-tags    { bottom: 16px; left: 18px; right: 18px; }
 
   .project-modal-backdrop { padding: 12px; }
   .project-modal          { height: 85vh; border-radius: 18px; }
