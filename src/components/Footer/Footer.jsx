@@ -21,8 +21,6 @@ export default function Footer() {
           {/* Right */}
           <div className="footer-col footer-right">
             <h4 className="footer-heading">Social</h4>
-            <p className="footer-subtext">언제나 새로운 제안에 열려있습니다.</p>
-
             <div className="footer-icons">
               {footerContacts.map((item) => (
                 <a
