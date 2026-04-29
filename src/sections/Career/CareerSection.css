@@ -281,22 +281,46 @@
 }
 
 @media (max-width: 640px) {
-  .career           { padding-top: 70px; }
-  .title            { font-size: 24px; }
+  .career             { padding-top: 70px; }
+  .title              { font-size: 24px; }
   .career-group-title { font-size: 16px; }
-  .career-inner     { padding: 0 10px; }
+  .career-inner       { padding: 0 10px; }
 
+  /* 카드: 세로 스택 */
   .career-card {
-    padding: 16px 10px 18px;
-    grid-template-columns: 150px 1fr;
-    column-gap: 16px;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 14px 20px;
   }
 
-  .career-card-image-wrapper { width: 120px; }
-  .career-card-desc          { font-size: 14px; }
-  .career-card-period        { font-size: 12px; padding: 5px 10px; }
-  .career-cert-badge         { font-size: 12px; padding: 8px 14px; }
+  /* 왼쪽 영역: tag·period·로고를 한 줄로 */
+  .career-card-left {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-right: 0;
+  }
+
+  .career-card-top-row {
+    flex-direction: row;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+  }
+
+  /* 로고: 48px 미니 아이콘으로 */
+  .career-card-image-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .career-card-desc   { font-size: 14px; }
+  .career-card-period { font-size: 12px; padding: 5px 10px; }
+  .career-cert-badge  { font-size: 12px; padding: 8px 14px; }
 }
 
 /* ── 이미지 모달 ── */
