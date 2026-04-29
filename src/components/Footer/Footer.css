@@ -26,16 +26,16 @@
 .footer-right { text-align: right; }
 
 .footer-heading {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 700;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   color: var(--text-strong);
   letter-spacing: 0.2px;
 }
 
 .footer-insite-desc {
-  margin: 0 0 14px;
-  font-size: 13px;
+  margin: 0;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--text-muted);
 }
@@ -55,9 +55,9 @@
 }
 
 .footer-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -75,8 +75,8 @@
 }
 
 .footer-icon-img {
-  width: 22px;
-  height: 22px;
+  width: 17px;
+  height: 17px;
   display: block;
   opacity: 0.85;
   transition: opacity 0.18s ease, transform 0.18s ease;
