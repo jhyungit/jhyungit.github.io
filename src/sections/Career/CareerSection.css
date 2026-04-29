@@ -257,12 +257,10 @@
   color: var(--career-cert-color);
   box-shadow: 0 2px 8px var(--shadow-color);
   border: 1px solid var(--border-default);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  transition: border-color 0.18s ease;
 }
 
 .career-cert-badge:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px var(--shadow-color);
   border-color: var(--color-primary);
 }
 
