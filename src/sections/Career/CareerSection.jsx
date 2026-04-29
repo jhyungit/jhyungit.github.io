@@ -1,5 +1,6 @@
 // src/sections/Career.jsx
 import React, { useState, useRef, useEffect } from "react";
+import ReactDOM from "react-dom";
 import { useInView } from '../../hooks/useInView';
 import { educationList, experienceList, certifications } from "../../data/career";
 import "./CareerSection.css";
@@ -227,8 +228,8 @@ export default function Career() {
         </div>
       </div>
 
-      {/* 이미지 팝업 모달 */}
-      {popupImage && (
+      {/* 이미지 팝업 모달 — body에 Portal로 마운트해 transform 영향 차단 */}
+      {popupImage && ReactDOM.createPortal(
         <div
           className="career-image-modal"
           role="dialog"
@@ -249,7 +250,8 @@ export default function Career() {
             </button>
             <img src={popupImage.src} alt={popupImage.alt} />
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
