@@ -6,6 +6,7 @@ import React, {
   useRef,
   useLayoutEffect,
 } from "react";
+import ReactDOM from "react-dom";
 import { projectCategories } from "../../data/project";
 import gitIcon from "../../assets/foot-icons/icon_git.svg";
 import { useInView } from '../../hooks/useInView';
@@ -290,8 +291,8 @@ const ProjectSection = () => {
         )}
       </div>
 
-      {/* ==================== 모달(기존 그대로) ==================== */}
-      {isModalOpen && (
+      {/* ==================== 모달 — body Portal로 항상 화면 가운데 ==================== */}
+      {isModalOpen && ReactDOM.createPortal(
         <div className="project-modal-backdrop" onClick={handleCloseModal}>
           <div
             className="project-modal"
@@ -506,7 +507,8 @@ const ProjectSection = () => {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );
