@@ -43,7 +43,6 @@ export default function Footer() {
           <div className="footer-divider" />
           <div className="footer-bottom-row">
             <p className="footer-copy">© 2026 Jeonghyun Lee. All rights reserved.</p>
-            <p className="footer-credit">Built with React · Vite</p>
           </div>
         </div>
       </div>
