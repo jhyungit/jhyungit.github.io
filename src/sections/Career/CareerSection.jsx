@@ -5,32 +5,51 @@ import { useInView } from '../../hooks/useInView';
 import { educationList, experienceList, certifications } from "../../data/career";
 import "./CareerSection.css";
 
-const CareerCard = React.forwardRef(function CareerCard({ item, onOpenImage }, ref) {
-  return (
-    <article className="career-card" ref={ref}>
-      {/* 상단바: 태그 + 링크 버튼 */}
-      <div className="career-card-topbar">
-        {item.tag && <span className="career-card-tag">{item.tag}</span>}
-        <button
-          className="career-card-link-btn"
-          aria-label={item.openType === "image" ? "이미지 확대 보기" : `${item.title} 방문`}
-          onClick={() => {
-            if (item.openType === "image") {
-              onOpenImage?.(item.link, item.imageAlt ?? "상세 이미지");
-            } else if (item.link) {
-              window.open(item.link, "_blank");
-            }
-          }}
-        >
-          ↗
-          <span className="career-card-link-label">
-            {item.openType === "image" ? "Check Photo" : "Visit now"}
-          </span>
-        </button>
-      </div>
+const CareerCard = React.forwardRef(function CareerCard({ item, onOpenImage, index = 0 }, ref) {
+  const [wrapRef, isVisible] = useInView({ threshold: 0.1 });
 
-      {/* 메인: 로고 + 제목/기간 */}
-      <div className="career-card-main">
+  return (
+    <div
+      ref={wrapRef}
+      className={`career-card-wrap fade-up${isVisible ? ' is-visible' : ''}`}
+      style={{ transitionDelay: `${index * 0.1}s` }}
+    >
+      <article className="career-card" ref={ref}>
+        {/* 상단바: 태그 + 링크 버튼 */}
+        <div className="career-card-topbar">
+          {item.tag && <span className="career-card-tag">{item.tag}</span>}
+          <button
+            className="career-card-link-btn"
+            aria-label={item.openType === "image" ? "이미지 확대 보기" : `${item.title} 방문`}
+            onClick={() => {
+              if (item.openType === "image") {
+                onOpenImage?.(item.link, item.imageAlt ?? "상세 이미지");
+              } else if (item.link) {
+                window.open(item.link, "_blank");
+              }
+            }}
+          >
+            ↗
+            <span className="career-card-link-label">
+              {item.openType === "image" ? "Check Photo" : "Visit now"}
+            </span>
+          </button>
+        </div>
+
+        {/* 제목 헤더 */}
+        <div className="career-card-header">
+          <h3 className="career-card-title">
+            {item.title}
+            {item.badge && (
+              <span className="career-card-title-badge">{item.badge}</span>
+            )}
+          </h3>
+        </div>
+
+        {/* 기간 */}
+        <div className="career-card-period">{item.period}</div>
+
+        {/* 로고 */}
         {item.imageUrl && (
           <div className="career-card-logo-wrapper">
             <img
@@ -40,41 +59,32 @@ const CareerCard = React.forwardRef(function CareerCard({ item, onOpenImage }, r
             />
           </div>
         )}
-        <div className="career-card-title-group">
-          <h3 className="career-card-title">
-            {item.title}
-            {item.badge && (
-              <span className="career-card-title-badge">{item.badge}</span>
-            )}
-          </h3>
-          <div className="career-card-period">{item.period}</div>
-        </div>
-      </div>
 
-      {/* 설명 */}
-      <ul className="career-card-desc">
-        {item.descriptionLines.map((line, idx) => (
-          <li key={idx}>{line}</li>
-        ))}
-      </ul>
+        {/* 설명 */}
+        <ul className="career-card-desc">
+          {item.descriptionLines.map((line, idx) => (
+            <li key={idx}>{line}</li>
+          ))}
+        </ul>
 
-      {item.awardLabel && (
-        <div className="career-card-award-badge">
-          <span className="award-icon">🏆</span>
-          <span className="award-text">{item.awardLabel}</span>
-        </div>
-      )}
-    </article>
+        {item.awardLabel && (
+          <div className="career-card-award-badge">
+            <span className="award-icon">🏆</span>
+            <span className="award-text">{item.awardLabel}</span>
+          </div>
+        )}
+      </article>
+    </div>
   );
 });
 
 export default function Career() {
-  const [popupImage, setPopupImage] = useState(null); // { src, alt }
+  const [popupImage, setPopupImage] = useState(null);
   const [ref, isVisible] = useInView();
+  const [certRef, certVisible] = useInView({ threshold: 0.15 });
   const railRef = useRef(null);
   const careerModalCloseRef = useRef(null);
 
-  // 연도 배지 위치 ref: 2026→SSAFY, 2022→ASAC, 2023→IBK, 2017→명지대
   const ssafyRef = useRef(null);
   const asacRef  = useRef(null);
   const mjuRef   = useRef(null);
@@ -155,9 +165,9 @@ export default function Career() {
   ];
 
   return (
-    <section ref={ref} className={`section career fade-up${isVisible ? ' is-visible' : ''}`} id="career">
+    <section ref={ref} className="section career" id="career">
       <div className="career-inner">
-        <header className="career-header">
+        <header className={`career-header fade-up${isVisible ? ' is-visible' : ''}`}>
           <h2 className="title">Career</h2>
           <div className="title-underline" />
         </header>
@@ -181,6 +191,7 @@ export default function Career() {
                 {educationList.map((item, idx) => (
                   <CareerCard
                     key={idx}
+                    index={idx}
                     ref={
                       idx === 0 ? ssafyRef :
                       idx === 1 ? asacRef  :
@@ -201,6 +212,7 @@ export default function Career() {
                 {experienceList.map((item, idx) => (
                   <CareerCard
                     key={idx}
+                    index={idx}
                     ref={idx === 0 ? ibkRef : null}
                     item={item}
                     onOpenImage={(src, alt) => setPopupImage({ src, alt })}
@@ -209,12 +221,16 @@ export default function Career() {
               </div>
             </section>
 
-            {/* 자격증 – 역순 정렬, 발급기관 표시 */}
+            {/* 자격증 */}
             <section className="career-group career-cert-group">
               <h3 className="career-group-title">자격증</h3>
-              <div className="career-cert-badges">
+              <div ref={certRef} className="career-cert-badges">
                 {certifications.map((cert, idx) => (
-                  <div key={idx} className="career-cert-badge">
+                  <div
+                    key={idx}
+                    className={`career-cert-badge fade-up${certVisible ? ' is-visible' : ''}`}
+                    style={{ transitionDelay: `${idx * 0.1}s` }}
+                  >
                     <span className="career-cert-label">{cert.label}</span>
                     <span className="career-cert-meta">
                       {cert.date && <span className="career-cert-date">{cert.date}</span>}
@@ -228,7 +244,7 @@ export default function Career() {
         </div>
       </div>
 
-      {/* 이미지 팝업 모달 — body에 Portal로 마운트해 transform 영향 차단 */}
+      {/* 이미지 팝업 모달 */}
       {popupImage && ReactDOM.createPortal(
         <div
           className="career-image-modal"

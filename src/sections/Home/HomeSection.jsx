@@ -2,8 +2,10 @@
 import "../../App.css";
 import "./HomeSection.css";
 import resumePdf from "../../data/이정현_CV.pdf";
+import { useTyping } from "../../hooks/useTyping";
 
 function HomeSection() {
+  const [typedRole, roleDone] = useTyping("Python Automation Developer", { delay: 50, speed: 60 });
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -15,7 +17,10 @@ function HomeSection() {
       <main className="hero-main">
         <div className="hero-greeting">
           <p className="hero-hi">안녕하세요 👋</p>
-          <p className="hero-role-label">Python Automation Developer</p>
+          <p className="hero-role-label">
+            {typedRole}
+            <span className={`hero-cursor${roleDone ? ' hero-cursor--done' : ''}`} aria-hidden="true" />
+          </p>
           <h1 className="hero-headline">
             <span className="highlight-name">이정현</span>입니다
           </h1>

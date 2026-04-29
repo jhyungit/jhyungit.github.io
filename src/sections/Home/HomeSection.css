@@ -106,6 +106,31 @@
   font-weight: 800;
 }
 
+/* ── 타이핑 커서 ── */
+.hero-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.8em;
+  background: var(--color-primary);
+  margin-left: 2px;
+  vertical-align: middle;
+  border-radius: 1px;
+  animation: cursor-blink 0.75s step-end infinite;
+}
+
+.hero-cursor--done {
+  animation: cursor-blink 0.75s step-end infinite, cursor-fade-out 0.5s ease 1.2s forwards;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes cursor-fade-out {
+  to { opacity: 0; }
+}
+
 /* ── 가치제안 / 직무 ── */
 .hero-value {
   margin: 14px 0 2px;

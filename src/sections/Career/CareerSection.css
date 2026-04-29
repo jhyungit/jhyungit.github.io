@@ -83,42 +83,49 @@
 
 /* ── 카드 ── */
 .career-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-areas:
+    "topbar  topbar"
+    "header  header"
+    "logo    desc"
+    "period  desc"
+    "award   award";
+  grid-template-columns: 150px 1fr;
+  column-gap: 20px;
   padding: 18px 22px 22px;
   border-radius: 18px;
   background-color: var(--career-card-bg);
   border: 1px solid var(--border-default);
   box-shadow: 0 4px 16px var(--shadow-color);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 .career-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--shadow-color);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px var(--shadow-color);
+  border-color: var(--color-primary);
 }
 
-/* 상단바: 태그 + 링크 버튼 */
+/* 상단바 */
 .career-card-topbar {
+  grid-area: topbar;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
-/* 메인 행: 로고 + 제목·기간 */
-.career-card-main {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
+/* 제목 */
+.career-card-header {
+  grid-area: header;
+  margin-bottom: 10px;
 }
 
+/* 로고 */
 .career-card-logo-wrapper {
-  width: 56px;
-  height: 56px;
-  flex-shrink: 0;
+  grid-area: logo;
+  width: 100%;
+  height: auto;
   border-radius: 12px;
   overflow: hidden;
   background: var(--bg-elevated-hover);
@@ -126,19 +133,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: start;
 }
 
 .career-card-image {
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 150px;
   object-fit: contain;
   display: block;
-}
-
-.career-card-title-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 
 .career-card-title {
@@ -167,13 +170,16 @@
 }
 
 .career-card-period {
+  grid-area: period;
   font-size: 12px;
   padding: 4px 12px;
   border-radius: 999px;
   background: var(--career-period-bg);
   border: 1px solid var(--career-period-border);
   color: var(--career-period-color);
-  align-self: flex-start;
+  align-self: start;
+  justify-self: start;
+  margin-top: 8px;
 }
 
 .career-card-link-btn {
@@ -198,17 +204,28 @@
   text-transform: uppercase;
 }
 
+/* 설명 */
 .career-card-desc {
+  grid-area: desc;
   margin: 0;
-  padding: 8px 16px;
+  padding: 0 0 0 4px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   font-size: 14px;
   color: var(--career-desc-color);
+  list-style: disc;
 }
 
 .career-card-desc li { line-height: 1.5; }
+
+/* 수상 배지 */
+.career-card-award-badge {
+  grid-area: award;
+  align-self: start;
+  justify-self: start;
+  margin-top: 10px;
+}
 
 .career-card-tag {
   display: inline-flex;
@@ -227,6 +244,7 @@
   flex-direction: column;
   gap: 14px;
   margin-top: 18px;
+  max-width: 560px;
 }
 
 .career-cert-badge {
@@ -239,6 +257,13 @@
   color: var(--career-cert-color);
   box-shadow: 0 2px 8px var(--shadow-color);
   border: 1px solid var(--border-default);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.career-cert-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px var(--shadow-color);
+  border-color: var(--color-primary);
 }
 
 .career-cert-label {
@@ -291,17 +316,42 @@
   .career-group-title { font-size: 16px; }
   .career-inner       { padding: 0 10px; }
 
-  .career-card { padding: 14px 14px 18px; }
+  /* 모바일: 로고가 제목·기간 옆 2행 span */
+  .career-card {
+    grid-template-areas:
+      "topbar  topbar"
+      "logo    header"
+      "logo    period"
+      "desc    desc"
+      "award   award";
+    grid-template-columns: 52px 1fr;
+    column-gap: 12px;
+    padding: 14px 14px 18px;
+  }
+
+  .career-card-header { margin-bottom: 4px; }
 
   .career-card-logo-wrapper {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
+    max-height: none;
     border-radius: 10px;
   }
 
+  .career-card-image {
+    max-height: none;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .career-card-period {
+    margin-top: 0;
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+
   .career-card-title  { font-size: 15px; }
-  .career-card-desc   { font-size: 13px; padding: 6px 14px; }
-  .career-card-period { font-size: 12px; padding: 3px 10px; }
+  .career-card-desc   { font-size: 13px; padding-left: 2px; }
   .career-cert-badge  { font-size: 12px; padding: 8px 14px; }
 }
 

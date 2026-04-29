@@ -4,9 +4,12 @@ import './AboutSection.css';
 import mainPhoto from '../../assets/about-photo/about-main.jpg';
 import baseballPhoto from '../../assets/about-photo/about-baseball.jpg';
 import { useInView } from '../../hooks/useInView';
+import { useCountUp } from '../../hooks/useCountUp';
 
 function AboutSection() {
   const [ref, isVisible] = useInView();
+  const awards = useCountUp(2, { duration: 700, start: isVisible });
+  const certs  = useCountUp(3, { duration: 900, start: isVisible });
   return (
     <section ref={ref} className={`section about fade-up${isVisible ? ' is-visible' : ''}`} id="about">
       {/* 섹션 맨 위 중앙 타이틀 */}
@@ -58,12 +61,12 @@ function AboutSection() {
 
           <div className="about-stats">
             <div className="about-stat">
-              <span className="about-stat-value">2</span>
+              <span className="about-stat-value">{awards}</span>
               <span className="about-stat-label">Awards</span>
             </div>
             <div className="about-stat-divider" />
             <div className="about-stat">
-              <span className="about-stat-value">3</span>
+              <span className="about-stat-value">{certs}</span>
               <span className="about-stat-label">Certs</span>
             </div>
           </div>
