@@ -1,19 +1,8 @@
 // src/components/Footer/Footer.jsx
 import "./Footer.css";
-import { footerContacts, footerLinks, footerStats } from "../../data/footer";
-import resumePdf from "../../data/이정현_CV.pdf";
+import { footerContacts, footerStats } from "../../data/footer";
 
 export default function Footer() {
-  const resolveLink = (link) => {
-    if (link.kind === "resume") {
-      return { href: resumePdf, target: "_blank", rel: "noreferrer" };
-    }
-    if (link.kind === "external") {
-      return { href: link.href, target: "_blank", rel: "noreferrer" };
-    }
-    return { href: link.href };
-  };
-
   const resolveContactTarget = (href) => {
     if (href.startsWith("http")) return { target: "_blank", rel: "noreferrer" };
     return {};
@@ -37,26 +26,9 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Center */}
-          <div className="footer-col footer-center">
-            <h4 className="footer-heading">Quick Links</h4>
-            <ul className="footer-links">
-              {footerLinks.map((link) => {
-                const props = resolveLink(link);
-                return (
-                  <li key={link.id}>
-                    <a className="footer-link" {...props}>
-                      {link.label}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-
           {/* Right */}
           <div className="footer-col footer-right">
-            <h4 className="footer-heading">Contact</h4>
+            <h4 className="footer-heading">Social</h4>
             <p className="footer-subtext">언제나 새로운 제안에 열려있습니다.</p>
 
             <div className="footer-icons">
