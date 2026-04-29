@@ -90,9 +90,10 @@
 /* ── 하단 ── */
 .footer-divider {
   width: 100%;
+  max-width: 480px;
   height: 1px;
   background: var(--border-default);
-  margin: 0 0 16px;
+  margin: 0 auto 16px;
 }
 
 .footer-bottom-row {
