@@ -7,14 +7,31 @@ import "./CareerSection.css";
 const CareerCard = React.forwardRef(function CareerCard({ item, onOpenImage }, ref) {
   return (
     <article className="career-card" ref={ref}>
-      <div className="career-card-left">
-        <div className="career-card-top-row">
-          {item.tag && <span className="career-card-tag">{item.tag}</span>}
-          <div className="career-card-period">{item.period}</div>
-        </div>
+      {/* 상단바: 태그 + 링크 버튼 */}
+      <div className="career-card-topbar">
+        {item.tag && <span className="career-card-tag">{item.tag}</span>}
+        <button
+          className="career-card-link-btn"
+          aria-label={item.openType === "image" ? "이미지 확대 보기" : `${item.title} 방문`}
+          onClick={() => {
+            if (item.openType === "image") {
+              onOpenImage?.(item.link, item.imageAlt ?? "상세 이미지");
+            } else if (item.link) {
+              window.open(item.link, "_blank");
+            }
+          }}
+        >
+          ↗
+          <span className="career-card-link-label">
+            {item.openType === "image" ? "Check Photo" : "Visit now"}
+          </span>
+        </button>
+      </div>
 
+      {/* 메인: 로고 + 제목/기간 */}
+      <div className="career-card-main">
         {item.imageUrl && (
-          <div className="career-card-image-wrapper">
+          <div className="career-card-logo-wrapper">
             <img
               src={item.imageUrl}
               alt={item.imageAlt}
@@ -22,48 +39,30 @@ const CareerCard = React.forwardRef(function CareerCard({ item, onOpenImage }, r
             />
           </div>
         )}
-      </div>
-
-      <div className="career-card-body">
-        <div className="career-card-header-row">
+        <div className="career-card-title-group">
           <h3 className="career-card-title">
             {item.title}
             {item.badge && (
               <span className="career-card-title-badge">{item.badge}</span>
             )}
           </h3>
-
-          <button
-            className="career-card-link-btn"
-            aria-label={item.openType === "image" ? "이미지 확대 보기" : `${item.title} 방문`}
-            onClick={() => {
-              if (item.openType === "image") {
-                onOpenImage?.(item.link, item.imageAlt ?? "상세 이미지");
-              } else if (item.link) {
-                window.open(item.link, "_blank");
-              }
-            }}
-          >
-            ↗
-            <span className="career-card-link-label">
-              {item.openType === "image" ? "Check Photo" : "Visit now"}
-            </span>
-          </button>
+          <div className="career-card-period">{item.period}</div>
         </div>
-
-        <ul className="career-card-desc">
-          {item.descriptionLines.map((line, idx) => (
-            <li key={idx}>{line}</li>
-          ))}
-        </ul>
-
-        {item.awardLabel && (
-          <div className="career-card-award-badge">
-            <span className="award-icon">🏆</span>
-            <span className="award-text">{item.awardLabel}</span>
-          </div>
-        )}
       </div>
+
+      {/* 설명 */}
+      <ul className="career-card-desc">
+        {item.descriptionLines.map((line, idx) => (
+          <li key={idx}>{line}</li>
+        ))}
+      </ul>
+
+      {item.awardLabel && (
+        <div className="career-card-award-badge">
+          <span className="award-icon">🏆</span>
+          <span className="award-text">{item.awardLabel}</span>
+        </div>
+      )}
     </article>
   );
 });
