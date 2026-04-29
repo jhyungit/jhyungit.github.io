@@ -8,7 +8,6 @@
   font-size: 14px;
   background: transparent;
   transition: background 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;
 }
 
 /* ── 스크롤 진행률 바 ── */
