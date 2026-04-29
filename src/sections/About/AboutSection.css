@@ -103,7 +103,7 @@
   height: 110px;
   bottom: 240px;
   left: 200px;
-  background: #FFA305;
+  background: var(--color-accent);
   opacity: 0.2;
 }
 
