@@ -22,27 +22,24 @@ function AboutSection() {
           <div className="about-circle about-circle--top" />
           <div className="about-circle about-circle--bottom" />
 
-          {/* 메인 사진 */}
-          <div className="about-photo-large-wrapper">
-            <img src={mainPhoto} className="about-photo-large" alt="이정현 프로필 사진" />
-          </div>
-          
-          {/* 메인 - 야구 연결선 */}
-          <div className="about-photo-connector" />
+          {/* 사진 영역 */}
+          <div className="about-photos-wrap">
+            <div className="about-photo-large-wrapper">
+              <img src={mainPhoto} className="about-photo-large" alt="이정현 프로필 사진" />
+            </div>
 
-          {/* 야구 사진 */}
-          <div className="about-photo-small-wrapper">
-            <img
-              src={baseballPhoto}
-              className="about-photo-small"
-              alt="사회인 야구 활동 사진"
-            />
-
-            <div className="about-photo-small-meta">
-              <span className="about-photo-small-tag">Teamwork & Fitness</span>
-              <p className="about-photo-small-caption">
-                꾸준한 체력 관리와 팀워크 경험
-              </p>
+            <div className="about-photo-small-wrapper">
+              <img
+                src={baseballPhoto}
+                className="about-photo-small"
+                alt="사회인 야구 활동 사진"
+              />
+              <div className="about-photo-small-meta">
+                <span className="about-photo-small-tag">Teamwork & Fitness</span>
+                <p className="about-photo-small-caption">
+                  꾸준한 체력 관리와 팀워크 경험
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -23,10 +23,17 @@
   gap: 24px;
   position: relative;
   align-items: center;
+  padding-bottom: 120px;
+}
+
+/* 두 사진을 감싸는 기준 컨테이너 */
+.about-photos-wrap {
+  position: relative;
+  width: 380px;
+  margin: 0 auto;
 }
 
 .about-photo-large-wrapper {
-  position: relative;
   width: 380px;
   height: 380px;
   border-radius: 999px;
@@ -41,16 +48,15 @@
   object-fit: cover;
 }
 
+/* 작은 사진: 큰 사진 우하단에 겹치도록 absolute 배치 */
 .about-photo-small-wrapper {
+  position: absolute;
+  bottom: -60px;
+  right: -20px;
   width: 140px;
   height: 140px;
-  border-radius: 999px;
   overflow: visible;
-  align-self: flex-end;
-  margin-right: 32px;
-  bottom: 140px;
-  position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .about-photo-small {
@@ -61,24 +67,6 @@
   display: block;
   border: 1px solid var(--border-default);
   box-shadow: 0 12px 26px var(--shadow-color);
-}
-
-/* 연결선 */
-.about-photo-connector {
-  width: 2px;
-  height: 120px;
-  margin: 0px auto 13px;
-  background-image: linear-gradient(
-    to bottom,
-    var(--connector-color) 40%,
-    transparent 0%
-  );
-  background-size: 2px 7px;
-  background-repeat: repeat-y;
-  opacity: 0.7;
-  transform: translate(180px, 30px) rotate(148deg);
-  transform-origin: top center;
-  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
 /* 장식 원 */
@@ -265,11 +253,14 @@
     gap: 40px;
   }
 
-  .about-left { align-items: center; }
+  .about-left {
+    align-items: center;
+    padding-bottom: 0;
+  }
 
+  .about-photos-wrap         { width: 260px; }
   .about-photo-large-wrapper { width: 260px; height: 260px; }
-  .about-photo-small-wrapper  { display: none; }
-  .about-photo-connector      { display: none; }
+  .about-photo-small-wrapper { display: none; }
 
   .about-right {
     text-align: center;
