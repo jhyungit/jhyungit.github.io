@@ -141,12 +141,12 @@ const projectCategories = [
     title: "Nyam Nyam",
     image: nyamCard,
     subtitle: "Capstone Design 1",
-    role: "조장 / Frontend",
+    role: "조장 / DB·Frontend",
     summaryLines: [
       "캡스톤디자인 1 프로젝트",
       "학생들을 위한 맛집 웹 사이트 구축",
     ],
-    tags: ["HTML/CSS", "DB", "MySQL"],
+    tags: ["DB", "MySQL", "HTML/CSS"],
     modal: {
       badge: "웹 서비스",
       intro: [
@@ -155,13 +155,15 @@ const projectCategories = [
       ],
       roles: [
         "조장으로서 일정 조율 및 관리",
-        "HTML/CSS 기능 구현",
+        "MySQL DB 스키마 설계",
+        "리뷰 기능 구현",
+        "HTML/CSS 웹 페이지 구현",
       ],
       results: ["A0 성적 취득"],
       resultBadges: [
         { icon: "⭐", label: "A0 성적" },
       ],
-      techStack: ["HTML/CSS", "SQL", "MySQL"],
+      techStack: ["DB", "MySQL", "HTML/CSS"],
       heroImages: [nyamModal],
     },
   },
