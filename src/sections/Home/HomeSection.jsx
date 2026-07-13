@@ -5,7 +5,7 @@ import resumePdf from "../../data/이정현_CV.pdf";
 import { useTyping } from "../../hooks/useTyping";
 
 function HomeSection() {
-  const [typedRole, roleDone] = useTyping("Python Automation Developer", { delay: 50, speed: 60 });
+  const [typedRole, roleDone] = useTyping("Backend / Fullstack Developer", { delay: 50, speed: 60 });
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -27,7 +27,7 @@ function HomeSection() {
         </div>
 
         <p className="hero-value">
-          반복 업무를 자동화하고, 데이터로 비즈니스 성장을 만듭니다.
+          데이터 분석에서 시작해, 분석 결과를 실제 서비스로 완성하는 백엔드 개발자입니다.
         </p>
 
         {/* CTA: Resume(주) > GitHub > About */}

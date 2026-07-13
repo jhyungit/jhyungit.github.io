@@ -23,10 +23,10 @@ const ContactSection = () => {
 
         <div className="contact-cards">
           <div className="contact-cards-row">
-            <a href="mailto:kyn05165@naver.com" className="contact-card">
+            <a href="mailto:jh021199@gmail.com" className="contact-card">
               <span className="contact-card-icon">✉</span>
               <p className="contact-card-label">Email</p>
-              <p className="contact-card-value">kyn05165@naver.com</p>
+              <p className="contact-card-value">jh021199@gmail.com</p>
             </a>
 
             <a

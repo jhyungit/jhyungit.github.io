@@ -13,6 +13,8 @@ import bs4Logo from "../assets/skill-logos/bs4.png";
 import kerasLogo from "../assets/skill-logos/keras.png";
 
 // Backend 로고
+import springbootLogo from "../assets/skill-logos/springboot.png";
+import mybatisLogo from "../assets/skill-logos/mybatis.png";
 import reactLogo from "../assets/skill-logos/react.png";
 import flaskLogo from "../assets/skill-logos/flask.png";
 import javaLogo from "../assets/skill-logos/java.png";
@@ -24,6 +26,7 @@ import htmlLogo from "../assets/skill-logos/html.png";
 import androidstudioLogo from "../assets/skill-logos/androidstudio.png";
 
 // DB 로고
+import redisLogo from "../assets/skill-logos/redis.png";
 import mysqlLogo from "../assets/skill-logos/mysql.png";
 import apachetomcatLogo from "../assets/skill-logos/apachetomcat.png";
 import oracleLogo from "../assets/skill-logos/oracledb.png";
@@ -61,8 +64,10 @@ const skillCategories = [
   {
     id: "backend",
     label: "Backend",
-    description: "Python · Java 기반 서버 개발 및 REST API 구현 경험",
+    description: "Spring Boot · Java 기반 서버 개발 및 REST API 구현 경험",
     skills: [
+      { id: "springboot",    name: "Spring Boot",   logo: springbootLogo,    level: 3   },
+      { id: "mybatis",       name: "MyBatis",        logo: mybatisLogo,       level: 3   },
       { id: "react",         name: "React",         logo: reactLogo,         level: 2.5 },
       { id: "flask",         name: "Flask",          logo: flaskLogo,         level: 2.5 },
       { id: "java",          name: "Java",           logo: javaLogo,          level: 2   },
@@ -77,9 +82,10 @@ const skillCategories = [
   {
     id: "db",
     label: "Database",
-    description: "관계형 DB 모델링 및 SQL 작성 경험",
+    description: "관계형 · 인메모리 DB 모델링 및 SQL 작성 경험",
     skills: [
       { id: "mysql",  name: "MySQL",       logo: mysqlLogo,       level: 5 },
+      { id: "redis",  name: "Redis",       logo: redisLogo,       level: 2.5 },
       { id: "apache", name: "ApacheTomcat",logo: apachetomcatLogo,level: 2 },
       { id: "oracle", name: "OracleDB",    logo: oracleLogo,      level: 2 },
     ],

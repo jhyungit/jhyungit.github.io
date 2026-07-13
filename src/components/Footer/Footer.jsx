@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Left */}
           <div className="footer-col footer-left">
             <h4 className="footer-heading">j_hyun's</h4>
-            <p className="footer-insite-desc">Python Automation Developer</p>
+            <p className="footer-insite-desc">Backend / Fullstack Developer</p>
           </div>
 
           {/* Right */}

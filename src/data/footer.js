@@ -28,5 +28,5 @@ export const footerContacts = [
     href: "https://social.wanted.co.kr/community/profile/fUtHNjKDqFVeNmuVdn2xJD?utm_source=wanted&utm_medium=share",
   },
   { id: "instagram", label: "Instagram", icon: instaIcon, href: "https://www.instagram.com/j_hyungram/" },
-  { id: "email", label: "Email", icon: mailIcon, href: "mailto:kyn05165@naver.com" },
+  { id: "email", label: "Email", icon: mailIcon, href: "mailto:jh021199@gmail.com" },
 ];

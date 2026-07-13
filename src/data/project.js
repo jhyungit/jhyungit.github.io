@@ -20,7 +20,54 @@ import ibkBoard2 from "../assets/project-photo/ibkBoard2.png";
 import mlbImage from "../assets/project-photo/mlb.png";
 import mlbHero from "../assets/project-photo/mlb2.png";
 
+// TODO: 실제 TripCrew 스크린샷 제공 시 아래 두 파일을 덮어쓰면 됩니다.
+//  - src/assets/project-photo/tripcrew-card.png  (카드 썸네일)
+//  - src/assets/project-photo/tripcrew-hero.png  (모달 대표 이미지)
+import tripcrewCard from "../assets/project-photo/tripcrew-card.png";
+import tripcrewHero from "../assets/project-photo/tripcrew-hero.png";
+
 const projectCategories = [
+  {
+    id: "tripcrew",
+    title: "TripCrew",
+    image: tripcrewCard,
+    subtitle: "여행 계획 협업 플랫폼",
+    role: "Backend",
+    teamSize: "2인 팀",
+    summaryLines: [
+      "Spring Boot·MyBatis·MySQL·Redis 기반",
+      "여행 계획 협업 플랫폼 (AWS 배포)",
+    ],
+    tags: ["Spring Boot", "MySQL", "Redis"],
+    githubUrls: [
+      { label: "Live 데모", url: "https://tripcrew.duckdns.org" },
+      { label: "GitHub", url: "https://github.com/tripcrew/tripcrew" },
+    ],
+    modal: {
+      badge: "Backend",
+      intro: [
+        "Spring Boot·MyBatis·MySQL·Redis·Vue 기반 여행 계획 협업 플랫폼",
+        "2인 팀 프로젝트, AWS 배포",
+      ],
+      roles: [
+        "관리자 회원 조회 API 서버 페이징 + 복합 인덱스 설계",
+        "낙관적 락 기반 공동 편집 동시 수정 충돌 제어",
+        "JWT 인증, WebSocket + Redis 기반 실시간 기능 구현",
+      ],
+      results: [
+        "관리자 회원 조회를 서버 페이징 + 복합 인덱스로 개선 → 30만 건 기준 응답 0.473초→0.018초(약 26배 단축)",
+        "EXPLAIN으로 filesort 제거 검증",
+        "낙관적 락으로 공동 편집 동시 수정 충돌 제어",
+      ],
+      resultBadges: [
+        { icon: "👥", label: "2인 팀" },
+        { icon: "⚡", label: "응답 26배 개선" },
+        { icon: "☁️", label: "AWS 배포" },
+      ],
+      techStack: ["Spring Boot", "MyBatis", "MySQL", "Redis", "Vue", "JWT", "WebSocket", "AWS"],
+      heroImages: [tripcrewHero],
+    },
+  },
   {
     id: "kurrant",
     title: "KURRANT.MEAL",
@@ -65,40 +112,34 @@ const projectCategories = [
     },
   },
   {
-    id: "supperapp",
-    title: "SUPPER APP",
-    image: ibkImage,
-    subtitle: "기업은행 슈퍼앱",
-    period: "2023.07–2023.08",
-    role: "UX 기획",
+    id: "capstone1",
+    title: "Nyam Nyam",
+    image: nyamCard,
+    subtitle: "Capstone Design 1",
+    role: "조장 / DB·Frontend",
     summaryLines: [
-      "i-ONE Bank, Box POS 등 4가지 앱",
-      "슈퍼앱 프로토타입 구현",
+      "캡스톤디자인 1 프로젝트",
+      "학생들을 위한 맛집 웹 사이트 구축",
     ],
-    tags: ["Figma", "UX 설계"],
+    tags: ["DB", "MySQL", "HTML/CSS"],
     modal: {
-      badge: "프로토타입",
-      caption: [
-        ["포스 홈 - POS 주사용 고객","금융 홈 - 통장거래 주사용 고객"],
-        ["상품몰 - 다양한 상품 빠른 접근","페이 - 보유 카드로 신속한 페이"],
-        ["IBK창공_ver.1","IBK창공_ver.2"],
-        ["IBK BOARD_ver.1","IBK BOARD_ver.2"]
-      ],
+      badge: "웹 서비스",
       intro: [
-        "IBK 기업은행 슈퍼앱 기획/디자인 프로젝트",
-        "사용자 플로우 및 IA 설계",
+        "캡스톤디자인1 프로젝트",
+        "맛집 웹 사이트 설계 및 구축",
       ],
       roles: [
-        "핵심 플로우 와이어프레임 제작",
-        "디자인 시스템 일부 정의",
+        "조장으로서 일정 조율 및 관리",
+        "MySQL DB 스키마 설계",
+        "리뷰 기능 구현",
+        "HTML/CSS 웹 페이지 구현",
       ],
-      results: ["내부 발표용 프로토타입 완성"],
+      results: ["A0 성적 취득"],
       resultBadges: [
-        { icon: "🗓", label: "2개월" },
-        { icon: "🎨", label: "프로토타입" },
+        { icon: "⭐", label: "A0 성적" },
       ],
-      techStack: ["Figma", "UX", "ProtoPie"],
-      heroImages: [[ibkPos,ibkBank],[ibkProduct,ibkPay],[ibkChang1,ibkChang2],[ibkBoard1,ibkBoard2]],
+      techStack: ["DB", "MySQL", "HTML/CSS"],
+      heroImages: [nyamModal],
     },
   },
   {
@@ -137,37 +178,6 @@ const projectCategories = [
     },
   },
   {
-    id: "capstone1",
-    title: "Nyam Nyam",
-    image: nyamCard,
-    subtitle: "Capstone Design 1",
-    role: "조장 / DB·Frontend",
-    summaryLines: [
-      "캡스톤디자인 1 프로젝트",
-      "학생들을 위한 맛집 웹 사이트 구축",
-    ],
-    tags: ["DB", "MySQL", "HTML/CSS"],
-    modal: {
-      badge: "웹 서비스",
-      intro: [
-        "캡스톤디자인1 프로젝트",
-        "맛집 웹 사이트 설계 및 구축",
-      ],
-      roles: [
-        "조장으로서 일정 조율 및 관리",
-        "MySQL DB 스키마 설계",
-        "리뷰 기능 구현",
-        "HTML/CSS 웹 페이지 구현",
-      ],
-      results: ["A0 성적 취득"],
-      resultBadges: [
-        { icon: "⭐", label: "A0 성적" },
-      ],
-      techStack: ["DB", "MySQL", "HTML/CSS"],
-      heroImages: [nyamModal],
-    },
-  },
-  {
     id: "pyspark",
     title: "PySpark",
     image: pysparkCard,
@@ -199,6 +209,43 @@ const projectCategories = [
       ],
       techStack: ["PySpark", "Python", "Pandas", "Matplotlib"],
       heroImages: [pysparkModal],
+    },
+  },
+  {
+    id: "supperapp",
+    title: "SUPPER APP",
+    image: ibkImage,
+    subtitle: "기업은행 슈퍼앱",
+    period: "2023.07–2023.08",
+    role: "UX 기획",
+    summaryLines: [
+      "i-ONE Bank, Box POS 등 4가지 앱",
+      "슈퍼앱 프로토타입 구현",
+    ],
+    tags: ["Figma", "UX 설계"],
+    modal: {
+      badge: "프로토타입",
+      caption: [
+        ["포스 홈 - POS 주사용 고객","금융 홈 - 통장거래 주사용 고객"],
+        ["상품몰 - 다양한 상품 빠른 접근","페이 - 보유 카드로 신속한 페이"],
+        ["IBK창공_ver.1","IBK창공_ver.2"],
+        ["IBK BOARD_ver.1","IBK BOARD_ver.2"]
+      ],
+      intro: [
+        "IBK 기업은행 슈퍼앱 기획/디자인 프로젝트",
+        "사용자 플로우 및 IA 설계",
+      ],
+      roles: [
+        "핵심 플로우 와이어프레임 제작",
+        "디자인 시스템 일부 정의",
+      ],
+      results: ["내부 발표용 프로토타입 완성"],
+      resultBadges: [
+        { icon: "🗓", label: "2개월" },
+        { icon: "🎨", label: "프로토타입" },
+      ],
+      techStack: ["Figma", "UX", "ProtoPie"],
+      heroImages: [[ibkPos,ibkBank],[ibkProduct,ibkPay],[ibkChang1,ibkChang2],[ibkBoard1,ibkBoard2]],
     },
   },
 ];
