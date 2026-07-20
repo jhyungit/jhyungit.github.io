@@ -5,7 +5,7 @@ import resumePdf from "../../data/이정현_CV.pdf";
 import { useTyping } from "../../hooks/useTyping";
 
 function HomeSection() {
-  const [typedRole, roleDone] = useTyping("Backend / Fullstack Developer", { delay: 50, speed: 60 });
+  const [typedRole, roleDone] = useTyping("Backend Developer · Data-driven", { delay: 50, speed: 60 });
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
