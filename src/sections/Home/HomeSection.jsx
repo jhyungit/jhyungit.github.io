@@ -27,7 +27,7 @@ function HomeSection() {
         </div>
 
         <p className="hero-value">
-          데이터 분석에서 시작해, 분석 결과를 실제 서비스로 완성하는 백엔드 개발자입니다.
+          데이터 분석을, 실제 서비스로 완성하는 백엔드 개발자입니다.
         </p>
 
         {/* CTA: Resume(주) > GitHub > About */}
