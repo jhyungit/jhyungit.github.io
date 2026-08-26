@@ -10,6 +10,8 @@ import ReactDOM from "react-dom";
 import { projectCategories } from "../../data/project";
 import gitIcon from "../../assets/foot-icons/icon_git.svg";
 import { useInView } from '../../hooks/useInView';
+import YorrArchitecture from "../../components/Diagram/YorrArchitecture";
+import YorrMetrics from "../../components/Diagram/YorrMetrics";
 import "./ProjectSection.css";
 
 const ProjectSection = () => {
@@ -446,17 +448,99 @@ const ProjectSection = () => {
                 </ul>
               </div>
 
-              <div className="project-modal-section">
-                <div className="project-modal-section-title">역할</div>
-                <ul className="project-modal-list">
-                  {selectedProject?.modal?.roles?.map((line, idx) => (
-                    <li key={idx}>{line}</li>
+              {/* 담당 경계 — 팀 레포에 코드가 있다는 것과 내가 만들었다는 것은 다르다 */}
+              {selectedProject?.modal?.myWork && (
+                <div className="project-modal-section">
+                  <div className="project-modal-section-title">담당 경계</div>
+                  <div className="attribution">
+                    <div className="attribution-col attribution-mine">
+                      <h4 className="attribution-head">내가 한 일</h4>
+                      <ul className="project-modal-list">
+                        {selectedProject.modal.myWork.map((line, idx) => (
+                          <li key={idx}>{line}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="attribution-col attribution-team">
+                      <h4 className="attribution-head">팀원이 한 일</h4>
+                      <ul className="project-modal-list">
+                        {selectedProject.modal.teamWork?.map((line, idx) => (
+                          <li key={idx}>{line}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {selectedProject?.modal?.diagram === "yorr-architecture" && (
+                <div className="project-modal-section">
+                  <div className="project-modal-section-title">통신 구조</div>
+                  <YorrArchitecture />
+                </div>
+              )}
+
+              {selectedProject?.modal?.decisions && (
+                <div className="project-modal-section">
+                  <div className="project-modal-section-title">의사결정</div>
+                  {selectedProject.modal.decisions.map((d, idx) => (
+                    <div className="decision" key={idx}>
+                      <h4 className="decision-title">{d.title}</h4>
+
+                      <p className="decision-label">문제</p>
+                      <p className="decision-text">{d.problem}</p>
+
+                      <p className="decision-label">검토했으나 버린 대안</p>
+                      <p className="decision-text">
+                        <strong>{d.rejected.what}</strong> — {d.rejected.why}
+                      </p>
+
+                      <p className="decision-label">선택</p>
+                      <p className="decision-text">{d.chosen}</p>
+
+                      <p className="decision-label decision-label-warn">이 선택이 틀리게 되는 조건</p>
+                      <p className="decision-text">{d.breaksWhen}</p>
+                    </div>
                   ))}
-                </ul>
-              </div>
+                </div>
+              )}
+
+              {selectedProject?.modal?.incidents && (
+                <div className="project-modal-section">
+                  <div className="project-modal-section-title">장애 사례</div>
+                  {selectedProject.modal.incidents.map((it, idx) => (
+                    <div className="incident" key={idx}>
+                      <h4 className="incident-title">
+                        {it.title}
+                        {it.tag && <span className="incident-tag">{it.tag}</span>}
+                      </h4>
+                      <dl className="incident-dl">
+                        <dt>증상</dt>
+                        <dd>{it.symptom}</dd>
+                        <dt>원인 · 판단</dt>
+                        <dd>{it.cause}</dd>
+                        <dt>해결</dt>
+                        <dd>{it.fix}</dd>
+                      </dl>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {selectedProject?.modal?.roles && (
+                <div className="project-modal-section">
+                  <div className="project-modal-section-title">역할</div>
+                  <ul className="project-modal-list">
+                    {selectedProject.modal.roles.map((line, idx) => (
+                      <li key={idx}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className="project-modal-section">
                 <div className="project-modal-section-title">성과</div>
+                {selectedProject?.modal?.metrics === "yorr-metrics" && <YorrMetrics />}
                 {selectedProject?.modal?.resultBadges?.length > 0 && (
                   <div className="project-modal-result-badges">
                     {selectedProject.modal.resultBadges.map((b, idx) => (

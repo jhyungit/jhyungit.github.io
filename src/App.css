@@ -23,6 +23,9 @@
   /* ── Borders ── */
   --border-default: rgba(15, 23, 42, 0.08);
   --border-subtle:  rgba(15, 23, 42, 0.04);
+  /* 카드 상단 이미지와 본문을 가르는 선. 어두운 스크린샷이 카드 배경에
+     묻히지 않도록 --border-default보다 진하게 잡는다 */
+  --card-media-divider: rgba(15, 23, 42, 0.12);
 
   /* ── Shadows ── */
   --shadow-color: rgba(15, 23, 42, 0.08);
@@ -45,6 +48,11 @@
   --space-6: 24px;
   --space-7: 32px;
   --space-8: 48px;
+
+  /* ── Font Families ── */
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, "Noto Sans KR", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
   /* ── Typography Scale ── */
   --font-size-xs:   11px;
@@ -178,6 +186,7 @@
   /* ── Borders ── */
   --border-default: rgba(255, 255, 255, 0.08);
   --border-subtle:  rgba(255, 255, 255, 0.04);
+  --card-media-divider: rgba(255, 255, 255, 0.22);
 
   /* ── Shadows ── */
   --shadow-color: rgba(0, 0, 0, 0.35);

@@ -94,8 +94,10 @@
 /* ── 카드 ── */
 .project-card {
   flex: 0 0 calc((100% - 56px) / 3);
-  height: 450px;
+  min-height: 450px;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
   position: relative;
   border-radius: 22px;
   background-color: var(--project-card-bg);
@@ -115,15 +117,19 @@
   outline-offset: 2px;
 }
 
-.project-card-top { display: flex; flex-direction: column; }
+.project-card-top { display: flex; flex-direction: column; flex: 1 1 auto; }
 
 .project-card-image {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 10;
+  height: auto;
   flex-shrink: 0;
   display: block;
-  object-fit: contain;
-  object-position: top center;
+  object-fit: cover;
+  object-position: center;
+  /* 다크모드에서 어두운 스크린샷이 카드 배경에 묻히지 않도록 경계를 만든다 */
+  border-bottom: 1px solid var(--card-media-divider);
+  background: var(--bg-sunken);
   transition: transform 0.4s ease;
 }
 
@@ -134,6 +140,7 @@
 .project-card-body {
   text-align: center;
   padding: 22px 24px 84px;
+  min-height: 186px;
 }
 
 .project-card-subtitle {
@@ -172,6 +179,10 @@
   font-size: 14px;
   margin-top: 14px;
   color: var(--project-summary-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .summary-line {
@@ -515,7 +526,7 @@
 @media (max-width: 960px) {
   .project-inner { padding: 0 12px; }
   .project-track { gap: 24px; }
-  .project-card  { flex: 0 0 calc((100% - 24px) / 2); height: auto; }
+  .project-card  { flex: 0 0 calc((100% - 24px) / 2); min-height: 0; }
 }
 
 @media (max-width: 640px) {
@@ -529,16 +540,189 @@
 
   .project-carousel-btn { width: 38px; height: 38px; font-size: 22px; }
   .project-track { gap: 16px; }
-  .project-card  { flex: 0 0 100%; height: auto; }
+  .project-card  { flex: 0 0 100%; min-height: 0; }
 
-  .project-card-image   { height: 140px; }
-  .project-card-body    { padding: 16px 18px 72px; }
+  /* 모바일: 메타칩이 3줄로 감겨 절대배치 태그와 겹치므로 태그를 흐름 안으로 넣는다 */
+  .project-card-body {
+    padding: 16px 18px 20px;
+    min-height: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
   .project-card-subtitle { font-size: 15px; }
   .project-card-summary { font-size: 13px; margin-top: 10px; }
-  .project-card-tags    { bottom: 16px; left: 18px; right: 18px; }
+  .project-card-tags {
+    position: static;
+    inset: auto;
+    margin-top: auto;
+    padding-top: 16px;
+  }
 
   .project-modal-backdrop { padding: 12px; }
   .project-modal          { height: 85vh; border-radius: 18px; }
   .project-modal-body     { padding: 16px 20px 24px; }
   .project-modal-hero img { max-height: 180px; }
+}
+
+/* ============================================================
+   S6a — YORR 증거 블록
+   카드 썸네일 그래픽 · 담당 경계 2단 · 의사결정 · 장애 사례
+   ============================================================ */
+
+/* ── 카드 썸네일: 스크린샷 대신 인라인 SVG를 쓰는 프로젝트 ── */
+.project-card-graphic {
+  background: var(--bg-sunken);
+  padding: var(--space-3);
+}
+
+/* ── 담당 경계 2단 ── */
+.attribution {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.attribution-col {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  background: var(--bg-sunken);
+}
+
+/* 내 담당은 primary, 팀원 담당은 중립. 색이 아니라 위계로 구분한다 */
+.attribution-mine {
+  border-left: 3px solid var(--color-primary);
+}
+
+.attribution-team {
+  border-left: 3px solid var(--border-default);
+}
+
+.attribution-head {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.attribution-team .attribution-head {
+  color: var(--text-muted);
+}
+
+.attribution .project-modal-list {
+  margin: 0;
+}
+
+/* ── 의사결정 ── */
+.decision {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  background: var(--bg-sunken);
+}
+
+.decision-title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.decision-label {
+  margin: var(--space-4) 0 var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.decision-label:first-of-type {
+  margin-top: 0;
+}
+
+.decision-label-warn {
+  color: var(--color-accent);
+}
+
+.decision-text {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--leading-relaxed);
+  color: var(--project-summary-color);
+}
+
+.decision-text strong {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+/* ── 장애 사례 ── */
+.incident {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  background: var(--bg-sunken);
+}
+
+.incident + .incident {
+  margin-top: var(--space-3);
+}
+
+.incident-title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.incident-tag {
+  display: inline-block;
+  margin-left: var(--space-2);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.incident-dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: var(--space-2) var(--space-4);
+}
+
+.incident-dl dt {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  padding-top: 2px;
+}
+
+.incident-dl dd {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: var(--leading-base);
+  color: var(--project-summary-color);
+}
+
+@media (max-width: 720px) {
+  .attribution {
+    grid-template-columns: 1fr;
+  }
+  .incident-dl {
+    grid-template-columns: 1fr;
+    gap: var(--space-1) 0;
+  }
+  .incident-dl dd {
+    margin-bottom: var(--space-3);
+  }
+}
+
+.decision + .decision {
+  margin-top: var(--space-3);
 }

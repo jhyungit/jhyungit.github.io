@@ -1,0 +1,75 @@
+/* ============================================================
+   Diagram — 인라인 SVG 증거 블록
+   원본: docs/yorr-architecture.svg · docs/yorr-metrics.svg
+
+   클래스 역할 분리
+     .diagram  — figure 크롬 (배경·보더·패딩). 모달 안 증거 블록에만 쓴다
+     .dgm      — SVG 마커. 타이포와 다크모드 재정의의 스코프 기준.
+                 카드 썸네일처럼 크롬이 필요 없는 곳에는 .dgm만 붙인다
+   ============================================================ */
+
+.diagram {
+  margin: 0;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+}
+
+/* 넓은 도면은 페이지가 아니라 자기 영역 안에서만 가로 스크롤한다 */
+.diagram-scroll {
+  min-width: 640px;
+}
+
+.diagram .dgm {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.diagram-caption {
+  margin: var(--space-3) 0 0;
+  font-size: var(--font-size-xs);
+  line-height: var(--leading-snug);
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   SVG 내부 타이포 — 원본 SVG의 <style> 블록을 여기로 옮겼다.
+   인라인 <style>은 문서 전역에 누출되므로 .dgm 아래로 스코프한다.
+   px 값은 테마 토큰이 아니라 SVG 좌표계에 묶인 값이므로 리터럴로 둔다.
+   ============================================================ */
+.dgm .t-strong { font-family: var(--font-sans); font-size: 14px; font-weight: 700; }
+.dgm .t-body   { font-family: var(--font-sans); font-size: 13px; }
+.dgm .t-small  { font-family: var(--font-sans); font-size: 11px; }
+.dgm .t-mono   { font-family: var(--font-mono); font-size: 11.5px; }
+
+.dgm .m-num  { font-family: var(--font-sans); font-size: 42px; font-weight: 800; letter-spacing: -1px; }
+.dgm .m-unit { font-family: var(--font-sans); font-size: 19px; font-weight: 700; }
+.dgm .m-cap  { font-family: var(--font-sans); font-size: 12.5px; }
+.dgm .m-foot { font-family: var(--font-sans); font-size: 11.5px; }
+
+/* 카드 썸네일 전용 */
+.dgm .c-title { font-family: var(--font-sans); font-size: 30px; font-weight: 800; letter-spacing: -0.5px; }
+.dgm .c-num   { font-family: var(--font-sans); font-size: 22px; font-weight: 800; }
+
+/* ============================================================
+   다크모드 — SVG 내부 .d-* 클래스 재정의
+   SVG는 리터럴 fill/stroke를 갖고 있으므로 라이트에서는 그대로 두고,
+   다크에서만 사이트 팔레트로 덮는다.
+   값은 App.css의 다크 토큰과 동일한 색이다
+   (SVG 속성은 CSS 변수를 fill/stroke로 직접 받지 못하는 경우가 있어 리터럴로 둔다).
+   ============================================================ */
+[data-theme="dark"] .dgm .d-surface { fill: #1e293b; }
+[data-theme="dark"] .dgm .d-sunken  { fill: #0f172a; }
+[data-theme="dark"] .dgm .d-border  { stroke: #334155; }
+[data-theme="dark"] .dgm .d-strong  { fill: #f1f5f9; }
+[data-theme="dark"] .dgm .d-text    { fill: #cbd5e1; }
+[data-theme="dark"] .dgm .d-muted   { fill: #8ca0bb; }
+
+@media (max-width: 640px) {
+  .diagram {
+    padding: var(--space-3);
+  }
+}

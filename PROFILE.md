@@ -101,7 +101,10 @@ GitHub 프로필 README (jhyungit/jhyungit)
 - 소셜 로그인: **Google**
 - 라운드 상태 저장소: **InMemory** (`InMemoryRoundStateStore`)
 - WebSocket: **raw handler** (`GameWebSocketHandler`)
-- 스택: Java · Spring Boot · JPA · WebSocket · WebRTC · MySQL ·
+- 음성: **WebRTC 풀메시 P2P**. 서버는 ICE 후보 교환만 중계하고 음성 트래픽은 경유하지 않음
+- **coturn TURN 서버** — NAT 환경에서 P2P 직결 실패 시에만 중계
+  (근거: `docs/yorr-evidence.md` 「음성을 서버에 태우지 않은 이유」 및 `yorr-architecture.svg`)
+- 스택: Java · Spring Boot · JPA · WebSocket · WebRTC · coturn · MySQL ·
   Docker · AWS EC2 · Jira · GitLab
 - Live: https://yorr.site
 - Code: https://github.com/team-yorr/yorr
@@ -220,6 +223,8 @@ GitHub 프로필 README (jhyungit/jhyungit)
 - `RoomSessionRegistryVoiceTest.java` (단위 테스트)
 - 게임 상태는 WebSocket 서버 경유, 음성은 P2P로 분리.
   ICE 후보 교환만 서버가 중계
+- **coturn TURN 서버 연동** — NAT 환경 P2P 직결 실패 시에만 중계.
+  풀메시 구조이므로 인원이 커지면 SFU 도입이 필요하다는 한계까지 파악
 - CORS·에코 문제를 실사용 중 발견해 수정
 
 **(3) 라운드 동기화 · 타이머**
@@ -312,5 +317,11 @@ GitHub 프로필 README (jhyungit/jhyungit)
 - IBK 슈퍼앱 "디자인 시스템 정의" 여부
   (`src/data/project.js`에 있으나 원본에 근거 없음 → 사용자 확인 필요)
 - yorr-arcade 게임 2종의 정확한 명칭
-- coturn TURN 서버 연동 담당 범위
-  (`docs/portfolio.html`에는 기재돼 있으나 `yorr-contributions.md`에는 없음)
+- 주사위 위조 방지(VALIDATION) 담당자
+- **발표자료(`docs/YORR 최종 발표.pdf`) 페이지 번호 매핑** —
+  `yorr-evidence.md`의 페이지 지정이 후반부에서 실제와 어긋난다.
+  페이지 번호로 사용 가능/금지를 판단하지 말고 산문 설명만 사용한다 (아래 참조)
+
+> **해소됨 (2026-08-27)** — coturn TURN 서버 연동 담당 범위.
+> `docs/yorr-evidence.md`의 「음성을 서버에 태우지 않은 이유」 의사결정 블록과
+> `yorr-architecture.svg`가 본인 담당으로 확인. §2·§4에 반영했다.
