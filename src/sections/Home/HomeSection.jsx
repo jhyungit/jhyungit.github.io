@@ -2,10 +2,8 @@
 import "../../App.css";
 import "./HomeSection.css";
 import resumePdf from "../../data/이정현_CV.pdf";
-import { useTyping } from "../../hooks/useTyping";
 
 function HomeSection() {
-  const [typedRole, roleDone] = useTyping("Backend Developer · Data-driven", { delay: 50, speed: 60 });
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -17,17 +15,14 @@ function HomeSection() {
       <main className="hero-main">
         <div className="hero-greeting">
           <p className="hero-hi">안녕하세요 👋</p>
-          <p className="hero-role-label">
-            {typedRole}
-            <span className={`hero-cursor${roleDone ? ' hero-cursor--done' : ''}`} aria-hidden="true" />
-          </p>
+          <p className="hero-role-label">Backend Developer</p>
           <h1 className="hero-headline">
             <span className="highlight-name">이정현</span>입니다
           </h1>
         </div>
 
         <p className="hero-value">
-          데이터 분석을, 실제 서비스로 완성하는 백엔드 개발자입니다.
+          Spring Boot 기반 API 서버를 설계하고, 쿼리·인덱스로 응답 속도를 개선하는 백엔드 개발자입니다.
         </p>
 
         {/* CTA: Resume(주) > GitHub > About */}
