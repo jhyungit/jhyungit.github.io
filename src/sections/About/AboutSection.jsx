@@ -8,7 +8,7 @@ import { useCountUp } from '../../hooks/useCountUp';
 
 function AboutSection() {
   const [ref, isVisible] = useInView();
-  const awards = useCountUp(2, { duration: 700, start: isVisible });
+  const awards = useCountUp(4, { duration: 700, start: isVisible });
   const certs  = useCountUp(3, { duration: 900, start: isVisible });
   return (
     <section ref={ref} className={`section about fade-up${isVisible ? ' is-visible' : ''}`} id="about">
@@ -56,7 +56,7 @@ function AboutSection() {
           </h3>
           
           <p className="about-identity">
-            Python 기반 자동화와 데이터 처리로 현업의 효율을 높이는 개발자입니다.
+            Spring Boot 기반 API 서버를 설계하고, 쿼리·인덱스로 응답 속도를 개선하는 백엔드 개발자입니다.
           </p>
 
           <div className="about-stats">
@@ -74,13 +74,24 @@ function AboutSection() {
           <div className="about-divider" />
 
           <p className="about-text">
-            데이터 수집·전처리·모델링 역량을 바탕으로
-            운영 프로세스 자동화와 비즈니스 성과에 기여해왔습니다.
+            관리자 회원 조회 API를 서버 사이드 페이징과 복합 인덱스로 개선해
+            30만 건 기준 응답을 0.473초에서 0.018초로 단축했고,
+            개선 이후 남은 OFFSET 구간의 저하까지 실측해 다음 해법을 수치로 확인했습니다.
           </p>
 
-          <p className="about-text">  
+          <p className="about-text">
+            6인 팀 PM/팀장으로 실시간 통신 규격을 단독 설계해
+            게임 3종이 같은 계약 위에서 동작하도록 만들고,
+            최고 동시접속 80명 트래픽 아래에서 2회 배포·운영했습니다.
+          </p>
+
+          <p className="about-text">
             사회인 야구를 통해 체력과 팀워크를 꾸준히 관리하며,
             책임감 있는 역할 수행으로 MVP로 선정되었습니다.
+          </p>
+
+          <p className="about-text">
+            Python 기반 데이터 분석에서 출발해 백엔드로 왔습니다.
           </p>
           
            {/* ✅ KEYWORDS 추가 */}

@@ -56,11 +56,11 @@ const educationList = [
     link: "https://ince.mju.ac.kr/ince/index.do"
   },
   {
-    period: "2019.02 ~ 2020.02",
+    period: "2019.02 ~ 2020.01",
     tag: "어학",
     title: "Australia · 어학 연수",
     descriptionLines: [
-      "약 1년 간 호주에서 외국 친구들과 함께 영어 학습 및 교류하며 생활",
+      "11개월 간 호주에서 외국 친구들과 함께 영어 학습 및 교류하며 생활",
       "ILSC Sydney - Intermediate → Advanced 과정 수료, 우수 학생 선정",
       "Waterfront Southgate 근무 (2019.08 ~ 2019.12)"
     ],
@@ -104,7 +104,7 @@ const experienceList = [
     imageAlt: "달리셔스 로고",
     imageUrl: deliciousLogo,
     link: "https://www.donga.com/news/It/article/all/20230503/119128322/1#in_cont",
-    awardLabel: "우수상"
+    awardLabel: "우수상 (6팀 중 1위)"
   }
 ];
 
@@ -112,7 +112,7 @@ const experienceList = [
 const certifications = [
   { label: "SQLD (SQL 개발자)", date: "2025.12", issuer: "한국데이터산업진흥원" },
   { label: "정보처리기사",       date: "2024.12", issuer: "한국산업인력공단"     },
-  { label: "OPIc IH",           date: null,      issuer: "ACTFL"              },
+  { label: "OPIc IH",           date: "2025.06", issuer: "ACTFL"              },
 ];
 
 export { educationList, experienceList, certifications };

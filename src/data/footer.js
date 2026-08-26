@@ -5,7 +5,7 @@ import instaIcon from "../assets/foot-icons/icon-insta.svg";
 import mailIcon from "../assets/foot-icons/icon-mail.svg";
 
 export const footerStats = [
-  { id: "award", label: "Awards", value: 2 },
+  { id: "award", label: "Awards", value: 4 },
   { id: "certificate", label: "Certs", value: 3 },
 ];
 

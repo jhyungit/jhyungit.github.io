@@ -1,13 +1,93 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon-jh.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+
+    <!-- ── 기본 ────────────────────────────────────────── -->
+    <title>이정현 · 백엔드 개발자 포트폴리오 | Spring Boot · 실시간 통신 설계</title>
+    <meta
+      name="description"
+      content="Spring Boot 기반 API 서버를 설계하고 쿼리·인덱스로 응답 속도를 개선하는 백엔드 개발자 이정현입니다. 관리자 회원 조회 API를 서버 사이드 페이징과 (role, created_at) 복합 인덱스로 개선해 30만 건 기준 응답을 0.473초에서 0.018초로 단축했고, WebSocket 이벤트 스키마 28종을 단독 설계해 최고 동시접속 80명 규모 실시간 서비스를 2회 배포·운영했습니다."
+    />
+    <meta name="author" content="이정현" />
+    <link rel="canonical" href="https://jhyungit.github.io/" />
+
+    <!-- ── 아이콘 / 테마 ────────────────────────────────── -->
+    <link rel="icon" type="image/svg+xml" href="/favicon-jh.svg" />
+    <meta name="theme-color" content="#4f8cff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+
+    <!-- ── Open Graph (카카오톡 · 슬랙 · 링크드인 미리보기) ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="이정현 포트폴리오" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:url" content="https://jhyungit.github.io/" />
+    <meta property="og:title" content="이정현 · 백엔드 개발자" />
+    <meta
+      property="og:description"
+      content="Spring Boot · 실시간 통신 규격 설계 · 쿼리 최적화. 30만 건 기준 응답 0.473초 → 0.018초, WebSocket 이벤트 스키마 28종 단독 설계, 최고 동시접속 80명 실서비스 운영."
+    />
+    <meta property="og:image" content="https://jhyungit.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="이정현 · 백엔드 개발자 포트폴리오" />
+
+    <!-- ── Twitter / X ─────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="이정현 · 백엔드 개발자" />
+    <meta
+      name="twitter:description"
+      content="Spring Boot · 실시간 통신 규격 설계 · 쿼리 최적화. 30만 건 기준 응답 0.473초 → 0.018초."
+    />
+    <meta name="twitter:image" content="https://jhyungit.github.io/og-image.png" />
+
+    <!-- ── 폰트 (index.css의 @import에서 이동 — 렌더 블로킹 해소) ── -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+
+    <!-- ── 구조화 데이터 (Person) ────────────────────────── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "이정현",
+        "alternateName": "Jeonghyun Lee",
+        "jobTitle": "Backend Developer",
+        "description": "Spring Boot 기반 API 서버 설계 및 쿼리·인덱스 최적화, 실시간 통신 프로토콜 설계",
+        "url": "https://jhyungit.github.io/",
+        "email": "mailto:jh021199@gmail.com",
+        "sameAs": ["https://github.com/jhyungit"],
+        "knowsAbout": [
+          "Java",
+          "Spring Boot",
+          "Spring Security",
+          "JPA",
+          "MyBatis",
+          "MySQL",
+          "Redis",
+          "WebSocket",
+          "WebRTC",
+          "STOMP",
+          "Docker",
+          "AWS EC2",
+          "쿼리 최적화",
+          "복합 인덱스 설계"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Seoul",
+          "addressCountry": "KR"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>이 사이트는 JavaScript가 필요합니다.</noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

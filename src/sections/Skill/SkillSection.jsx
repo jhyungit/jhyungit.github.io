@@ -41,7 +41,7 @@ function SkillCard({ skill, index = 0 }) {
 }
 
 const SkillSection = () => {
-  const [activeCategoryId, setActiveCategoryId] = useState("data");
+  const [activeCategoryId, setActiveCategoryId] = useState("backend");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [ref, isVisible] = useInView();
 
