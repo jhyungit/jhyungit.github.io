@@ -45,7 +45,17 @@ const ProjectSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const totalProjects = projectCategories.length;
+  // 캐러셀에는 featured가 지정된 항목만, 그 숫자 순서대로 노출한다.
+  // featured: false 항목은 데이터에 남아 있고 나중에 "그 외 프로젝트"로 살린다.
+  const featuredProjects = useMemo(
+    () =>
+      projectCategories
+        .filter((p) => typeof p.featured === "number")
+        .sort((a, b) => a.featured - b.featured),
+    []
+  );
+
+  const totalProjects = featuredProjects.length;
 
   // startIndex의 최대값(끝에서 잘리지 않게)
   const maxStartIndex = useMemo(() => {
@@ -195,7 +205,7 @@ const ProjectSection = () => {
                 transform: `translateX(-${startIndex * stepPx}px)`,
               }}
             >
-              {projectCategories.map((project, idx) => (
+              {featuredProjects.map((project, idx) => (
                 <article
                   key={`${project.id}-${idx}`}
                   className="project-card"
@@ -448,6 +458,17 @@ const ProjectSection = () => {
                 </ul>
               </div>
 
+              {selectedProject?.modal?.roles && (
+                <div className="project-modal-section">
+                  <div className="project-modal-section-title">역할</div>
+                  <ul className="project-modal-list">
+                    {selectedProject.modal.roles.map((line, idx) => (
+                      <li key={idx}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               {/* 담당 경계 — 팀 레포에 코드가 있다는 것과 내가 만들었다는 것은 다르다 */}
               {selectedProject?.modal?.myWork && (
                 <div className="project-modal-section">
@@ -524,17 +545,6 @@ const ProjectSection = () => {
                       </dl>
                     </div>
                   ))}
-                </div>
-              )}
-
-              {selectedProject?.modal?.roles && (
-                <div className="project-modal-section">
-                  <div className="project-modal-section-title">역할</div>
-                  <ul className="project-modal-list">
-                    {selectedProject.modal.roles.map((line, idx) => (
-                      <li key={idx}>{line}</li>
-                    ))}
-                  </ul>
                 </div>
               )}
 

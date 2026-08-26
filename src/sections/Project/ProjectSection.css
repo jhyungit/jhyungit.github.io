@@ -557,6 +557,8 @@
     inset: auto;
     margin-top: auto;
     padding-top: 16px;
+    /* 좁은 폭에서 center는 pill을 한 줄에 하나씩 쌓는다 */
+    justify-content: flex-start;
   }
 
   .project-modal-backdrop { padding: 12px; }
