@@ -69,15 +69,8 @@ npm run build    # 프로덕션 빌드
     </td>
     <td width="50%">
       <a href="screenshots/shot-projects.png"><img src="screenshots/shot-projects.png" alt="프로젝트"/></a>
-      <p align="center"><sub><b>프로젝트</b> · 백엔드 파트</sub></p>
+      <p align="center"><sub><b>프로젝트</b> · 캐러셀 카드</sub></p>
     </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <a href="screenshots/shot-projects-data.png"><img src="screenshots/shot-projects-data.png" alt="데이터 프로젝트"/></a>
-      <p align="center"><sub><b>프로젝트</b> · 데이터 분석 파트</sub></p>
-    </td>
-    <td width="50%"></td>
   </tr>
 </table>
 
