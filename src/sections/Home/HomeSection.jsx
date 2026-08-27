@@ -1,7 +1,11 @@
 // src/sections/Home/HomeSection.jsx
 import "../../App.css";
 import "./HomeSection.css";
-import resumePdf from "../../data/이정현_CV.pdf";
+
+// public/resume.pdf를 정적 경로로 참조한다. 번들에 넣으면 Vite가 해시를 붙여
+// 배포마다 이력서 URL이 바뀐다 (vite.config.js의 base는 '/').
+// download 속성은 쓰지 않는다 — 새 탭에서 바로 훑어보게 둔다.
+const RESUME_URL = "/resume.pdf";
 
 function HomeSection() {
   const scrollToSection = (id) => {
@@ -29,7 +33,7 @@ function HomeSection() {
         <div className="hero-cta">
           <a
             className="hero-btn hero-btn-primary"
-            href={resumePdf}
+            href={RESUME_URL}
             target="_blank"
             rel="noreferrer"
           >
@@ -56,13 +60,6 @@ function HomeSection() {
             <span className="hero-btn-icon" data-direction="down" aria-hidden="true">↓</span>
           </button>
         </div>
-
-        <section className="hero-strengths">
-          <h2 className="hero-strengths-title">KEY STRENGTHS</h2>
-          <p className="hero-strengths-text">
-            건강한 개발자 · Hard worker · Fast learner · Reliable teammate
-          </p>
-        </section>
       </main>
 
       <button

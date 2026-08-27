@@ -1,7 +1,7 @@
 // src/sections/About/AboutSection.jsx
 import '../../App.css';
 import './AboutSection.css';
-import mainPhoto from '../../assets/about-photo/about-main.jpg';
+import mainPhoto from '../../assets/about-photo/about-main.webp';
 import baseballPhoto from '../../assets/about-photo/about-baseball.jpg';
 import { useInView } from '../../hooks/useInView';
 import { useCountUp } from '../../hooks/useCountUp';

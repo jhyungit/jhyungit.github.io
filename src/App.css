@@ -102,8 +102,10 @@
   /* ── Skill ── */
   --skill-tab-bg:           #e8edf8;
   --skill-tab-color:        #475569;
-  --skill-tab-active-bg:    #4f8cff;
-  --skill-tab-active-color: #ffffff;
+  /* 활성 탭은 16px 본문 크기라 AA 4.5:1이 필요하다.
+     흰 글자는 primary 위에서 3.22:1로 미달이므로 진한 글자를 쓴다 (4.55:1) */
+  --skill-tab-active-bg:    var(--color-primary);
+  --skill-tab-active-color: var(--text-strong);
   --skill-card-bg:          #ffffff;
   --skill-card-bg-hover:    #f0f7ff;
   --skill-dot-active:       #4f8cff;
@@ -123,15 +125,17 @@
   --career-period-bg:         rgba(79, 140, 255, 0.06);
   --career-period-border:     rgba(79, 140, 255, 0.18);
   --career-period-color:      #475569;
-  --career-cert-bg:           #e8edf8;
-  --career-cert-color:        #1e293b;
+  --career-cert-bg:           var(--bg-elevated);
+  --career-cert-color:        var(--text-strong);
+  /* primary(#4f8cff) 35%. rgba라 var()를 못 쓰니 primary를 바꾸면 여기도 바꾼다 */
   --career-line:              rgba(79, 140, 255, 0.35);
   --career-modal-bg:          #ffffff;
   --career-modal-close-bg:    rgba(15, 23, 42, 0.06);
   --career-modal-close-color: #1e293b;
   --career-desc-color:        #475569;
-  --career-tag-bg:            #e8f0fe;
-  --career-tag-color:         #3b5bdb;
+  /* 공용 태그 토큰과 값이 같았다. 갈라지지 않게 참조로 묶는다 */
+  --career-tag-bg:            var(--tag-bg);
+  --career-tag-color:         var(--tag-color);
 
   /* ── Project ── */
   --project-card-bg:       #ffffff;
@@ -154,7 +158,10 @@
   --bg-contact: #ffffff;
 
   /* ── Gradient ── */
-  --gradient-accent: linear-gradient(90deg, #4f8cff, #7c3aed);
+  /* primary→accent에서 파생한다. 다크는 이 정의를 그대로 물려받아
+     테마별 primary/accent로 자동 해석되므로 다크에 따로 정의하지 않는다.
+     (과거 다크가 분홍 계열로 갈라져 테마를 바꾸면 브랜드 색이 달라졌다) */
+  --gradient-accent: linear-gradient(90deg, var(--color-primary), var(--color-accent));
 
   /* ── Misc ── */
   --scrollbar-thumb: rgba(15, 23, 42, 0.14);
@@ -224,8 +231,9 @@
   /* ── Skill ── */
   --skill-tab-bg:           #242430;
   --skill-tab-color:        #94a3b8;
-  --skill-tab-active-bg:    #6c63ff;
-  --skill-tab-active-color: #ffffff;
+  /* 흰 글자는 다크 primary 위에서 2.54:1로 미달. 어두운 글자로 7.02:1 확보 */
+  --skill-tab-active-bg:    var(--color-primary);
+  --skill-tab-active-color: var(--bg-base);
   --skill-card-bg:          #111827;
   --skill-card-bg-hover:    #151c2b;
   --skill-dot-active:       #60a5fa;
@@ -245,15 +253,16 @@
   --career-period-bg:         rgba(12, 21, 40, 0.90);
   --career-period-border:     rgba(255, 255, 255, 0.08);
   --career-period-color:      #f1f5f9;
-  --career-cert-bg:           #d3d5da;
-  --career-cert-color:        #1f242b;
-  --career-line:              rgba(212, 179, 255, 0.40);
+  --career-cert-bg:           var(--bg-elevated);
+  --career-cert-color:        var(--text-strong);
+  /* 다크 primary(#60a5fa) 40%. 라이트와 같은 파랑 계열로 맞춘다 (기존 라벤더 제거) */
+  --career-line:              rgba(96, 165, 250, 0.40);
   --career-modal-bg:          #0a1e33;
   --career-modal-close-bg:    rgba(0, 0, 0, 0.70);
   --career-modal-close-color: #ffffff;
   --career-desc-color:        #dde4f5;
-  --career-tag-bg:            #02040a;
-  --career-tag-color:         #e3d5ff;
+  --career-tag-bg:            var(--tag-bg);
+  --career-tag-color:         var(--tag-color);
 
   /* ── Project ── */
   --project-card-bg:       #162235;
@@ -275,8 +284,8 @@
   --bg-project: #111827;
   --bg-contact: #0f172a;
 
-  /* ── Gradient ── */
-  --gradient-accent: linear-gradient(90deg, #e76df5, #9b7bff);
+  /* Gradient는 :root의 primary→accent 파생 정의를 그대로 쓴다.
+     여기서 재정의하지 않는다 — 재정의하면 라이트와 색조가 갈라진다 */
 
   /* ── Misc ── */
   --scrollbar-thumb: rgba(255, 255, 255, 0.14);
@@ -401,7 +410,6 @@ section#project     { background-color: var(--bg-project); }
   .hero-headline,
   .hero-value,
   .hero-cta,
-  .hero-strengths,
   .hero-scroll {
     animation: none;
   }

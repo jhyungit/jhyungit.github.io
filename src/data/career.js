@@ -3,9 +3,9 @@ import ssafyLogo from "../assets/career-photo/ssafy-logo.png";
 import asacLogo from "../assets/career-photo/asac-logo.png";
 import mjuLogo from "../assets/career-photo/mju-logo.png";
 import ilscPhoto from "../assets/career-photo/ilsc-photo.png";
-import ilscAward from "../assets/career-photo/ilsc-award.png";
+import ilscAward from "../assets/career-photo/ilsc-award.webp";
 import ibkIntern from "../assets/career-photo/ibk-intern.png";
-import ibkAward from "../assets/career-photo/ibk-award.png";
+import ibkAward from "../assets/career-photo/ibk-award.webp";
 import deliciousLogo from "../assets/career-photo/delicious-logo.png";
 
 const educationList = [

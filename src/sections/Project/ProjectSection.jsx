@@ -1,5 +1,5 @@
-// src/sections/ProjectSection.jsx
-import React, {
+// src/sections/Project/ProjectSection.jsx
+import {
   useState,
   useEffect,
   useMemo,
@@ -346,6 +346,7 @@ const ProjectSection = () => {
                       <img
                         src={heroSlides[0][0]}
                         alt={`${selectedProject.title} 대표 이미지`}
+                        loading="lazy"
                       />
                       {selectedProject?.modal?.caption?.[0]?.[0] && (
                         <p className="hero-caption">
@@ -408,6 +409,7 @@ const ProjectSection = () => {
                                 alt={`${selectedProject.title} 화면 ${
                                   idx + 1
                                 }`}
+                                loading="lazy"
                               />
                               {captionText && (
                                 <p className="hero-caption">{captionText}</p>

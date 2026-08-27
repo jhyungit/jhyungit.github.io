@@ -1,4 +1,4 @@
-// src/sections/Career.jsx
+// src/sections/Career/CareerSection.jsx
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useInView } from '../../hooks/useInView';
@@ -264,7 +264,7 @@ export default function Career() {
             >
               ✕
             </button>
-            <img src={popupImage.src} alt={popupImage.alt} />
+            <img src={popupImage.src} alt={popupImage.alt} loading="lazy" />
           </div>
         </div>,
         document.body

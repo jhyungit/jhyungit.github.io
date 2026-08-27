@@ -1,30 +1,30 @@
 //project.js
-import nyamCard from "../assets/project-photo/nyam_card.png";
+import nyamCard from "../assets/project-photo/nyam_card.webp";
 import nyamModal from "../assets/project-photo/nyam_modal.png";
-import pysparkCard from "../assets/project-photo/pyspark_card.png";
+import pysparkCard from "../assets/project-photo/pyspark_card.webp";
 import pysparkModal from "../assets/project-photo/pyspark_modal.png";
 
-import daliImage from "../assets/project-photo/dali.png";
-import daliHero from "../assets/project-photo/dali-hero.png";
+import daliImage from "../assets/project-photo/dali.webp";
+import daliHero from "../assets/project-photo/dali-hero.webp";
 
-import ibkImage from "../assets/project-photo/ibk.png";
-import ibkPos from "../assets/project-photo/ibkPos.png";
-import ibkBank from "../assets/project-photo/ibkBank.png";
-import ibkProduct from "../assets/project-photo/ibkProduct.png";
-import ibkPay from "../assets/project-photo/ibkPay.png";
-import ibkChang1 from "../assets/project-photo/ibkChang1.png";
-import ibkChang2 from "../assets/project-photo/ibkChang2.png";
-import ibkBoard1 from "../assets/project-photo/ibkBoard1.png";
-import ibkBoard2 from "../assets/project-photo/ibkBoard2.png";
+import ibkImage from "../assets/project-photo/ibk.webp";
+import ibkPos from "../assets/project-photo/ibkPos.webp";
+import ibkBank from "../assets/project-photo/ibkBank.webp";
+import ibkProduct from "../assets/project-photo/ibkProduct.webp";
+import ibkPay from "../assets/project-photo/ibkPay.webp";
+import ibkChang1 from "../assets/project-photo/ibkChang1.webp";
+import ibkChang2 from "../assets/project-photo/ibkChang2.webp";
+import ibkBoard1 from "../assets/project-photo/ibkBoard1.webp";
+import ibkBoard2 from "../assets/project-photo/ibkBoard2.webp";
 
-import mlbImage from "../assets/project-photo/mlb.png";
+import mlbImage from "../assets/project-photo/mlb.webp";
 import mlbHero from "../assets/project-photo/mlb2.png";
 
 // TODO: 실제 TripCrew 스크린샷 제공 시 아래 두 파일을 덮어쓰면 됩니다.
-//  - src/assets/project-photo/tripcrew-card.png  (카드 썸네일)
-//  - src/assets/project-photo/tripcrew-hero.png  (모달 대표 이미지)
-import tripcrewCard from "../assets/project-photo/tripcrew-card.png";
-import tripcrewHero from "../assets/project-photo/tripcrew-hero.png";
+//  - src/assets/project-photo/tripcrew-card.webp  (카드 썸네일)
+//  - src/assets/project-photo/tripcrew-hero.webp  (모달 대표 이미지)
+import tripcrewCard from "../assets/project-photo/tripcrew-card.webp";
+import tripcrewHero from "../assets/project-photo/tripcrew-hero.webp";
 
 import yorrCard from "../assets/project-photo/yorr-card.webp";
 import musinsaCard from "../assets/project-photo/musinsa-card.webp";
@@ -201,7 +201,7 @@ const projectCategories = [
     image: musinsaCard,
     subtitle: "향수 평점 예측",
     period: "T-academy ASAC",
-    role: "데이터 수집·EDA·모델링",
+    role: "데이터 수집(크롤러 구현)·EDA 담당, 모델링 공동",
     teamSize: "6인 팀",
     summaryLines: [
       "HTML 파싱으로 수집 불가한 리뷰 데이터를",
@@ -212,23 +212,23 @@ const projectCategories = [
       badge: "3진 분류 84.62%",
       intro: [
         "가격·출시 정보·리뷰를 피처로 향수 평점을 예측하는 분류 모델",
-        "T-academy ASAC 과정 · 6인 팀 · 데이터 수집·EDA·모델링 담당",
+        "T-academy ASAC 과정 · 6인 팀 · 데이터 수집(크롤러 구현)·EDA 담당, 모델링 공동 수행",
       ],
       roles: [
-        "HTML 파싱으로 수집 불가한 리뷰 데이터 → \"사용자 동작 시점에 비동기 로딩\"이라 가설 수립 → 브라우저 DevTools Network 탭으로 HTTP 요청 패턴을 추적해 요청 API를 특정 → 코드로 재현해 안정적으로 수집",
-        "EDA로 별점 분포 편중(클래스 불균형)을 발견하고 재분류 기준을 탐색",
-        "Random Forest · XGBoost 학습 및 교차검증, GridSearch 하이퍼파라미터 탐색",
-        "리뷰 긍부정 분류에 Keras GRU 적용 (72.36%)",
+        "HTML 파싱으로 수집 불가한 리뷰 데이터 → \"사용자 동작 시점에 비동기 로딩\"이라 가설 수립 → 브라우저 DevTools Network 탭으로 HTTP 요청 패턴을 추적해 요청 API를 특정 → 크롤러를 직접 구현해 안정적으로 수집",
+        "EDA 수행 — 리뷰가 없는 상품이 0점으로 처리되어 0점과 5점에 분포가 몰린 것을 발견하고 재분류 기준을 탐색",
+        "이하 모델링은 6인 공동 수행 — Random Forest · XGBoost 학습 및 교차검증, GridSearch 하이퍼파라미터 탐색",
+        "리뷰 긍부정 분류에 Keras GRU 적용 (72.36%, 공동)",
       ],
       // 분류 방식을 세 번 바꿔가며 찾은 과정 자체가 성과다.
       decisions: [
         {
           title: "분류 단위를 세 번 바꿔 3진에 도달했다",
           problem:
-            "별점을 그대로 5진 분류로 학습했더니 정확도가 36.15%에 그쳤다. 원인은 모델이 아니라 레이블이었다 — EDA에서 별점 분포가 특정 구간에 심하게 편중돼 있었고, 5개 클래스로 나누면 대부분의 클래스가 학습할 표본을 갖지 못했다.",
+            "평점을 그대로 5진 분류로 학습했더니 정확도가 36.15%에 그쳤다. 원인은 모델이 아니라 레이블이었다 — 리뷰가 없는 상품의 평점을 0으로 채운 탓에 절반 이상이 0점에 몰려 있었고, 5개 클래스로 나누면 중간 구간이 학습할 표본을 갖지 못했다.",
           rejected: {
-            what: "2진 분류(고평점 / 저평점)로 단순화",
-            why: "정확도는 평균 71.53%로 올랐지만, 예측 결과가 \"좋다/나쁘다\" 두 값뿐이어서 실제로 쓸 만한 정보가 남지 않았다. 정확도를 얻고 해상도를 잃는 교환이었다.",
+            what: "0점(리뷰 없음)을 버리고 1–4점 / 5점의 2진 분류로 단순화",
+            why: "정확도는 71.53%로 올랐지만, 데이터의 절반을 차지하는 무평점 구간을 통째로 버리는 대가였다. 남은 예측도 \"5점이냐 아니냐\" 두 값뿐이라 쓸 만한 해상도가 남지 않았다.",
           },
           chosen:
             "0점 / 1–4점 / 5점의 3진 분류를 택했다. 무평점(0점)과 만점(5점)을 분포상 실제로 구별되는 두 극단으로 두고, 그 사이를 하나로 묶었다. Random Forest 교차검증 5회 평균 84.62%, GridSearch 후 86.00%. XGBoost는 평균 84.96%, GridSearch 후 86.42%였다. 피처 중요도에서 가장 큰 것은 리뷰 수, 그다음이 가격이었다.",
@@ -292,7 +292,6 @@ const projectCategories = [
         { icon: "🏆", label: "우수상 (6팀 중 1위)" },
       ],
       techStack: ["Python", "sklearn", "Pandas"],
-      heroImage: ibkImage,
       heroImages: [daliHero],
     },
   },
@@ -308,12 +307,14 @@ const projectCategories = [
       "캡스톤디자인 1 프로젝트",
       "학생들을 위한 맛집 웹 사이트 구축",
     ],
-    tags: ["PHP", "MySQL"],
+    // 발표자료는 DB를 "데이터베이스"로만 표기한다. MySQL은 미확인이므로
+    // "관계형 DB"까지만 쓴다 (PROFILE.md §6).
+    tags: ["PHP", "관계형 DB"],
     modal: {
       badge: "웹 서비스",
       intro: [
         "캡스톤디자인1 프로젝트 · 3인 팀 · 조장",
-        "PHP + MySQL 기반 맛집 웹 사이트 설계 및 구축",
+        "PHP + 관계형 DB 기반 맛집 웹 사이트 설계 및 구축",
       ],
       roles: [
         "조장으로서 일정 조율 및 관리",
@@ -321,12 +322,12 @@ const projectCategories = [
         "데이터베이스 구축",
         "발표",
       ],
-      results: ["PHP + MySQL 기반 맛집 웹 사이트 구축"],
+      results: ["PHP + 관계형 DB 기반 맛집 웹 사이트 구축"],
       resultBadges: [
         { icon: "👥", label: "3인 팀" },
         { icon: "🗄", label: "DB 구축" },
       ],
-      techStack: ["PHP", "MySQL"],
+      techStack: ["PHP", "관계형 DB"],
       heroImages: [nyamModal],
     },
   },
@@ -348,7 +349,6 @@ const projectCategories = [
     ],
     modal: {
       badge: "ML",
-      caption: [],
       intro: [
         "MLB 선수 데이터 기반 연봉 예측 프로젝트",
         "데이터 수집, 정제, ML",

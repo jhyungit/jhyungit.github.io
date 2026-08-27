@@ -21,7 +21,7 @@ function Header({ theme, toggleTheme }) {
 
   const handleNavClick = (e) => {
     e.preventDefault();
-    const targetId = e.target.getAttribute("href").replace("#", "");
+    const targetId = e.currentTarget.getAttribute("href").replace("#", "");
     if (targetId === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {

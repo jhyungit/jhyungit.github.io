@@ -1,6 +1,10 @@
 import { useInView } from "../../hooks/useInView";
-import resumePdf from "../../data/이정현_CV.pdf";
 import "./ContactSection.css";
+
+// public/resume.pdf를 정적 경로로 참조한다. 번들에 넣으면 Vite가 해시를 붙여
+// 배포마다 이력서 URL이 바뀐다 (vite.config.js의 base는 '/').
+// download 속성은 쓰지 않는다 — 새 탭에서 바로 훑어보게 둔다.
+const RESUME_URL = "/resume.pdf";
 
 const ContactSection = () => {
   const [ref, isVisible] = useInView();
@@ -48,7 +52,7 @@ const ContactSection = () => {
           </div>
 
           <a
-            href={resumePdf}
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="contact-card contact-card-resume"

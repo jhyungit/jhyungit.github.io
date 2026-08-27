@@ -1,5 +1,5 @@
-// src/sections/Skill/CoreSkillSection.jsx
-import React, { useState } from "react";
+// src/sections/Skill/SkillSection.jsx
+import { useState } from "react";
 import { skillCategories } from "../../data/skills";
 import { useInView } from '../../hooks/useInView';
 import "./SkillSection.css";
