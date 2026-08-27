@@ -18,7 +18,7 @@ React + Vite로 구축한 개발자 포트폴리오 웹사이트입니다.
 | 소개 | 지향점 · 대표 성과 · 키워드 |
 | 경력 | 교육 과정 · 인턴 · 어학 연수 · 자격증 |
 | 스킬 | Backend · Database · Data Engineering · Infra 탭 전환 |
-| 프로젝트 | 캐러셀 형태로 6개 프로젝트 소개 |
+| 프로젝트 | 캐러셀 형태의 프로젝트 카드 |
 | 연락 | 이메일 · GitHub · 이력서 PDF |
 
 ## 🔧 기술 스택
@@ -69,10 +69,10 @@ npm run build    # 프로덕션 빌드
     </td>
     <td width="50%">
       <a href="screenshots/shot-projects.png"><img src="screenshots/shot-projects.png" alt="프로젝트"/></a>
-      <p align="center"><sub><b>프로젝트</b> · 캐러셀 카드</sub></p>
+      <p align="center"><sub><b>프로젝트</b> · 백엔드 파트</sub></p>
     </td>
   </tr>
-    <tr>
+  <tr>
     <td width="50%">
       <a href="screenshots/shot-projects-data.png"><img src="screenshots/shot-projects-data.png" alt="데이터 프로젝트"/></a>
       <p align="center"><sub><b>프로젝트</b> · 데이터 분석 파트</sub></p>
