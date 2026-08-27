@@ -1,54 +1,80 @@
-# JH's Portfolio
+# 이정현 포트폴리오
 
 React + Vite로 구축한 개발자 포트폴리오 웹사이트입니다.
 
-🔗 **배포 페이지:** https://jhyungit.github.io/
+**🌐 배포 페이지:** https://jhyungit.github.io/
 
-![Portfolio Preview](preview.png)
+<a href="https://jhyungit.github.io/">
+  <img src="screenshots/preview_banner.png" width="100%" alt="포트폴리오 미리보기">
+</a>
 
----
+<br/>
 
-## Tech Stack
+## 📄 구성
 
-| 분류 | 기술 |
-|---|---|
-| Frontend | React 19, JavaScript (ES2022) |
-| Build | Vite 7 |
-| Styling | CSS Custom Properties (Design Tokens), 라이트/다크 모드 |
-| Font | Pretendard (Dynamic Subset CDN) |
-| Contact | EmailJS |
-| Deploy | GitHub Pages |
+| 섹션 | 내용 |
+|------|------|
+| 홈 | 한 줄 소개 및 핵심 강점 |
+| 소개 | 개발자로서의 지향점과 배경 |
+| 경력 | 교육 과정 · 인턴 · 대외 활동 |
+| 스킬 | 언어 · 백엔드 · 실시간 · 인프라 스택 |
+| 프로젝트 | YORR · TripCrew · YORR Arcade 등 주요 프로젝트 |
+| 연락 | 이메일 · GitHub |
 
----
+## 🔧 기술 스택
 
-## 구성 섹션
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css3&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white)
 
-- **Home** — 인트로 및 핵심 강점 요약
-- **About** — 자기소개 및 키워드
-- **Career** — 경력 타임라인
-- **Skill** — 기술 스택 카드
-- **Project** — 프로젝트 캐러셀 + 슬라이드 모달
-- **Contact** — 이메일 / GitHub / 이력서 PDF
+- 다크 모드 토글 (사용자 선택 저장)
+- 스크롤 기반 섹션 하이라이트 내비게이션
+- 반응형 레이아웃
 
----
+## 🚀 실행 방법
 
-## 주요 구현 사항
+```bash
+git clone https://github.com/jhyungit/jhyungit.github.io.git
+cd jhyungit.github.io
 
-- CSS 전용 stagger 애니메이션 (framer-motion 미사용)
-- `IntersectionObserver` 기반 스크롤 진입 효과 (`useInView` 커스텀 훅)
-- 50+ CSS 토큰으로 라이트/다크 모드 단일 소스 관리
-- `clamp()` 유체 타이포그래피로 380px~1440px 전 해상도 대응
-- 모달 포커스 트랩 + Esc 닫기 + 키보드 접근성 (WCAG AA)
-- `prefers-reduced-motion` 전역 대응
+npm install
+npm run dev      # 개발 서버
+npm run build    # 프로덕션 빌드
+```
 
----
+## 📸 스크린샷
 
-## CI/CD
+<details>
+<summary><b>펼쳐서 전체 보기</b></summary>
+<br/>
 
-`main` 브랜치에 푸시하면 GitHub Actions가 자동으로 빌드 후 GitHub Pages에 배포합니다.
+<table>
+  <tr>
+    <td width="50%">
+      <img src="screenshots/shot-about.png" alt="소개·경력"/>
+      <p align="center"><sub><b>소개 · 경력</b></sub></p>
+    </td>
+    <td width="50%">
+      <img src="screenshots/shot-skills.png" alt="스킬"/>
+      <p align="center"><sub><b>스킬</b></sub></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="screenshots/shot-projects.png" alt="프로젝트"/>
+      <p align="center"><sub><b>프로젝트</b></sub></p>
+    </td>
+    <td width="50%">
+      <img src="screenshots/shot-dark.png" alt="다크 모드"/>
+      <p align="center"><sub><b>다크 모드</b></sub></p>
+    </td>
+  </tr>
+</table>
 
----
+</details>
 
-## License
+## 📫 Contact
 
-MIT
+**Email** jh021199@gmail.com · **GitHub** [@jhyungit](https://github.com/jhyungit)
