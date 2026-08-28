@@ -70,7 +70,7 @@ PROFILE.md는 그 사본이 5개로 늘어나는 것을 막기 위한 원본이�
 | TripCrew WebSocket | **STOMP** |
 | YORR 라운드 상태 | **InMemory**. Redis 아님 |
 | TripCrew 실시간 협업 | **인메모리 SimpleBroker**. Redis Pub/Sub 아님 |
-| 소셜 로그인 | YORR = Google / TripCrew = Kakao/Naver |
+| 소셜 로그인 | YORR = Google / Kakao (**팀원 구현, 본인 성과 아님**) / TripCrew = Kakao / Naver |
 | 네트워크 요청 패턴 분석 | **무신사 프로젝트만** |
 
 ---

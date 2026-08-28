@@ -106,13 +106,7 @@
      흰 글자는 primary 위에서 3.22:1로 미달이므로 진한 글자를 쓴다 (4.55:1) */
   --skill-tab-active-bg:    var(--color-primary);
   --skill-tab-active-color: var(--text-strong);
-  --skill-card-bg:          #ffffff;
   --skill-card-bg-hover:    #f0f7ff;
-  --skill-dot-active:       #4f8cff;
-  --skill-dot-empty:        rgba(15, 23, 42, 0.12);
-  --skill-label-bg:         #e8edf8;
-  --skill-label-color:      #475569;
-  --skill-scrollbar:        rgba(15, 23, 42, 0.12);
 
   /* ── About ── */
   --connector-color:    rgba(30, 41, 59, 0.28);
@@ -234,13 +228,7 @@
   /* 흰 글자는 다크 primary 위에서 2.54:1로 미달. 어두운 글자로 7.02:1 확보 */
   --skill-tab-active-bg:    var(--color-primary);
   --skill-tab-active-color: var(--bg-base);
-  --skill-card-bg:          #111827;
   --skill-card-bg-hover:    #151c2b;
-  --skill-dot-active:       #60a5fa;
-  --skill-dot-empty:        rgba(255, 255, 255, 0.15);
-  --skill-label-bg:         #2a2c36;
-  --skill-label-color:      #e5e5ff;
-  --skill-scrollbar:        rgba(255, 255, 255, 0.15);
 
   /* ── About ── */
   --connector-color:    rgba(255, 255, 255, 0.30);
@@ -413,7 +401,10 @@ section#project     { background-color: var(--bg-project); }
   .hero-scroll {
     animation: none;
   }
-  .skill-card {
-    animation: none;
+  .skill-list-wrapper,
+  .skill-subgroup,
+  .skill-description,
+  .skill-row {
+    transition: none;
   }
 }

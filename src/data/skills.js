@@ -1,111 +1,68 @@
 // skills.js
 
-// DataEngineering 로고
-import pythonLogo from "../assets/skill-logos/python.png";
-import pandasLogo from "../assets/skill-logos/pandas.png";
-import numpyLogo from "../assets/skill-logos/numpy.png";
-import sklearnLogo from "../assets/skill-logos/sklearn.png";
-import tensorflowLogo from "../assets/skill-logos/tensorflow.png";
-import pysparkLogo from "../assets/skill-logos/pyspark.png";
-import seleniumLogo from "../assets/skill-logos/selenium.png";
-import jupyterLogo from "../assets/skill-logos/jupyter.png";
-import bs4Logo from "../assets/skill-logos/bs4.png";
-import kerasLogo from "../assets/skill-logos/keras.png";
-
-// Backend 로고
-import springbootLogo from "../assets/skill-logos/springboot.png";
-import mybatisLogo from "../assets/skill-logos/mybatis.png";
-import reactLogo from "../assets/skill-logos/react.png";
-import flaskLogo from "../assets/skill-logos/flask.png";
-import javaLogo from "../assets/skill-logos/java.png";
-import jsLogo from "../assets/skill-logos/javascript.png";
-import cppLogo from "../assets/skill-logos/cpp.png";
-import cLogo from "../assets/skill-logos/c.png";
-import cssLogo from "../assets/skill-logos/css.png";
-import htmlLogo from "../assets/skill-logos/html.png";
-import androidstudioLogo from "../assets/skill-logos/androidstudio.png";
-
-// DB 로고
-import redisLogo from "../assets/skill-logos/redis.png";
-import mysqlLogo from "../assets/skill-logos/mysql.png";
-import apachetomcatLogo from "../assets/skill-logos/apachetomcat.png";
-import oracleLogo from "../assets/skill-logos/oracledb.png";
-
-// Infra & Tools 로고
-import linuxLogo from "../assets/skill-logos/linux.png";
-import gitLogo from "../assets/skill-logos/git.png";
-import vscodelLogo from "../assets/skill-logos/vscode.png";
-import vsLogo from "../assets/skill-logos/vs.png";
-import eclipseLogo from "../assets/skill-logos/eclipse.png";
-import figmaLogo from "../assets/skill-logos/figma.png";
-import excelLogo from "../assets/skill-logos/excel.png";
-import pptLogo from "../assets/skill-logos/ppt.png";
-import wordLogo from "../assets/skill-logos/word.png";
-import hangeulLogo from "../assets/skill-logos/hangeul.png";
-
 const skillCategories = [
-  {
-    id: "data",
-    label: "Data Engineering",
-    description: "데이터 수집 · 전처리 · EDA · 모델링 · ML/DL 개발 경험",
-    skills: [
-      { id: "python",   name: "Python",       logo: pythonLogo,     level: 4   },
-      { id: "pandas",   name: "Pandas",        logo: pandasLogo,     level: 4   },
-      { id: "numpy",    name: "Numpy",         logo: numpyLogo,      level: 4   },
-      { id: "sklearn",  name: "sklearn",       logo: sklearnLogo,    level: 2.5 },
-      { id: "tf",       name: "TensorFlow",    logo: tensorflowLogo, level: 2.5 },
-      { id: "pyspark",  name: "PySpark",       logo: pysparkLogo,    level: 2.5 },
-      { id: "selenium", name: "Selenium",      logo: seleniumLogo,   level: 3   },
-      { id: "jupyter",  name: "Jupyter",       logo: jupyterLogo,    level: 4   },
-      { id: "keras",    name: "Keras",         logo: kerasLogo,      level: 2.5 },
-      { id: "bs4",      name: "BeautifulSoup", logo: bs4Logo,        level: 3   },
-    ],
-  },
   {
     id: "backend",
     label: "Backend",
-    description: "Spring Boot · Java 기반 서버 개발 및 REST API 구현 경험",
+    description: "각 항목은 그 기술을 사용한 프로젝트를 가리킨다. 담당 범위는 프로젝트 항목에 적혀 있다.",
     skills: [
-      { id: "springboot",    name: "Spring Boot",   logo: springbootLogo,    level: 3   },
-      { id: "mybatis",       name: "MyBatis",        logo: mybatisLogo,       level: 3   },
-      { id: "react",         name: "React",         logo: reactLogo,         level: 2.5 },
-      { id: "flask",         name: "Flask",          logo: flaskLogo,         level: 2.5 },
-      { id: "java",          name: "Java",           logo: javaLogo,          level: 2   },
-      { id: "javascript",    name: "JavaScript",     logo: jsLogo,            level: 2.5 },
-      { id: "cpp",           name: "C++",            logo: cppLogo,           level: 3.5 },
-      { id: "c",             name: "C",              logo: cLogo,             level: 3.5 },
-      { id: "css",           name: "CSS",            logo: cssLogo,           level: 3   },
-      { id: "html",          name: "HTML",           logo: htmlLogo,          level: 3.5 },
-      { id: "androidstudio", name: "AndroidStudio",  logo: androidstudioLogo, level: 3   },
+      { id: "java",        name: "Java",            note: "TripCrew Java 17 · YORR" },
+      { id: "springboot",  name: "Spring Boot",     note: "TripCrew Spring Boot 3 · YORR" },
+      { id: "security",    name: "Spring Security", note: "TripCrew 인증" },
+      { id: "jpa",         name: "JPA",             note: "YORR" },
+      { id: "mybatis",     name: "MyBatis",         note: "TripCrew" },
+      { id: "jwt",         name: "JWT",             note: "TripCrew, JWT + Refresh Token" },
+      { id: "oauth",       name: "OAuth 2.0",       note: "TripCrew Kakao·Naver 소셜 로그인" },
+      { id: "react",       name: "React",           note: "yorr-arcade", subGroup: "frontend" },
+      { id: "typescript",  name: "TypeScript",      note: "yorr-arcade", subGroup: "frontend" },
+      { id: "threejs",     name: "Three.js",        note: "yorr-arcade 3D 렌더링", subGroup: "frontend" },
+      { id: "vite",        name: "Vite",            note: "yorr-arcade", subGroup: "frontend" },
+      { id: "vue",         name: "Vue 3",           note: "TripCrew", subGroup: "frontend" },
     ],
   },
   {
-    id: "db",
-    label: "Database",
-    description: "관계형 · 인메모리 DB 모델링 및 SQL 작성 경험",
+    id: "realtime",
+    label: "실시간 통신",
+    description: "게임 상태 동기화와 음성 채널을 분리해 설계한 경험",
     skills: [
-      { id: "mysql",  name: "MySQL",       logo: mysqlLogo,       level: 5 },
-      { id: "redis",  name: "Redis",       logo: redisLogo,       level: 2.5 },
-      { id: "apache", name: "ApacheTomcat",logo: apachetomcatLogo,level: 2 },
-      { id: "oracle", name: "OracleDB",    logo: oracleLogo,      level: 2 },
+      { id: "websocket", name: "WebSocket", note: "YORR raw handler(GameWebSocketHandler) · TripCrew STOMP" },
+      { id: "stomp",     name: "STOMP",     note: "TripCrew 공동 편집, 인메모리 SimpleBroker · 단일 인스턴스" },
+      { id: "webrtc",    name: "WebRTC",    note: "YORR 풀메시 P2P 음성, ICE 후보만 서버 중계" },
+      { id: "coturn",    name: "coturn",    note: "YORR TURN, NAT 직결 실패 시에만 중계" },
+      { id: "socketio",  name: "Socket.IO", note: "yorr-arcade 실시간 이벤트 동기화" },
     ],
   },
   {
     id: "infra",
-    label: "Infra & Tools",
-    description: "개발 · 협업 환경 구성 및 다양한 도구 활용 경험",
+    label: "인프라 · 데이터베이스",
+    description: "실배포 환경 구성과 형상 관리",
     skills: [
-      { id: "linux",   name: "Linux",       logo: linuxLogo,   level: 3   },
-      { id: "git",     name: "Git",         logo: gitLogo,     level: 3.5 },
-      { id: "vs",      name: "VisualStudio",logo: vsLogo,      level: 3.5 },
-      { id: "vscode",  name: "VScode",      logo: vscodelLogo, level: 4.5 },
-      { id: "eclipse", name: "Eclipse",     logo: eclipseLogo, level: 2   },
-      { id: "figma",   name: "Figma",       logo: figmaLogo,   level: 3   },
-      // Documentation subgroup
-      { id: "word",    name: "Word",        logo: wordLogo,    level: 4.5, subGroup: "docs" },
-      { id: "excel",   name: "Excel",       logo: excelLogo,   level: 3.5, subGroup: "docs" },
-      { id: "ppt",     name: "PowerPoint",  logo: pptLogo,     level: 4.5, subGroup: "docs" },
-      { id: "hangeul", name: "한글",         logo: hangeulLogo, level: 4,   subGroup: "docs" },
+      { id: "mysql",   name: "MySQL",          note: "TripCrew MySQL 8 · YORR" },
+      { id: "redis",   name: "Redis",          note: "TripCrew, Docker Compose 4컨테이너 구성 요소" },
+      { id: "flyway",  name: "Flyway",         note: "TripCrew, DB 마이그레이션 V1~V17" },
+      { id: "docker",  name: "Docker Compose", note: "TripCrew 4컨테이너(MySQL·Redis·Backend·Caddy)" },
+      { id: "caddy",   name: "Caddy",          note: "TripCrew 리버스 프록시, HTTPS 운영" },
+      { id: "ec2",     name: "AWS EC2",        note: "TripCrew · YORR 라이브 운영" },
+      { id: "git",     name: "Git · GitLab",   note: "YORR, 협업 컨벤션(CONTRIBUTING.md) · MR 21건 통합" },
+      { id: "jira",    name: "Jira",           note: "YORR, 이슈 · 일정 · 릴리스 관리" },
+    ],
+  },
+  {
+    id: "data",
+    label: "데이터 · ML",
+    description: "각 항목은 그 기술을 사용한 프로젝트를 가리킨다. 담당 범위는 프로젝트 항목에 적혀 있다.",
+    skills: [
+      { id: "python",   name: "Python",            note: "달리셔스 · 무신사" },
+      { id: "pandas",   name: "Pandas",            note: "달리셔스 · 무신사" },
+      { id: "sklearn",  name: "Scikit-learn",      note: "달리셔스 · 무신사" },
+      { id: "pyspark",  name: "PySpark",           note: "달리셔스 · 마포구 카페 분석" },
+      { id: "rf",       name: "Random Forest",     note: "무신사, 3진 분류 채택 모델" },
+      { id: "xgboost",  name: "XGBoost",           note: "무신사, 비교 모델" },
+      { id: "keras",    name: "Keras",             note: "무신사, GRU 리뷰 긍부정 분류" },
+      { id: "cosine",   name: "Cosine Similarity", note: "달리셔스 Content-Based 추천" },
+      { id: "selenium", name: "Selenium",          note: "무신사 데이터 수집" },
+      { id: "bs4",      name: "BeautifulSoup",     note: "무신사 데이터 수집" },
+      { id: "devtools", name: "DevTools (Network)", note: "무신사, HTTP 요청 패턴 추적" },
     ],
   },
 ];

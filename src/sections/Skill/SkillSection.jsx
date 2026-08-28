@@ -4,40 +4,37 @@ import { skillCategories } from "../../data/skills";
 import { useInView } from '../../hooks/useInView';
 import "./SkillSection.css";
 
-function LevelDots({ level }) {
+// subGroup 키 → 화면 라벨. 매핑이 없으면 키를 그대로 쓴다
+const SUBGROUP_LABELS = { frontend: "프론트엔드" };
+
+function SkillList({ skills, isTransitioning }) {
   return (
-    <div className="skill-level-wrap">
-      <div className="skill-card-level-dots">
-        {Array.from({ length: 5 }).map((_, idx) => {
-          const full = Math.floor(level);
-          const half = level % 1 !== 0;
-          if (idx < full)              return <span key={idx} className="dot full"  />;
-          if (idx === full && half)    return <span key={idx} className="dot half"  />;
-          return                              <span key={idx} className="dot empty" />;
-        })}
-      </div>
-      <div className="skill-level-info">
-        <span className="skill-level-info-btn" tabIndex={0} aria-label="숙련도 기준 안내">?</span>
-        <div className="skill-level-tooltip" role="tooltip">
-          <p><strong>5점</strong> — 실무 프로젝트 주도</p>
-          <p><strong>3점</strong> — 독립 구현</p>
-          <p><strong>2점</strong> — 학습 경험</p>
-        </div>
-      </div>
+    <div className={`skill-list-wrapper${isTransitioning ? " is-transitioning" : ""}`}>
+      <ul className="skill-list">
+        {skills.map((skill) => (
+          <li key={skill.id} className="skill-row">
+            <span className="skill-row-name">{skill.name}</span>
+            <span className="skill-row-note">{skill.note}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-function SkillCard({ skill, index = 0 }) {
-  return (
-    <article className="skill-card" style={{ '--card-index': index }}>
-      <div className="skill-card-label">{skill.name}</div>
-      <div className="skill-card-logo-wrap">
-        <img src={skill.logo} alt={skill.name} className="skill-card-logo" />
-      </div>
-      <LevelDots level={skill.level} />
-    </article>
-  );
+// subGroup 필드 유무만 보고 가른다. 카테고리 id에 결합하지 않는다
+function splitBySubGroup(skills) {
+  const main = [];
+  const groups = new Map();
+  for (const skill of skills) {
+    if (!skill.subGroup) {
+      main.push(skill);
+      continue;
+    }
+    if (!groups.has(skill.subGroup)) groups.set(skill.subGroup, []);
+    groups.get(skill.subGroup).push(skill);
+  }
+  return { main, groups: [...groups] };
 }
 
 const SkillSection = () => {
@@ -48,13 +45,7 @@ const SkillSection = () => {
   const activeCategory =
     skillCategories.find((cat) => cat.id === activeCategoryId) || skillCategories[0];
 
-  const isInfra = activeCategory.id === 'infra';
-  const mainSkills = isInfra
-    ? activeCategory.skills.filter((s) => s.subGroup !== 'docs')
-    : activeCategory.skills;
-  const docsSkills = isInfra
-    ? activeCategory.skills.filter((s) => s.subGroup === 'docs')
-    : [];
+  const { main, groups } = splitBySubGroup(activeCategory.skills);
 
   const handleTabClick = (id) => {
     if (id === activeCategoryId) return;
@@ -62,7 +53,7 @@ const SkillSection = () => {
     setTimeout(() => {
       setActiveCategoryId(id);
       setIsTransitioning(false);
-    }, 200);
+    }, 180);
   };
 
   return (
@@ -79,6 +70,7 @@ const SkillSection = () => {
               key={category.id}
               type="button"
               className={"skill-tab-btn" + (category.id === activeCategoryId ? " is-active" : "")}
+              aria-pressed={category.id === activeCategoryId}
               onClick={() => handleTabClick(category.id)}
             >
               {category.label}
@@ -86,31 +78,17 @@ const SkillSection = () => {
           ))}
         </div>
 
-        {/* 메인 스킬 카드 */}
-        <div className={`skill-card-row-wrapper${isTransitioning ? " is-transitioning" : ""}`}>
-          <div className="skill-card-row" key={activeCategoryId}>
-            {mainSkills.map((skill, idx) => (
-              <SkillCard key={skill.id} skill={skill} index={idx} />
-            ))}
-          </div>
-        </div>
+        <SkillList skills={main} isTransitioning={isTransitioning} />
 
-        {/* Documentation 서브그룹 */}
-        {docsSkills.length > 0 && (
-          <div className={`skill-subgroup${isTransitioning ? " is-transitioning" : ""}`}>
+        {groups.map(([key, skills]) => (
+          <div key={key} className={`skill-subgroup${isTransitioning ? " is-transitioning" : ""}`}>
             <div className="skill-subgroup-header">
-              <span className="skill-subgroup-label">Documentation</span>
+              <span className="skill-subgroup-label">{SUBGROUP_LABELS[key] || key}</span>
               <div className="skill-subgroup-line" />
             </div>
-            <div className="skill-card-row-wrapper">
-              <div className="skill-card-row" key={activeCategoryId + '-docs'}>
-                {docsSkills.map((skill, idx) => (
-                  <SkillCard key={skill.id} skill={skill} index={idx} />
-                ))}
-              </div>
-            </div>
+            <SkillList skills={skills} isTransitioning={isTransitioning} />
           </div>
-        )}
+        ))}
 
         <p className={`skill-description${isTransitioning ? " is-transitioning" : ""}`}>
           {activeCategory.description}

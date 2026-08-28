@@ -59,6 +59,7 @@ GitHub 프로필 README (jhyungit/jhyungit)
 | 무신사 2진 정확도 | 48p "71.54%" vs 50p "71.53%" | **71.53%** (50p 종합표 기준) |
 | 무신사 명칭 | "별점 예측" vs "평점 예측" | **평점 예측** (원본 표지) |
 | 냐암냐암 스택 | "HTML/CSS" vs "PHP + MySQL" | **PHP + MySQL** |
+| YORR 소셜 로그인 | "Google 단독·본인 담당" vs "Google / Kakao·팀원 담당" | **Google / Kakao · 팀원 구현** |
 
 ### 출처 주의 — 원본 발표자료의 소재와 대조 가능 여부
 
@@ -132,7 +133,7 @@ GitHub 프로필 README (jhyungit/jhyungit)
 - SSAFY 공통 프로젝트 **1위**
 - 게임 라인업 **3종** (그중 2종이 yorr-arcade 출신)
 - **12라운드** 종료 판정
-- 소셜 로그인: **Google**
+- 소셜 로그인: **Google / Kakao** (OAuth 2.0, 팀원 구현)
 - 라운드 상태 저장소: **InMemory** (`InMemoryRoundStateStore`)
 - WebSocket: **raw handler** (`GameWebSocketHandler`)
 - 음성: **WebRTC 풀메시 P2P**. 서버는 ICE 후보 교환만 중계하고 음성 트래픽은 경유하지 않음
@@ -286,7 +287,7 @@ GitHub 프로필 README (jhyungit/jhyungit)
 | TripCrew WebSocket | **STOMP** | — |
 | YORR 라운드 상태 저장소 | **InMemory** (`InMemoryRoundStateStore`) | "Redis로 라운드 상태 관리" |
 | TripCrew 실시간 협업 | **인메모리 SimpleBroker · 단일 인스턴스** | "Redis Pub/Sub" ← 실제 발생 |
-| YORR 소셜 로그인 | **Google** | Kakao로 착각 |
+| YORR 소셜 로그인 | **Google / Kakao** (팀원 구현) | Google 단독으로 기재 / 본인 성과로 기재 |
 | TripCrew 소셜 로그인 | **Kakao / Naver** | — |
 | 네트워크 요청 패턴 분석 | **무신사만** | MLB·달리셔스에 전용 금지 |
 | MLB 데이터 수집 | **MLB Stats API** | "크롤링" 표기 금지 |
@@ -342,7 +343,6 @@ GitHub 프로필 README (jhyungit/jhyungit)
 - 잘못된 main 머지 revert 대응
 
 **(5) 그 외**
-- Google 소셜 로그인 (※ TripCrew는 Kakao/Naver. YORR는 Google)
 - `RoomValidationService`, `RoomValidationController`, `RoomCreateService`
 - QA 이슈: 세션 토큰 만료 시 대기실 연결 화면 멈춤 (우선순위 상위, 완료)
   → 세션↔playerId 매핑과 SESSION_EXPIRED 구분 처리로 해결
@@ -373,6 +373,7 @@ GitHub 프로필 README (jhyungit/jhyungit)
 | Prometheus·Grafana 모니터링 구축 | 팀원 (Infra) |
 | Expectimax 요트 AI | 팀원 (AI/Backend) |
 | 게임 재접속 404 버그 | 팀원 |
+| 소셜 로그인 (Google · Kakao) | 팀원 (고용훈 · yonghun) |
 
 ### 반쪽만 사실인 것 — 정확히 구분할 것
 
@@ -455,3 +456,10 @@ GitHub 프로필 README (jhyungit/jhyungit)
 > 데이터 수집은 크롤러 코드를 직접 작성, EDA는 본인 수행,
 > **모델링은 6인 공동**. 기존 "데이터 수집·EDA·모델링 담당" 표기가 모델링을
 > 실제보다 넓게 잡고 있어 §2와 전 산출물을 정정했다.
+
+> **정정됨 (2026-08-28)** — YORR 소셜 로그인. 두 가지가 함께 틀려 있었다.
+> 제공자가 Google 단독으로 적혀 있었고(실제로는 Google / Kakao),
+> §4가 이를 본인 담당으로 기재하고 있었다.
+> YORR 레포 auth 패키지 커밋 로그에 이정현 커밋이 없고 전부 팀원
+> (고용훈 · yonghun) 작업으로 확인돼 §4에서 삭제하고 「담당 아님」 표로 옮겼다.
+> TripCrew 의 Kakao / Naver 소셜 로그인은 별개이며 그대로 유지한다.
