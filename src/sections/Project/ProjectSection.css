@@ -574,12 +574,6 @@
    카드 썸네일 그래픽 · 담당 경계 2단 · 의사결정 · 장애 사례
    ============================================================ */
 
-/* ── 카드 썸네일: 스크린샷 대신 인라인 SVG를 쓰는 프로젝트 ── */
-.project-card-graphic {
-  background: var(--bg-sunken);
-  padding: var(--space-3);
-}
-
 /* ── 담당 경계 2단 ── */
 .attribution {
   display: grid;
