@@ -4,12 +4,9 @@ import './AboutSection.css';
 import mainPhoto from '../../assets/about-photo/about-main.webp';
 import baseballPhoto from '../../assets/about-photo/about-baseball.jpg';
 import { useInView } from '../../hooks/useInView';
-import { useCountUp } from '../../hooks/useCountUp';
 
 function AboutSection() {
   const [ref, isVisible] = useInView();
-  const awards = useCountUp(4, { duration: 700, start: isVisible });
-  const certs  = useCountUp(3, { duration: 900, start: isVisible });
   return (
     <section ref={ref} className={`section about fade-up${isVisible ? ' is-visible' : ''}`} id="about">
       {/* 섹션 맨 위 중앙 타이틀 */}
@@ -35,12 +32,12 @@ function AboutSection() {
               <img
                 src={baseballPhoto}
                 className="about-photo-small"
-                alt="사회인 야구 활동 사진"
+                alt="사회인 야구 유니폼을 입고 트로피를 든 사진"
               />
               <div className="about-photo-small-meta">
-                <span className="about-photo-small-tag">Teamwork & Fitness</span>
+                <span className="about-photo-small-tag">사회인 야구 2021~</span>
                 <p className="about-photo-small-caption">
-                  꾸준한 체력 관리와 팀워크 경험
+                  팀업 캠퍼스 일요 루키 리그 우승 · MVP
                 </p>
               </div>
             </div>
@@ -50,9 +47,9 @@ function AboutSection() {
         {/* 오른쪽: 텍스트 영역 */}
         <div className="about-right">
           <h3 className="about-heading">
-            저는 긍정적이고 체력을 겸비한
+            저는 문제가 막히면
             <br />
-            개발자입니다.
+            실행계획까지 파고듭니다.
           </h3>
           
           <p className="about-identity">
@@ -61,12 +58,12 @@ function AboutSection() {
 
           <div className="about-stats">
             <div className="about-stat">
-              <span className="about-stat-value">{awards}</span>
+              <span className="about-stat-value">4</span>
               <span className="about-stat-label">Awards</span>
             </div>
             <div className="about-stat-divider" />
             <div className="about-stat">
-              <span className="about-stat-value">{certs}</span>
+              <span className="about-stat-value">3</span>
               <span className="about-stat-label">Certs</span>
             </div>
           </div>
@@ -75,7 +72,8 @@ function AboutSection() {
 
           <p className="about-text">
             관리자 회원 조회 API를 서버 사이드 페이징과 복합 인덱스로 개선해
-            30만 건 기준 응답을 0.473초에서 0.018초로 단축했고,
+            30만 건 기준 응답을 0.473초에서 0.018초로 단축했습니다.
+            EXPLAIN으로 type이 ALL에서 ref로 바뀌고 filesort가 사라진 것을 확인했고,
             개선 이후 남은 OFFSET 구간의 저하까지 실측해 다음 해법을 수치로 확인했습니다.
           </p>
 
@@ -86,12 +84,12 @@ function AboutSection() {
           </p>
 
           <p className="about-text">
-            사회인 야구를 통해 체력과 팀워크를 꾸준히 관리하며,
-            책임감 있는 역할 수행으로 MVP로 선정되었습니다.
+            Python 기반 데이터 분석에서 출발해 백엔드로 왔습니다.
           </p>
 
           <p className="about-text">
-            Python 기반 데이터 분석에서 출발해 백엔드로 왔습니다.
+            2021년부터 사회인 야구를 이어오고 있습니다.
+            팀업 캠퍼스 일요 루키 리그에서 우승했고 MVP로 선정됐습니다.
           </p>
           
            {/* ✅ KEYWORDS 추가 */}
@@ -111,7 +109,7 @@ function AboutSection() {
 
               <div className="about-keyword">
                 <span className="about-keyword-tag">Teamwork</span>
-                <p className="about-keyword-desc">달리셔스 기업 프로젝트 우수상 · 야구팀 MVP</p>
+                <p className="about-keyword-desc">달리셔스 기업 연계 프로젝트 우수상 (6팀 중 1위)</p>
               </div>
             </div>
           </div>

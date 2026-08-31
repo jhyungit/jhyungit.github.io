@@ -121,11 +121,16 @@
 }
 
 .about-photo-small-caption {
-  white-space: nowrap;
+  /* 사진 박스(140px)보다 넓어 밖으로 나간다. 폭 상한을 줘 2줄로 접고
+     좁은 데스크톱에서 오른쪽 칼럼을 침범하지 않게 한다 */
+  white-space: normal;
+  width: max-content;
+  max-width: 160px;
   margin: 8px 0 0;
+  margin-inline: auto;
   font-size: 12px;
   line-height: 1.4;
-  color: var(--text-muted);
+  color: var(--text-base);
 }
 
 /* ── 오른쪽: 텍스트 ── */
