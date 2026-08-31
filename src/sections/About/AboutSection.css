@@ -125,7 +125,7 @@
      좁은 데스크톱에서 오른쪽 칼럼을 침범하지 않게 한다 */
   white-space: normal;
   width: max-content;
-  max-width: 160px;
+  max-width: 130px;
   margin: 8px 0 0;
   margin-inline: auto;
   font-size: 12px;
