@@ -121,8 +121,8 @@
 }
 
 .about-photo-small-caption {
-  /* 사진 박스(140px)보다 넓어 밖으로 나간다. 폭 상한을 줘 2줄로 접고
-     좁은 데스크톱에서 오른쪽 칼럼을 침범하지 않게 한다 */
+/* nowrap이면 사진 박스(140px)를 좌우로 삐져나간다.
+   폭 상한으로 2줄로 접는다. 130px에서 리그명 / 우승·MVP로 갈린다 */
   white-space: normal;
   width: max-content;
   max-width: 130px;
