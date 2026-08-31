@@ -151,7 +151,7 @@
 
   /* ── Diagram ── */
   /* 도면의 테두리·구분선. 그래픽 요소이므로 WCAG 1.4.11 3:1이 적용된다.
-     --bg-sunken(#f1f5fb) 위에 놓인다 */
+     --bg-sunken(#f1f5fb) 3.05:1 / .d-surface(#ffffff) 3.34:1 */
   --diagram-border: #7d8ea6;
 
   /* 도면 연결선·화살촉·라벨. 선은 1.4.11(3:1), 라벨은 1.4.3(4.5:1)을 만족해야 한다 */
@@ -284,8 +284,9 @@
   --project-scrollbar:     rgba(255, 255, 255, 0.12);
 
   /* ── Diagram ── */
-  /* Diagram.css의 [data-theme="dark"] .d-border에 있던 값을 그대로 옮겼다 */
-  --diagram-border: #334155;
+  /* --bg-sunken(#111827) 4.17:1 / .d-surface(#1e293b) 3.44:1.
+     연결선(--diagram-line-*)보다 어둡게 유지해 박스 경계가 선보다 튀지 않게 한다 */
+  --diagram-border: #6b7c94;
 
   /* 다크 --color-primary와 같은 값이지만 갈라 둔다 — 도면은 자체 대비 기준을 갖는다 */
   --diagram-line-flow:   #60a5fa;
