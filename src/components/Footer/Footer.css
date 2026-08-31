@@ -40,13 +40,6 @@
   color: var(--text-muted);
 }
 
-.footer-subtext {
-  margin: 0 0 16px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
 /* ── 소셜 아이콘 ── */
 .footer-icons {
   display: flex;

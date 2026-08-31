@@ -93,7 +93,7 @@ export default function YorrArchitecture() {
           <line x1="490" y1="466" x2="530" y2="466" stroke="#94a3b8" strokeWidth="1.3" strokeDasharray="4 4" />
           <text className="t-body d-text" x="540" y="471" fill="#475569">시그널링 · TURN 중계</text>
 
-          <text className="t-small d-muted" x="64" y="506" fill="#94a3b8">
+          <text className="t-small d-muted" x="64" y="506">
             담당: WebSocket 통신 계약 설계(이벤트 스키마 28종) · WebRTC 음성 시그널링 BE·FE 전 구간 · 라운드 동기화
           </text>
         </svg>

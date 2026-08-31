@@ -163,7 +163,9 @@
   padding: 3px 10px;
   border-radius: var(--radius-full);
   font-size: 11px;
-  background: var(--border-subtle);
+  /* 불투명 토큰을 쓴다. 반투명(--border-subtle)이면 .project-card:hover의
+     배경이 칩을 통해 비쳐 호버 상태에서만 글자 대비가 무너진다 */
+  background: var(--bg-sunken);
   color: var(--text-muted);
   border: 1px solid var(--border-default);
   white-space: nowrap;
