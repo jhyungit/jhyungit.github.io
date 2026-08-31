@@ -125,8 +125,28 @@ PROFILE.md는 그 사본이 5개로 늘어나는 것을 막기 위한 원본이�
   과거 이 항목이 hex만 세는 바람에 `rgba()`가 규칙을 통째로 빠져나갔다.
   (`transparent`·`currentColor`는 색상값으로 세지 않는다)
 - 실측 (2026-08-31 전수 조사):
-  - 섹션/컴포넌트 CSS **31건** (hex 6 + rgba 25)
-  - `src/components/Diagram/` JSX의 SVG presentation attribute **85건**
+  - 섹션/컴포넌트 CSS **29건** (hex 6 + rgba 23)
+  - `src/components/Diagram/` JSX의 SVG presentation attribute **58건**
+
+  세는 명령 (bash · 이 머신은 Git Bash). 숫자만 남기면 재현이 안 되므로 함께 둔다.
+  대상은 `src/sections/*/*.css` + `src/components/*/*.css`이며
+  `src/App.css`(토큰 정의)와 `src/index.css`(리셋)는 제외한다.
+
+  ```bash
+  FILES=$(ls src/sections/*/*.css src/components/*/*.css)
+
+  # (1) 섹션/컴포넌트 CSS
+  grep -ohE '#[0-9a-fA-F]{3,8}\b' $FILES | wc -l          # hex
+  grep -ohE '\b(rgba?|hsla?)\(' $FILES | wc -l            # rgb() rgba() hsl() hsla()
+  grep -onwE '(white|black|red|blue|green|yellow|orange|purple|gray|grey|silver|navy|teal|olive|maroon|lime|aqua|fuchsia)' $FILES
+
+  # (2) Diagram JSX
+  grep -ohE '(fill|stroke)="#[0-9a-fA-F]{3,8}"' src/components/Diagram/*.jsx | wc -l
+  ```
+
+  색 키워드는 `-w`가 하이픈을 단어 경계로 보는 탓에 `white-space`가 걸린다.
+  건수를 세지 말고 출력을 눈으로 걸러야 한다.
+
   늘리지 말 것. 새 색을 쓰기 전에 기존 토큰에 같은 값이 있는지 먼저 찾는다
 - `rgba(79, 140, 255, *)`의 알파값이 11단계로 흩어져 있다.
   단계를 줄이는 것은 시각 변경을 동반하므로 별도 과제로 다룬다
