@@ -149,6 +149,11 @@
   --project-summary-color: #475569;
   --project-scrollbar:     rgba(15, 23, 42, 0.12);
 
+  /* ── Diagram ── */
+  /* 도면의 테두리·구분선. 그래픽 요소이므로 WCAG 1.4.11 3:1이 적용된다.
+     --bg-sunken(#f1f5fb) 위에 놓인다 */
+  --diagram-border: #7d8ea6;
+
   /* ── Section Backgrounds (alternating) ── */
   --bg-about:   #ffffff;
   --bg-career:  #f1f5fb;
@@ -272,6 +277,10 @@
   --project-dot-active:    #60a5fa;
   --project-summary-color: #dde4f5;
   --project-scrollbar:     rgba(255, 255, 255, 0.12);
+
+  /* ── Diagram ── */
+  /* Diagram.css의 [data-theme="dark"] .d-border에 있던 값을 그대로 옮겼다 */
+  --diagram-border: #334155;
 
   /* ── Section Backgrounds ── */
   --bg-about:   #0f172a;
