@@ -130,6 +130,11 @@
   /* 공용 태그 토큰과 값이 같았다. 갈라지지 않게 참조로 묶는다 */
   --career-tag-bg:            var(--tag-bg);
   --career-tag-color:         var(--tag-color);
+  /* 수상 배지 금색. 팔레트의 primary/accent 밖에 있는 유일한 색조이며
+     사용처는 .career-card-award-badge 한 곳뿐이다. 다른 곳에 쓰지 않는다.
+     라이트·다크 동일 값 — 원래 다크 오버라이드 없이 같은 리터럴을 쓰고 있었다 */
+  --award-badge-bg:           rgba(255, 215, 0, 0.08);
+  --award-badge-border:       rgba(255, 215, 0, 0.2);
 
   /* ── Project ── */
   --project-card-bg:       #ffffff;
@@ -251,6 +256,9 @@
   --career-desc-color:        #dde4f5;
   --career-tag-bg:            var(--tag-bg);
   --career-tag-color:         var(--tag-color);
+  /* 라이트와 같은 값. 금색은 양 테마에서 동일하게 쓴다 */
+  --award-badge-bg:           rgba(255, 215, 0, 0.08);
+  --award-badge-border:       rgba(255, 215, 0, 0.2);
 
   /* ── Project ── */
   --project-card-bg:       #162235;

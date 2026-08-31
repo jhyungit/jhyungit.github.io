@@ -221,10 +221,21 @@
 
 /* 수상 배지 */
 .career-card-award-badge {
+  /* 배치 */
   grid-area: award;
   align-self: start;
   justify-self: start;
   margin-top: 10px;
+  /* 시각 */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--award-badge-bg);
+  border: 1px solid var(--award-badge-border);
+  font-size: 12px;
+  white-space: nowrap;
 }
 
 .career-card-tag {
