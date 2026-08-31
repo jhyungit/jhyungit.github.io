@@ -63,6 +63,15 @@
    라이트의 리터럴 #cbd5e1은 --bg-sunken 위에서 미달이므로 토큰으로 덮는다 */
 .dgm .d-border { stroke: var(--diagram-border); }
 
+/* 연결선·화살촉·라벨. stroke 계열과 fill 계열을 합치지 않는다 —
+   합치면 fill이 곡선 path의 인라인 fill="none"을 이겨 내부가 칠해진다 */
+.dgm .d-line-flow   { stroke: var(--diagram-line-flow); }
+.dgm .d-line-p2p    { stroke: var(--diagram-line-p2p); }
+.dgm .d-line-signal { stroke: var(--diagram-line-signal); }
+.dgm .d-fill-flow   { fill: var(--diagram-line-flow); }
+.dgm .d-fill-p2p    { fill: var(--diagram-line-p2p); }
+.dgm .d-fill-signal { fill: var(--diagram-line-signal); }
+
 /* ============================================================
    다크모드 — SVG 내부 .d-* 클래스 재정의
    SVG는 리터럴 fill/stroke를 갖고 있으므로 라이트에서는 그대로 두고,
