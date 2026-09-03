@@ -55,7 +55,7 @@ export default function YorrMetrics() {
             배포 2회 — 1차 2026.07.30 · 2차 2026.08.05. 2차 배포에 1차 사용자 피드백(튜토리얼·툴팁, 센서 보정, 버튼 조작 지원)을 반영했다.
           </text>
           <text className="m-foot d-muted" x="20" y="198" fill="#94a3b8">
-            SSAFY 공통 프로젝트 1위 · 6인 팀 PM/팀장 · yorr.site
+            SSAFY 공통 프로젝트 우수상 · 반 1등 · 6인 팀 PM/팀장 · yorr.site
           </text>
         </svg>
       </div>

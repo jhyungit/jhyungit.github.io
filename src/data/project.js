@@ -53,7 +53,7 @@ const projectCategories = [
       { label: "GitHub", url: "https://github.com/team-yorr/yorr" },
     ],
     modal: {
-      badge: "SSAFY 공통 프로젝트 1위",
+      badge: "공통 프로젝트 우수상 · 반 1등",
       intro: [
         "앱 설치·회원가입 없이 브라우저 접속만으로 스마트폰을 게임 컨트롤러로 쓰는 실시간 파티게임",
         "SSAFY 공통 프로젝트 · 6인 팀 · PM/팀장 · AWS EC2 라이브 운영",
@@ -136,7 +136,7 @@ const projectCategories = [
         "실사용자 트래픽 아래 2회 배포·운영 — 최고 동시접속 80명, 누적 참여 635건 · 487판",
         "만족도 설문(n=17)에서 4점 이상 94.1% (5점 58.8% · 4점 35.3%)",
         "사용자 피드백을 백로그화해 2차 배포에 반영 — 튜토리얼·툴팁, 센서 보정·버튼 조작 지원",
-        "SSAFY 공통 프로젝트 1위",
+        "SSAFY 2학기 공통 프로젝트 우수상 (서울 4반 1등)",
       ],
       techStack: [
         "Java", "Spring Boot", "JPA", "WebSocket", "WebRTC", "coturn",
