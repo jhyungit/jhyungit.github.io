@@ -100,9 +100,10 @@
   --hero-scroll-color:       #475569;
 
   /* ── Skill ── */
-  /* 주력 pill. 14px 본문 크기라 AA 4.5:1이 필요하다.
-     흰 글자는 primary 위에서 3.22:1로 미달이므로 진한 글자를 쓴다 (4.55:1) */
-  --skill-pill-primary-bg:    var(--color-primary);
+  /* 강조 pill. 14px 본문 크기라 AA 4.5:1이 필요하다. 진한 글자를 쓰므로 배경이 밝을수록 대비가 오른다.
+     primary(#4f8cff)와 같은 색조(219°)에서 밝기만 +3% → 5.07:1 (primary 그대로면 4.55:1).
+     흰 글자는 이 파랑 위에서 미달(2.88:1)이라 쓸 수 없다 */
+  --skill-pill-primary-bg:    #69b4ff;
   --skill-pill-primary-color: var(--text-strong);
 
   /* ── About ── */
