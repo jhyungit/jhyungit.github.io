@@ -30,8 +30,8 @@ function App() {
       <HomeSection />
       <AboutSection />
       <CareerSection />
-      <SkillSection />
       <ProjectSection />
+      <SkillSection />
       <ContactSection />
       <QuickTop />
       <Footer />

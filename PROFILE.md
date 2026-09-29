@@ -153,6 +153,23 @@ GitHub 프로필 README (jhyungit/jhyungit)
   Redis · Vue 3 · Docker Compose · AWS EC2 · JWT · Flyway
 - Live: https://tripcrew.duckdns.org
 - Code: https://github.com/tripcrew/tripcrew
+- **운영 구성** (2026-09-30 추가) — 출처: TripCrew 레포 `docs/tripcrew-architecture-facts.md`
+  (`git blame` 기준 주 작성자. 운영 배포 파일은 `origin/feature/deploy-prod` 브랜치에만 있고
+  **EC2에 실제로 뜬 브랜치는 미확인**)
+  - 브라우저(Vue 3 SPA) → HTTPS → **Caddy** (Let's Encrypt, Vue 빌드 정적 서빙) — **본인**
+  - Caddy → Spring Boot 프록시 경로: `/api/*` `/ws` `/ws/*` `/uploads/*` `/oauth2/*` `/login/oauth2/*`
+  - Spring Boot 3.2.5 · Java 17 (Maven)
+    - STOMP 공동 편집 · 인메모리 SimpleBroker — **본인** (WebSocketConfig·usePresence.js blame 100%)
+    - Security · JWT · OAuth2 (SecurityConfig·OAuthCodeStore·V17) — **본인**
+    - AI 챗봇(Gemini)·경로 탐색(Naver Directions 5) — **팀원** (ChatService·NaverDirectionsService blame 100%)
+  - MySQL **8.4** + Flyway V1–V17 (V1 blame 본인 181/248줄)
+  - Redis **7** 사용처는 두 곳뿐
+    - OAuth 일회용 코드 (`oauth:code:{code}`, TTL 60초, `getAndDelete`) — **본인**
+    - 관광지 실시간 랭킹 ZSet — **팀원**
+    - Pub/Sub 사용처 없음 (SimpleBroker 교체는 주석상 계획일 뿐 미구현)
+  - 외부 API: Kakao·Naver 로그인 — **본인** / Gemini · Naver Directions — **팀원**
+  - Docker Compose 4컨테이너 구성·운영 배포 파일(prod compose·Caddyfile·Dockerfile.prod·배포 가이드) — **본인** (blame 100%)
+  - **CI/CD 없음.** 배포는 EC2에서 `docker compose ... up -d --build` 수동 실행 (배포 가이드 기준)
 
 ### YORR (2026.07–08, SSAFY 공통 프로젝트, 6인 팀, PM/팀장)
 - WebSocket 이벤트 스키마 **28종** 단독 정의

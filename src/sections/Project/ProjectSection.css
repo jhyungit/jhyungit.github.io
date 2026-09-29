@@ -119,6 +119,77 @@
 
 .project-card-top { display: flex; flex-direction: column; flex: 1 1 auto; }
 
+/* 썸네일 + LIVE 배지의 기준 상자 */
+.project-card-media {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* 새 색조를 만들지 않는다 — 기존 토큰만 쓴다 (CLAUDE.md 색 규칙) */
+.live-badge {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-default);
+  background: var(--bg-elevated);
+  color: var(--text-strong);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+}
+
+/* 제목 위 수상 줄. pill이 아니라 텍스트. 빈 줄도 같은 높이를 차지한다 */
+.award-badge {
+  position: static;
+  display: inline-flex;
+  /* 빈 inline-flex는 기준선이 아래 끝이라 줄이 3px 늘어난다. 위로 붙여 높이를 고정 */
+  vertical-align: top;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: calc(var(--font-size-sm) * var(--leading-base));
+  margin-bottom: calc(var(--space-1) * 1.5);
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: var(--leading-base);
+  color: var(--award-text);
+}
+
+.live-badge:hover {
+  background: var(--bg-elevated-hover);
+  border-color: var(--color-primary);
+}
+
+.live-badge:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--live-dot);
+  animation: live-pulse 1.8s infinite;
+}
+
+@keyframes live-pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--live-dot) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 7px color-mix(in srgb, var(--live-dot) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--live-dot) 0%, transparent); }
+}
+
 .project-card-image {
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -162,7 +233,7 @@
 .project-meta-chip {
   padding: 3px 10px;
   border-radius: var(--radius-full);
-  font-size: 11px;
+  font-size: 12px;
   /* 불투명 토큰을 쓴다. 반투명(--border-subtle)이면 .project-card:hover의
      배경이 칩을 통해 비쳐 호버 상태에서만 글자 대비가 무너진다 */
   background: var(--bg-sunken);
@@ -212,6 +283,11 @@
   font-size: 12px;
 }
 
+/* 카드 하단 태그만 한 단계 키운다. 모달 Tech Stack은 같은 클래스라 그대로 둔다 */
+.project-card-tags .project-tag-pill {
+  font-size: var(--font-size-sm);
+}
+
 /* ── Modal ── */
 .project-modal-backdrop {
   position: fixed;
@@ -228,9 +304,9 @@
 
 .project-modal {
   position: relative;
-  max-width: 880px;
+  max-width: 1040px;
   width: 100%;
-  height: clamp(480px, 75vh, 720px);
+  max-height: 90vh;
   border-radius: 24px;
   background: var(--project-modal-bg);
   border: 1px solid var(--project-modal-border);
@@ -278,10 +354,12 @@
   border-bottom: 1px solid var(--border-default);
 }
 
+/* 모달 높이가 내용에 맞춰 줄고 90vh에서 멈추므로 basis는 auto. 넘치면 본문만 스크롤 */
 .project-modal-body {
-  flex: 1 1 0;
+  flex: 1 1 auto;
   min-height: 0;
   overflow-y: auto;
+  font-size: var(--font-size-md);
   padding: 24px 40px 32px;
 }
 
@@ -353,6 +431,47 @@
   font-size: 12.5px;
   line-height: 1.4;
   color: var(--text-base);
+}
+
+/* 이미지 확대 버튼 — 호버 시 테두리와 돋보기 커서로 클릭 가능함을 알린다 */
+.hero-zoom-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: 18px;
+}
+
+.hero-zoom-btn:hover img {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.hero-zoom-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* 확대 보기 — 배경은 모달 백드롭을 재사용하고 그 위에 겹친다 */
+.hero-lightbox {
+  z-index: 10000;
+  cursor: zoom-out;
+}
+
+.hero-lightbox-figure {
+  margin: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
 }
 
 /* 모달 이미지 좌우 버튼 */
@@ -456,8 +575,14 @@
   padding-left: 18px;
   margin: 0;
   color: var(--text-base);
-  font-size: 14px;
+  font-size: var(--font-size-md);
   line-height: 1.5;
+}
+
+/* 첫 콜론 앞 머리말 (렌더러가 <strong>으로 감싼다) */
+.project-modal-list strong {
+  font-weight: 700;
+  color: var(--text-strong);
 }
 
 /* 모달 성과 정량 배지 */
@@ -575,9 +700,10 @@
    ============================================================ */
 
 /* ── 담당 경계 2단 ── */
+/* 내 담당이 전체 폭, 팀원 담당은 그 아래 작은 회색 박스 */
 .attribution {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-3);
 }
 
@@ -585,7 +711,16 @@
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
   padding: var(--space-4);
+}
+
+.attribution-team {
+  padding: var(--space-3) var(--space-4);
   background: var(--bg-sunken);
+}
+
+.attribution-team .project-modal-list {
+  font-size: var(--font-size-base);
+  color: var(--text-muted);
 }
 
 /* 내 담당은 primary, 팀원 담당은 중립. 색이 아니라 위계로 구분한다 */
@@ -646,7 +781,7 @@
 
 .decision-text {
   margin: 0;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-md);
   line-height: var(--leading-relaxed);
   color: var(--project-summary-color);
 }
@@ -703,7 +838,7 @@
 
 .incident-dl dd {
   margin: 0;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-md);
   line-height: var(--leading-base);
   color: var(--project-summary-color);
 }

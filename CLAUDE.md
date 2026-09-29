@@ -83,9 +83,14 @@ PROFILE.md는 그 사본이 5개로 늘어나는 것을 막기 위한 원본이�
 - 예외: 수상 배지 금색(`--award-badge-bg`/`--award-badge-border`).
   기존에 리터럴로 있던 것을 토큰화한 것이며 사용처는 배지 1곳뿐이다.
   다른 곳에 쓰지 않는다
+- 예외: 프로젝트 카드 수상 줄 글자색(`--award-text`, 같은 금색 계열)과
+  LIVE 점 초록(`--live-dot`). 2026-09-30 사용자 지시로 추가했다.
+  사용처는 각각 `.award-badge` · `.live-dot` 1곳뿐이다. 다른 곳에 쓰지 않는다
 - ⚠️ **라이트 `--color-primary`(#4f8cff)를 더 밝게 바꾸지 않는다.**
-  스킬 활성 탭이 이 위에 `--text-strong`을 얹어 **4.55:1**로 AA 기준(4.5:1)에
-  겨우 걸쳐 있다. 조금만 밝아져도 미달로 떨어진다.
+  이 파랑 위에 `--text-strong`을 얹으면 **4.55:1**로 AA 기준(4.5:1)에
+  겨우 걸친다. 조금만 밝아져도 미달로 떨어진다.
+  이 조합은 스킬 섹션 주력 pill(`--skill-pill-primary-*`)이 쓴다.
+  그 밖에도 이 파랑을 배경으로 쓰는 곳이 Header·Home·About·Project CSS에 있다.
   바꿔야 한다면 대비를 다시 계산하고 짝 글자색도 함께 조정한다
   (흰 글자는 이 파랑 위에서 3.22:1로 이미 미달이라 쓸 수 없다)
 - 색을 추가할 때는 **라이트(`:root`)와 다크(`[data-theme="dark"]`) 양쪽에**
@@ -126,7 +131,8 @@ PROFILE.md는 그 사본이 5개로 늘어나는 것을 막기 위한 원본이�
   (`transparent`·`currentColor`는 색상값으로 세지 않는다)
 - 실측 (2026-08-31 전수 조사):
   - 섹션/컴포넌트 CSS **29건** (hex 6 + rgba 23)
-  - `src/components/Diagram/` JSX의 SVG presentation attribute **58건**
+  - `src/components/Diagram/` JSX의 SVG presentation attribute **56건**
+    (2026-09-30 YORR 통신 구조 수정으로 58 → 56)
 
   세는 명령 (bash · 이 머신은 Git Bash). 숫자만 남기면 재현이 안 되므로 함께 둔다.
   대상은 `src/sections/*/*.css` + `src/components/*/*.css`이며

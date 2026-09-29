@@ -7,155 +7,75 @@
 
 .skill-title-block {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: var(--space-8);
 }
 
-/* ── 탭 버튼 ── */
-.skill-tab-row {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.skill-tab-btn {
-  min-width: 160px;
-  padding: 12px 24px;
-  border-radius: 999px;
-  border: 1.5px solid var(--border-default);
-  outline: none;
-  cursor: pointer;
-  background-color: var(--skill-tab-bg);
-  color: var(--skill-tab-color);
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  transition: all 0.2s ease;
-}
-
-.skill-tab-btn:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-.skill-tab-btn.is-active {
-  background: var(--skill-tab-active-bg);
-  color: var(--skill-tab-active-color);
-  border-color: transparent;
-  box-shadow: var(--shadow-md);
-}
-
-/* ── 스킬 목록 ── */
-.skill-list-wrapper {
-  margin-bottom: var(--space-7);
-  opacity: 1;
-  transition: opacity 0.18s ease;
-}
-
-.skill-list-wrapper.is-transitioning {
-  opacity: 0;
-}
-
-.skill-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  /* 블록이 2행이라 세로 간격을 가로보다 넉넉히 줘야 행이 갈린다 */
-  column-gap: var(--space-5);
-  row-gap: var(--space-6);
-}
-
-/* 기술명 위, note 아래. 좌측 보더가 각 항목의 시작점을 표시한다 */
-.skill-row {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-  padding: var(--space-2) var(--space-3);
-  border-left: 2px solid var(--border-default);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.skill-row:hover {
-  background-color: var(--skill-card-bg-hover);
-  border-left-color: var(--color-primary);
-}
-
-.skill-row-name {
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  color: var(--text-strong);
-}
-
-.skill-row-note {
-  font-size: var(--font-size-sm);
+.skill-intro {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-md);
   line-height: var(--leading-base);
   color: var(--text-base);
 }
 
-/* ── 서브그룹 ── */
-.skill-subgroup {
-  margin-top: 24px;
-  opacity: 1;
-  transition: opacity 0.18s ease;
+/* ── 카테고리 행: 왼쪽 라벨, 오른쪽 pill ── */
+.skill-group {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  column-gap: var(--space-6);
+  align-items: start;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--border-default);
 }
 
-.skill-subgroup.is-transitioning { opacity: 0; }
+.skill-group:first-of-type {
+  border-top: 1px solid var(--border-default);
+}
 
-.skill-subgroup-header {
+.skill-group-label {
+  margin: 0;
+  /* pill 첫 줄과 수직 정렬 */
+  padding-top: var(--space-1);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.skill-pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: var(--space-2);
 }
 
-.skill-subgroup-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-base);
+.skill-pill {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-default);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: var(--leading-base);
+  color: var(--text-strong);
   white-space: nowrap;
 }
 
-.skill-subgroup-line {
-  flex: 1;
-  height: 1px;
-  background: var(--border-default);
-}
-
-/* 카테고리 설명 */
-.skill-description {
-  text-align: center;
-  margin-top: 8px;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text-base);
-  opacity: 1;
-  transition: opacity 0.2s ease;
-}
-
-.skill-description.is-transitioning {
-  opacity: 0;
+.skill-pill.is-primary {
+  border-color: transparent;
+  background: var(--skill-pill-primary-bg);
+  color: var(--skill-pill-primary-color);
+  font-weight: 700;
 }
 
 /* ── 반응형 ── */
 @media (max-width: 960px) {
-  .title          { font-size: 24px; }
-  .skill-tab-row  { gap: 10px; }
+  .title       { font-size: 24px; }
+  .skill-intro { font-size: var(--font-size-base); }
+}
 
-  .skill-tab-btn {
-    min-width: 130px;
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-
-  .skill-list {
+@media (max-width: 640px) {
+  .skill-group {
     grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-3);
   }
-
-  .skill-description  { font-size: 14px; }
 }

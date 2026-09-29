@@ -18,8 +18,8 @@ const aboutPhotos = {
 };
 
 const aboutHeadingLines = [
-  "저는 문제가 막히면",
-  "실행계획까지 파고듭니다.",
+  "저는 문제 상황에서",
+  "Explain 실행계획까지 파고듭니다.",
 ];
 
 const aboutIdentity =
@@ -33,8 +33,7 @@ const aboutStats = [
 const aboutTexts = [
   "관리자 회원 조회 API를 서버 사이드 페이징과 복합 인덱스로 개선해 30만 건 기준 응답을 0.473초에서 0.018초로 단축했습니다. EXPLAIN으로 type이 ALL에서 ref로 바뀌고 filesort가 사라진 것을 확인했고, 개선 이후 남은 OFFSET 구간의 저하까지 실측해 다음 해법을 수치로 확인했습니다.",
   "6인 팀 PM/팀장으로 실시간 통신 규격을 단독 설계해 게임 3종이 같은 계약 위에서 동작하도록 만들고, 최고 동시접속 80명 트래픽 아래에서 2회 배포·운영했습니다.",
-  "Python 기반 데이터 분석에서 출발해 백엔드로 왔습니다.",
-  "2021년부터 사회인 야구를 이어오고 있습니다. 팀업 캠퍼스 일요 루키 리그에서 우승했고 MVP로 선정됐습니다.",
+  "Python 기반 데이터 분석에서 출발해 백엔드로 왔습니다."
 ];
 
 const aboutKeywordsTitle = "KEYWORDS";

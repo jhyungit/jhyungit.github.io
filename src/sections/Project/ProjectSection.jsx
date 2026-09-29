@@ -11,8 +11,21 @@ import { projectCategories } from "../../data/project";
 import gitIcon from "../../assets/foot-icons/icon_git.svg";
 import { useInView } from '../../hooks/useInView';
 import YorrArchitecture from "../../components/Diagram/YorrArchitecture";
+import TripcrewArchitecture from "../../components/Diagram/TripcrewArchitecture";
 import YorrMetrics from "../../components/Diagram/YorrMetrics";
 import "./ProjectSection.css";
+
+// "머리말: 내용" 형태면 첫 콜론 앞을 굵게. 콜론이 없으면 그대로 둔다
+const withLead = (line) => {
+  const i = line.indexOf(":");
+  if (i < 0) return line;
+  return (
+    <>
+      <strong>{line.slice(0, i)}</strong>
+      {line.slice(i)}
+    </>
+  );
+};
 
 const ProjectSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -21,6 +34,11 @@ const ProjectSection = () => {
   const projectModalRef = useRef(null);
   const projectCloseBtnRef = useRef(null);
   const lastFocusedRef = useRef(null);
+
+  // 모달 이미지 확대 — 닫으면 확대를 연 이미지 버튼으로 포커스를 돌려준다
+  const [zoomedImage, setZoomedImage] = useState(null);
+  const zoomTriggerRef = useRef(null);
+  const zoomCloseBtnRef = useRef(null);
 
   // ======================
   // Project 카드 캐러셀
@@ -142,14 +160,31 @@ const ProjectSection = () => {
     }
   }, [isModalOpen]);
 
+  const openZoom = (e, image) => {
+    zoomTriggerRef.current = e.currentTarget;
+    setZoomedImage(image);
+  };
+
+  const closeZoom = () => {
+    setZoomedImage(null);
+    setTimeout(() => zoomTriggerRef.current?.focus(), 0);
+  };
+
+  useEffect(() => {
+    if (zoomedImage) zoomCloseBtnRef.current?.focus();
+  }, [zoomedImage]);
+
+  // 확대 중의 Esc는 확대만 닫는다. 프로젝트 모달까지 닫지 않는다
   useEffect(() => {
     if (!isModalOpen) return;
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') handleCloseModal();
+      if (e.key !== 'Escape') return;
+      if (zoomedImage) closeZoom();
+      else handleCloseModal();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isModalOpen]);
+  }, [isModalOpen, zoomedImage]);
 
   // ======================
   // Modal hero slides
@@ -173,6 +208,17 @@ const ProjectSection = () => {
 
   const isSingleImage =
     heroSlides.length === 1 && heroSlides[0].length === 1;
+
+  const zoomableImage = (src, alt, caption) => (
+    <button
+      type="button"
+      className="hero-zoom-btn"
+      aria-label={`${alt} 크게 보기`}
+      onClick={(e) => openZoom(e, { src, alt, caption })}
+    >
+      <img src={src} alt={alt} loading="lazy" />
+    </button>
+  );
 
   return (
     <section ref={sectionRef} id="project" className={`section fade-up${isVisible ? ' is-visible' : ''}`}>
@@ -221,14 +267,41 @@ const ProjectSection = () => {
                   }}
                 >
                   <div className="project-card-top">
-                    <img
-                      src={project.image}
-                      className="project-card-image"
-                      alt={project.title}
-                      loading="lazy"
-                    />
+                    <div className="project-card-media">
+                      <img
+                        src={project.image}
+                        className="project-card-image"
+                        alt={project.title}
+                        loading="lazy"
+                      />
+                      {/* 카드 전체가 모달 버튼이라 클릭·키 입력이 카드로 번지지 않게 막는다.
+                          Enter가 카드의 onKeyDown까지 올라가면 링크 대신 모달이 열린다 */}
+                      {project.live && (
+                        <a
+                          className="live-badge"
+                          href={project.live.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          onKeyDown={(e) => e.stopPropagation()}
+                          aria-label={`${project.title} 라이브 사이트 새 창으로 열기`}
+                        >
+                          <span className="live-dot" aria-hidden="true" />
+                          LIVE · 접속하기
+                        </a>
+                      )}
+                    </div>
 
                     <div className="project-card-body">
+                      {/* award가 없어도 같은 높이의 빈 줄을 둬서 카드 간 제목 높이를 맞춘다 */}
+                      <span className="award-badge">
+                        {project.award && (
+                          <>
+                            <span aria-hidden="true">🏆</span>
+                            {project.award}
+                          </>
+                        )}
+                      </span>
                       <h3 className="project-card-subtitle">
                         {project.subtitle}
                       </h3>
@@ -343,11 +416,11 @@ const ProjectSection = () => {
                 <div className="project-modal-hero">
                   {isSingleImage ? (
                     <div className="hero-single">
-                      <img
-                        src={heroSlides[0][0]}
-                        alt={`${selectedProject.title} 대표 이미지`}
-                        loading="lazy"
-                      />
+                      {zoomableImage(
+                        heroSlides[0][0],
+                        `${selectedProject.title} 대표 이미지`,
+                        selectedProject?.modal?.caption?.[0]?.[0]
+                      )}
                       {selectedProject?.modal?.caption?.[0]?.[0] && (
                         <p className="hero-caption">
                           {selectedProject.modal.caption[0][0]}
@@ -404,13 +477,11 @@ const ProjectSection = () => {
                               key={src + idx}
                               className="hero-image-wrapper"
                             >
-                              <img
-                                src={src}
-                                alt={`${selectedProject.title} 화면 ${
-                                  idx + 1
-                                }`}
-                                loading="lazy"
-                              />
+                              {zoomableImage(
+                                src,
+                                `${selectedProject.title} 화면 ${idx + 1}`,
+                                captionText
+                              )}
                               {captionText && (
                                 <p className="hero-caption">{captionText}</p>
                               )}
@@ -465,7 +536,7 @@ const ProjectSection = () => {
                   <div className="project-modal-section-title">역할</div>
                   <ul className="project-modal-list">
                     {selectedProject.modal.roles.map((line, idx) => (
-                      <li key={idx}>{line}</li>
+                      <li key={idx}>{withLead(line)}</li>
                     ))}
                   </ul>
                 </div>
@@ -480,7 +551,7 @@ const ProjectSection = () => {
                       <h4 className="attribution-head">내가 한 일</h4>
                       <ul className="project-modal-list">
                         {selectedProject.modal.myWork.map((line, idx) => (
-                          <li key={idx}>{line}</li>
+                          <li key={idx}>{withLead(line)}</li>
                         ))}
                       </ul>
                     </div>
@@ -500,6 +571,13 @@ const ProjectSection = () => {
                 <div className="project-modal-section">
                   <div className="project-modal-section-title">통신 구조</div>
                   <YorrArchitecture />
+                </div>
+              )}
+
+              {selectedProject?.modal?.diagram === "tripcrew-architecture" && (
+                <div className="project-modal-section">
+                  <div className="project-modal-section-title">운영 구성</div>
+                  <TripcrewArchitecture />
                 </div>
               )}
 
@@ -603,6 +681,35 @@ const ProjectSection = () => {
               )}
             </div>
           </div>
+        </div>,
+        document.body
+      )}
+
+      {/* 이미지 확대 — 프로젝트 모달 위에 겹친다. 포커스는 닫기 버튼 하나에 가둔다 */}
+      {zoomedImage && ReactDOM.createPortal(
+        <div
+          className="project-modal-backdrop hero-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="이미지 크게 보기"
+          onClick={closeZoom}
+          onKeyDown={(e) => { if (e.key === 'Tab') e.preventDefault(); }}
+        >
+          <button
+            ref={zoomCloseBtnRef}
+            className="project-modal-close"
+            type="button"
+            aria-label="닫기"
+            onClick={closeZoom}
+          >
+            ×
+          </button>
+          <figure className="hero-lightbox-figure">
+            <img src={zoomedImage.src} alt={zoomedImage.alt} className="hero-lightbox-img" />
+            {zoomedImage.caption && (
+              <figcaption className="hero-caption">{zoomedImage.caption}</figcaption>
+            )}
+          </figure>
         </div>,
         document.body
       )}

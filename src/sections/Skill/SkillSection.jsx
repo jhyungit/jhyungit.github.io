@@ -1,60 +1,12 @@
 // src/sections/Skill/SkillSection.jsx
-import { useState } from "react";
-import { skillCategories } from "../../data/skills";
+import { skillIntro, skillCategories } from "../../data/skills";
 import { useInView } from '../../hooks/useInView';
 import "./SkillSection.css";
 
-// subGroup 키 → 화면 라벨. 매핑이 없으면 키를 그대로 쓴다
-const SUBGROUP_LABELS = { frontend: "프론트엔드" };
-
-function SkillList({ skills, isTransitioning }) {
-  return (
-    <div className={`skill-list-wrapper${isTransitioning ? " is-transitioning" : ""}`}>
-      <ul className="skill-list">
-        {skills.map((skill) => (
-          <li key={skill.id} className="skill-row">
-            <span className="skill-row-name">{skill.name}</span>
-            <span className="skill-row-note">{skill.note}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-// subGroup 필드 유무만 보고 가른다. 카테고리 id에 결합하지 않는다
-function splitBySubGroup(skills) {
-  const main = [];
-  const groups = new Map();
-  for (const skill of skills) {
-    if (!skill.subGroup) {
-      main.push(skill);
-      continue;
-    }
-    if (!groups.has(skill.subGroup)) groups.set(skill.subGroup, []);
-    groups.get(skill.subGroup).push(skill);
-  }
-  return { main, groups: [...groups] };
-}
-
+// 왼쪽 카테고리명, 오른쪽 기술 pill이 줄바꿈되며 나열되는 행 구조.
+// note(프로젝트별 설명)는 데이터에만 남기고 화면에는 이름만 보인다
 const SkillSection = () => {
-  const [activeCategoryId, setActiveCategoryId] = useState("backend");
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const [ref, isVisible] = useInView();
-
-  const activeCategory =
-    skillCategories.find((cat) => cat.id === activeCategoryId) || skillCategories[0];
-
-  const { main, groups } = splitBySubGroup(activeCategory.skills);
-
-  const handleTabClick = (id) => {
-    if (id === activeCategoryId) return;
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveCategoryId(id);
-      setIsTransitioning(false);
-    }, 180);
-  };
 
   return (
     <section ref={ref} id="skill" className={`section fade-up${isVisible ? ' is-visible' : ''}`}>
@@ -62,37 +14,26 @@ const SkillSection = () => {
         <div className="skill-title-block">
           <h2 className="title">Core Skills</h2>
           <div className="title-underline" />
+          <p className="skill-intro">{skillIntro}</p>
         </div>
 
-        <div className="skill-tab-row">
-          {skillCategories.map((category) => (
-            <button
-              key={category.id}
-              type="button"
-              className={"skill-tab-btn" + (category.id === activeCategoryId ? " is-active" : "")}
-              aria-pressed={category.id === activeCategoryId}
-              onClick={() => handleTabClick(category.id)}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-
-        <SkillList skills={main} isTransitioning={isTransitioning} />
-
-        {groups.map(([key, skills]) => (
-          <div key={key} className={`skill-subgroup${isTransitioning ? " is-transitioning" : ""}`}>
-            <div className="skill-subgroup-header">
-              <span className="skill-subgroup-label">{SUBGROUP_LABELS[key] || key}</span>
-              <div className="skill-subgroup-line" />
-            </div>
-            <SkillList skills={skills} isTransitioning={isTransitioning} />
+        {skillCategories.map((category) => (
+          <div key={category.id} className="skill-group">
+            <h3 className="skill-group-label">{category.label}</h3>
+            <ul className="skill-pills">
+              {category.skills.map((skill) => (
+                <li
+                  key={skill.id}
+                  className={`skill-pill${skill.primary ? " is-primary" : ""}`}
+                >
+                  {skill.name}
+                  {/* 채움/테두리 차이는 눈으로만 보이므로 스크린리더에는 글로 알린다 */}
+                  {skill.primary && <span className="sr-only"> (주력)</span>}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
-
-        <p className={`skill-description${isTransitioning ? " is-transitioning" : ""}`}>
-          {activeCategory.description}
-        </p>
       </div>
     </section>
   );

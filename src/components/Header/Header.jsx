@@ -58,8 +58,8 @@ function Header({ theme, toggleTheme }) {
             <a href="#home" onClick={handleNavClick}>홈</a>
             <a href="#about" onClick={handleNavClick}>소개</a>
             <a href="#career" onClick={handleNavClick}>경력</a>
-            <a href="#skill" onClick={handleNavClick}>스킬</a>
             <a href="#project" onClick={handleNavClick}>프로젝트</a>
+            <a href="#skill" onClick={handleNavClick}>스킬</a>
             <a href="#contact" onClick={handleNavClick}>연락</a>
           </nav>
 
@@ -106,8 +106,8 @@ function Header({ theme, toggleTheme }) {
               <a href="#home" onClick={handleNavClick}>홈</a>
               <a href="#about" onClick={handleNavClick}>소개</a>
               <a href="#career" onClick={handleNavClick}>경력</a>
-              <a href="#skill" onClick={handleNavClick}>스킬</a>
               <a href="#project" onClick={handleNavClick}>프로젝트</a>
+              <a href="#skill" onClick={handleNavClick}>스킬</a>
               <a href="#contact" onClick={handleNavClick}>연락</a>
             </nav>
           )}
