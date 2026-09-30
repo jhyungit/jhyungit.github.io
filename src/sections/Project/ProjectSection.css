@@ -660,12 +660,13 @@
   .project-section { padding: 70px 16px 80px; }
   .title           { font-size: 24px; }
 
+  /* 화살표 칸이 카드 폭을 잠식하지 않게 좁힌다 (375px에서 카드 163px → 수상 줄·chip이 넘쳤다) */
   .project-carousel {
-    grid-template-columns: 48px 1fr 48px;
-    column-gap: 14px;
+    grid-template-columns: 36px 1fr 36px;
+    column-gap: 8px;
   }
 
-  .project-carousel-btn { width: 38px; height: 38px; font-size: 22px; }
+  .project-carousel-btn { width: 34px; height: 34px; font-size: 20px; }
   .project-track { gap: 16px; }
   .project-card  { flex: 0 0 100%; min-height: 0; }
 

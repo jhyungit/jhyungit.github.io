@@ -43,13 +43,13 @@ const projectCategories = [
     ],
     tags: ["Spring Boot", "WebSocket", "WebRTC"],
     live: { url: "https://yorr.site" },
-    award: "SSAFY 우수상",
+    award: "SSAFY 우수상 (1위)",
     githubUrls: [
       { label: "Live 데모", url: "https://yorr.site" },
       { label: "GitHub", url: "https://github.com/team-yorr/yorr" },
     ],
     modal: {
-      badge: "공통 프로젝트 우수상 · 반 1등",
+      badge: "SSAFY 2학기 공통 PJT 우수상 (1위)",
       intro: [
         "스마트폰을 게임 컨트롤러로 쓰는 브라우저 기반 실시간 파티게임",
         "SSAFY 공통 프로젝트 · 6인 팀 · PM/팀장",
@@ -127,7 +127,7 @@ const projectCategories = [
         "최고 동시접속 80명, 누적 참여 635건 · 플레이 487판",
         "만족도 설문(n=17) 4점 이상 94.1% (5점 58.8% · 4점 35.3%)",
         "1차 배포 피드백을 백로그로 정리해 2차 배포에 반영: 튜토리얼·툴팁, 센서 보정, 버튼 조작 지원",
-        "SSAFY 2학기 공통 프로젝트 우수상 (서울 4반 1등)",
+        "SSAFY 2학기 공통 PJT 우수상 (1위 · 2026.08)",
       ],
       techStack: [
         "Java", "Spring Boot", "JPA", "WebSocket", "WebRTC", "coturn",
@@ -152,13 +152,13 @@ const projectCategories = [
     ],
     tags: ["Spring Boot", "MySQL", "Redis"],
     live: { url: "https://tripcrew.duckdns.org" },
-    award: "SSAFY 우수상",
+    award: "SSAFY 우수상 (2위)",
     githubUrls: [
       { label: "Live 데모", url: "https://tripcrew.duckdns.org" },
       { label: "GitHub", url: "https://github.com/tripcrew/tripcrew" },
     ],
     modal: {
-      badge: "관통 프로젝트 우수상 · 반 2등",
+      badge: "SSAFY 1학기 최종 PJT 우수상 (2위)",
       intro: [
         "여행 일정을 여러 사용자가 실시간으로 함께 편집하는 협업 플랫폼",
         "SSAFY 관통 프로젝트 · 2인 팀 · 팀장, 백엔드 담당",
@@ -203,12 +203,12 @@ const projectCategories = [
         "회원 조회 30만 건 기준 0.473초 → 0.018초 (약 26배)",
         "한계: OFFSET 10만 이후 페이지는 인덱스 적용 후에도 0.244초. 대용량 페이징은 커서 방식이 필요하다는 것을 실측으로 확인 (미적용)",
         "AWS EC2 + Docker Compose(MySQL·Redis·Backend·Caddy) 배포, Caddy로 HTTPS 적용",
-        "SSAFY 1학기 관통 프로젝트 우수상 (서울 11반 2등)",
+        "SSAFY 1학기 최종 PJT 우수상 (2위 · 2026.06)",
       ],
       resultBadges: [
         { icon: "👥", label: "2인 팀" },
         { icon: "⚡", label: "응답 26배 개선" },
-        { icon: "🏆", label: "우수상 · 반 2등" },
+        { icon: "🏆", label: "SSAFY 우수상" },
       ],
       techStack: ["Java", "Spring Boot", "MyBatis", "MySQL", "Redis", "Vue 3", "JWT", "STOMP", "Flyway", "Docker", "AWS EC2"],
       heroImages: [tripcrewHero],
@@ -289,7 +289,7 @@ const projectCategories = [
       "고객·메뉴 데이터 5만 건 기반 메뉴 추천",
     ],
     tags: ["Python", "sklearn", "Pandas"],
-    award: "ASAC 우수상",
+    award: "ASAC 우수상 (1위)",
     githubUrls: [
       { label: "CB 모델 구현", url: "https://github.com/jhyungit/Final_project" },
       { label: "관련 기사", url: "https://www.donga.com/news/It/article/all/20230503/119128322/1" },

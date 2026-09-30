@@ -221,7 +221,7 @@ const ProjectSection = () => {
   );
 
   return (
-    <section ref={sectionRef} id="project" className={`section fade-up${isVisible ? ' is-visible' : ''}`}>
+    <section ref={sectionRef} id="project" className={`section project-section fade-up${isVisible ? ' is-visible' : ''}`}>
       <div className="project-inner">
         <header className="project-header">
           <h2 className="title">Projects</h2>
