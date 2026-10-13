@@ -119,7 +119,7 @@ GitHub 프로필 README (jhyungit/jhyungit)
 | 항목 | 값 |
 |---|---|
 | 이름 | 이정현 (Jeonghyun Lee) |
-| 직군 표기 | **Backend Developer** (단일 표기. "Fullstack", "Data-driven" 병기 금지) |
+| 직함 표기 | **Backend · Data Developer** (직함은 'Backend · Data Developer'로 통일. Backend를 앞에 둔다. Fullstack 등 다른 수식어는 금지) |
 | 한 줄 소개 | Spring Boot 기반 API 서버를 설계하고, 쿼리·인덱스로 응답 속도를 개선하는 백엔드 개발자입니다. |
 | 이메일 | jh021199@gmail.com |
 | GitHub | https://github.com/jhyungit |

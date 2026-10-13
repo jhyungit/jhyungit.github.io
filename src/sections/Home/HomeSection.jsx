@@ -19,7 +19,7 @@ function HomeSection() {
       <main className="hero-main">
         <div className="hero-greeting">
           <p className="hero-hi">안녕하세요 👋</p>
-          <p className="hero-role-label">Backend Developer</p>
+          <p className="hero-role-label">Backend · Data Developer</p>
           <h1 className="hero-headline">
             <span className="highlight-name">이정현</span>입니다
           </h1>
