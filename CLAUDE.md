@@ -35,6 +35,15 @@ PROFILE.md  (원본)
 docs/resume.html  →  docs/portfolio.html  →  src/data/  →  GitHub README
 ```
 
+**공개 PDF는 별도 소스다 (2026-11-24부터).** 사이트에 걸리는 `public/resume.pdf`와
+`public/portfolio.pdf`는 둘 다 `docs/resume-public.html`(5쪽)을 렌더링한 같은 파일이다.
+제출 이력서에서 회사명이 든 두 문장만 뺀 판이며 **무신사를 싣는다**
+(냐암냐암은 「그 외 프로젝트」 한 줄). 아래 "이력서에 무신사 없음" 규칙은
+제출용 `docs/resume.html`에만 해당한다.
+
+`docs/resume.html`·`docs/portfolio.html`은 **예전 작업 폴더에 있다.**
+이 폴더의 `docs/`에 없다고 아래 규칙을 지우지 않는다.
+
 **단, 두 PDF의 역할이 다르다.** `docs/resume.html`은 3페이지 백엔드 요약이라
 프로젝트를 선별해 싣고(YORR · TripCrew · yorr-arcade · IBK · 달리셔스),
 `docs/portfolio.html`이 전체 근거를 싣는다.
@@ -58,7 +67,7 @@ PROFILE.md는 그 사본이 5개로 늘어나는 것을 막기 위한 원본이�
 - **형용사로 자리를 채우지 않는다.** "성실한", "열정적인", "Fast learner"는
   반증 불가능하므로 정보가 0이다. 수치나 구체적 행위로 대체한다
 - **자기평가 척도(별점 등)를 만들지 않는다.** 검증 불가능하다
-- **PDF 원본(`docs/resume.html`, `docs/portfolio.html`)을 임의로 수정하지
+- **PDF 원본(`docs/resume.html`, `docs/portfolio.html`, `docs/resume-public.html`)을 임의로 수정하지
   않는다.** 사실 원본 계층에 속한다. 변경은 사용자 지시로만
 - **PROFILE.md §6 "미확인" 목록의 내용은 쓰지 않는다.** 확인 전까지 금지
 
@@ -86,6 +95,10 @@ PROFILE.md는 그 사본이 5개로 늘어나는 것을 막기 위한 원본이�
 - 예외: 프로젝트 카드 수상 줄 글자색(`--award-text`, 같은 금색 계열)과
   LIVE 점 초록(`--live-dot`). 2026-09-30 사용자 지시로 추가했다.
   사용처는 각각 `.award-badge` · `.live-dot` 1곳뿐이다. 다른 곳에 쓰지 않는다
+- ⚠️ **위 예외 토큰들은 리뉴얼(`docs/handoff/REDESIGN_BRIEF.md`)에서 사용처가 사라진다.**
+  수상 배지는 일반 배지로 바뀌고(금색 없음), LIVE 표시와 스킬 강조 pill도 없어진다.
+  Phase 2에서 사용처를 지울 때 `--award-badge-bg`·`--award-badge-border`·`--award-text`·
+  `--live-dot`·`--skill-pill-primary-bg` 토큰과 이 예외 설명을 **함께 지운다** (2026-11-24 결정)
 - ⚠️ **라이트 `--color-primary`(#4f8cff)를 바꿀 때는 그 위에 얹힌 글자색부터 확인한다.**
   대비가 움직이는 방향이 글자색에 따라 반대다.
   - **진한 글자**(`--text-strong`)를 얹으면 파랑이 **밝을수록 대비가 오른다** (#4f8cff에서 4.55:1)
@@ -220,6 +233,8 @@ npm run lint     # ESLint
 ## 참고 문서
 
 - `PROFILE.md` — **사실 원본. 콘텐츠 작업 전 필독**
-- `docs/resume.html` — 이력서 PDF 소스 (git 미추적)
-- `docs/portfolio.html` — 포트폴리오 PDF 소스 (git 미추적)
+- `docs/resume-public.html` — **공개 PDF 소스** (`public/resume.pdf`·`public/portfolio.pdf`, 5쪽, git 미추적)
+- `docs/resume.html` — 제출용 이력서 PDF 소스 (git 미추적, 예전 작업 폴더)
+- `docs/portfolio.html` — 이전 포트폴리오 PDF 소스 (git 미추적, 예전 작업 폴더)
+- `docs/handoff/REDESIGN_BRIEF.md` — 리뉴얼 작업 지시서 (2026-11, git 미추적). 끝의 「추가 결정」이 우선
 - `docs/redesign-proposal.md` — 재설계 진단·제안 (2026-08, git 미추적)
