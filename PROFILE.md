@@ -225,6 +225,8 @@ GitHub 프로필 README (jhyungit/jhyungit)
     - 관광지 실시간 랭킹 ZSet — **팀원**
     - Pub/Sub 사용처 없음 (SimpleBroker 교체는 주석상 계획일 뿐 미구현)
   - 외부 API: Kakao·Naver 로그인 — **본인** / Gemini · Naver Directions — **팀원**
+  - **관광지 조회 최적화 — 팀원** (2026-11-24 본인). 관리자 회원 조회 최적화(26배, 본인)와 별개다
+  - 사이트 「팀원이 한 일」 표기: AI 챗봇(Gemini) 연동 · 경로 탐색(Naver Directions) · 관광지 랭킹 ZSet · 관광지 조회 최적화 (2026-11-24)
   - Docker Compose 4컨테이너 구성·운영 배포 파일(prod compose·Caddyfile·Dockerfile.prod·배포 가이드) — **본인** (blame 100%)
   - **CI/CD 없음.** 배포는 EC2에서 `docker compose ... up -d --build` 수동 실행 (배포 가이드 기준)
 

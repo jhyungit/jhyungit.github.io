@@ -19,7 +19,8 @@ const contact = [
   { id: "email", label: "Email", value: profile.email, href: mailto },
   { id: "github", label: "GitHub", value: profile.githubLabel, href: profile.github },
   { id: "resume", label: "이력서 PDF", value: null, href: profile.resumeUrl },
-  { id: "location", label: "Location", value: profile.location, href: null },
+  // 라벨 없이 값만 둔다 (2026-11-24 답)
+  { id: "location", label: null, value: profile.location, href: null },
 ];
 
 // 푸터 링크는 GitHub·Email만 둔다 (Instagram·Wanted 삭제)

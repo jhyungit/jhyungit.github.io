@@ -119,7 +119,7 @@ const tripcrew = {
     // 그 밖의 문제 — 기존 「관리자 회원 조회 0.473초 → 0.018초」 블록은 문제 해결 기록과 겹쳐 두지 않는다 (§6.9)
     incidents: [],
 
-    // 담당 경계 — project.js에는 TripCrew 팀원 목록이 없다 (보고 참조)
+    // 담당 경계 — 팀원 목록은 2026-11-24 사용자 답 (PROFILE.md TripCrew 운영 구성)
     boundary: {
       mine: [
         "관리자 회원 조회 API: 서버 사이드 페이징 전환, (role, created_at) 복합 인덱스 설계",
@@ -128,7 +128,12 @@ const tripcrew = {
         "STOMP 기반 실시간 공동 편집 (인메모리 SimpleBroker, 단일 인스턴스)",
         "LLM 출력 검증: Gemini 챗봇 답변에서 장소명을 추출해 관광지 DB와 이름(길이 60% 기준)·지역으로 대조. 검증된 장소만 찜·일정 추가 카드로 노출하는 후처리 계층 단독 구현 (LLM 연동은 팀원 담당)",
       ],
-      team: [],
+      team: [
+        "AI 챗봇(Gemini) 연동",
+        "경로 탐색(Naver Directions)",
+        "관광지 랭킹 ZSet",
+        "관광지 조회 최적화",
+      ],
     },
 
     results: [
