@@ -207,7 +207,7 @@ export default function Career() {
 
             {/* 경력 */}
             <section className="career-group">
-              <h3 className="career-group-title">경력</h3>
+              <h3 className="career-group-title">인턴 · 기업 연계 프로젝트</h3>
               <div className="career-group-list">
                 {experienceList.map((item, idx) => (
                   <CareerCard

@@ -27,7 +27,7 @@ const aboutIdentity =
 
 const aboutStats = [
   { value: "4", label: "Awards" },
-  { value: "3", label: "Certs" },
+  { value: "4", label: "Certs" },
 ];
 
 const aboutTexts = [
@@ -39,9 +39,9 @@ const aboutTexts = [
 const aboutKeywordsTitle = "KEYWORDS";
 
 const aboutKeywords = [
-  { tag: "Stability-first", desc: "SSAFY 15기 반장으로 팀 일정 및 소통 주도" },
-  { tag: "Ownership", desc: "IBK 인턴 과제 팀장 · 우수팀 & 우수인턴 수상" },
-  { tag: "Teamwork", desc: "달리셔스 기업 연계 프로젝트 우수상 (6팀 중 1위)" },
+  { tag: "Stability-first", desc: "SSAFY 15기 1학기 반장 · 학습 일정 관리, 알고리즘 스터디 운영" },
+  { tag: "Ownership", desc: "IBK기업은행 청년인턴 · 우수인턴 선정" },
+  { tag: "Teamwork", desc: "달리셔스 기업 연계 프로젝트 우수상 (6팀 중 1등)" },
 ];
 
 export {

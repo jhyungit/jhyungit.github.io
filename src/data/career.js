@@ -10,12 +10,12 @@ import deliciousLogo from "../assets/career-photo/delicious-logo.png";
 
 const educationList = [
   {
-    period: "2026.01 ~ 현재",
+    period: "2026.01 입과 · 1,725h 과정",
     tag: "부트캠프",
     title: "SSAFY 15기 전공 Java반",
-    badge: "반장",
+    badge: "1학기 반장",
     descriptionLines: [
-      "삼성 청년 SW 아카데미(SSAFY) 전공 Java 과정",
+      "삼성청년SW·AI아카데미(SSAFY) 전공 Java 과정",
       "Java 기반 객체지향 프로그래밍(OOP), 자료구조 및 알고리즘 학습",
       "Spring/Spring Boot 기반 웹 애플리케이션 개발 및 팀 프로젝트 수행",
       "MySQL을 활용한 데이터베이스 설계 및 SQL 쿼리 작성",
@@ -62,7 +62,7 @@ const educationList = [
     descriptionLines: [
       "11개월 간 호주에서 외국 친구들과 함께 영어 학습 및 교류하며 생활",
       "ILSC Sydney - Intermediate → Advanced 과정 수료, 우수 학생 선정",
-      "Waterfront Southgate 근무 (2019.08 ~ 2019.12)"
+      "Waterfront Southgate 근무 (2019.07 ~ 2019.12)"
     ],
     imageAlt: "어학연수 사진",
     imageUrl: ilscPhoto,
@@ -79,17 +79,18 @@ const experienceList = [
     tag: "인턴",
     title: "IBK기업은행",
     descriptionLines: [
-      "IT금융개발부 글로벌개발팀 소속 인턴으로 금융 IT 실무 학습",
-      "여신, 수신, 채널 등 금융 지식 학습",
-      "사내 ERA 시스템 · 계정계/비계정계 학습",
-      "금융 IT 통합 조사 과제 수행 및 프로젝트 발표 진행"
+      "IT금융개발부 IT글로벌개발팀 청년인턴",
+      "금융 IT 트렌드 조사 및 타 금융사 슈퍼앱 벤치마킹",
+      "i-ONE Bank, Box POS 등 4개 앱을 통합한 슈퍼앱 프로토타입(Figma) 기획·설계",
+      "개인/기업 고객 특성을 반영한 Flowchart 로직 설계(금융홈·포스홈 분리)",
+      "IT본부장 참석 최종 발표에서 우수인턴 선정"
     ],
     imageAlt: "IBK 인턴 사진",
     imageUrl: ibkIntern,
     link: ibkAward,
     imageType: "photo",
     openType: "image",
-    awardLabel: "우수팀 · 우수인턴"
+    awardLabel: "우수인턴"
   },
   {
     period: "2023.01 ~ 2023.03",
@@ -104,15 +105,16 @@ const experienceList = [
     imageAlt: "달리셔스 로고",
     imageUrl: deliciousLogo,
     link: "https://www.donga.com/news/It/article/all/20230503/119128322/1#in_cont",
-    awardLabel: "우수상 (6팀 중 1위)"
+    awardLabel: "우수상 (6팀 중 1등)"
   }
 ];
 
-// 취득일 역순 정렬, 발급기관 명시
+// 표기 순서 고정: 정보처리기사 → SQLD → ADsP → OPIc IH. 발급기관 명시
 const certifications = [
-  { label: "SQLD (SQL 개발자)", date: "2025.12", issuer: "한국데이터산업진흥원" },
-  { label: "정보처리기사",       date: "2024.12", issuer: "한국산업인력공단"     },
-  { label: "OPIc IH",           date: "2025.06", issuer: "ACTFL"              },
+  { label: "정보처리기사",            date: "2024.12", issuer: "한국산업인력공단"     },
+  { label: "SQLD (SQL 개발자)",       date: "2025.12", issuer: "한국데이터산업진흥원" },
+  { label: "ADsP (데이터분석 준전문가)", date: "2026.11", issuer: "한국데이터산업진흥원" },
+  { label: "OPIc IH",                date: "2025.06", issuer: "ACTFL"              },
 ];
 
 export { educationList, experienceList, certifications };

@@ -95,7 +95,7 @@ export default function YorrArchitecture() {
           <text className="t-body d-text" x="540" y="495" fill="#475569">TURN 중계 (직결 실패 시)</text>
 
           <text className="t-small d-muted" x="64" y="530">
-            담당: WebSocket 통신 계약 설계(이벤트 스키마 28종) · WebRTC 음성 시그널링 BE·FE 전 구간 · 라운드 동기화
+            담당: WebSocket 통신 계약 설계(이벤트 스키마 28종) · WebRTC 풀메시 음성 채팅 BE·FE 전 구간
           </text>
         </svg>
       </div>

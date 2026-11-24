@@ -43,13 +43,13 @@ const projectCategories = [
     ],
     tags: ["Spring Boot", "WebSocket", "WebRTC"],
     live: { url: "https://yorr.site" },
-    award: "SSAFY 우수상 (1위)",
+    award: "SSAFY 우수상 (1등)",
     githubUrls: [
       { label: "Live 데모", url: "https://yorr.site" },
       { label: "GitHub", url: "https://github.com/team-yorr/yorr" },
     ],
     modal: {
-      badge: "SSAFY 2학기 공통 PJT 우수상 (1위)",
+      badge: "SSAFY 공통 프로젝트 우수상 (1등)",
       intro: [
         "스마트폰을 게임 컨트롤러로 쓰는 브라우저 기반 실시간 파티게임",
         "SSAFY 공통 프로젝트 · 6인 팀 · PM/팀장",
@@ -58,17 +58,17 @@ const projectCategories = [
 
       myWork: [
         "WebSocket 이벤트 스키마 28종 단독 설계: 공통 봉투(WsEnvelope)를 record + 제네릭으로 정의해 페이로드 타입을 컴파일 시점에 검증. 요청 msgId를 응답에 포함해 요청과 응답을 매칭",
-        "WebRTC 음성 시그널링 BE·FE 구현: ICE 후보 중계, coturn TURN 연동, 운영 중 발견한 CORS·에코 문제 수정, 세션 레지스트리 단위 테스트 작성",
-        "라운드 동기화·타이머·12라운드 종료 판정 (라운드 상태는 InMemory 저장소)",
-        "방 생성·검증 서비스",
+        "WebRTC 풀메시 음성 채팅 BE·FE 전 구간 구현: 음성은 P2P로 분리하고 서버는 ICE 후보 교환만 중계. coturn TURN 연동, CORS·에코 문제 수정, 세션 레지스트리 단위 테스트 작성",
+        "12라운드 종료 판정 로직 구현",
         "개인 레포(yorr-arcade)에서 1인 개발한 게임 2종(탁구·석양이 진다)이 팀 서비스 최종 3종 중 2종으로 채택",
-        "팀장: Git 컨벤션(CONTRIBUTING.md)·MR 템플릿 수립, 팀원 MR 21건 통합, v0.1 릴리스 관리",
+        "팀장: 통합 브랜치 보호로 직접 push 차단, Jira 티켓 번호 브랜치·리뷰 승인 규칙을 CONTRIBUTING.md로 문서화. 티켓 번호 없는 MR과 develop 검증 없이 main으로 향한 MR은 반려. Jira 이슈·일정·v0.1 릴리스 관리",
         "AI 개발 워크플로: CLAUDE.md로 팀 코딩 규칙을 고정하고, MCP로 Jira·Notion을 연동해 티켓 발급·문서화 자동화. 생성된 코드는 커밋 단위로 검토 후 반영",
       ],
       teamWork: [
         "Redis 스냅샷 기반 재접속 복구 (재접속 DTO 규격은 본인 정의, 복구 로직은 팀원 구현)",
         "CI/CD(Jenkins), Prometheus·Grafana 모니터링, Micrometer 커스텀 지표",
         "게임 모듈 추상화, Expectimax 요트 AI",
+        "서버 권위 주사위 생성, 주사위 변조 차단 검증 구현",
         "yorr-arcade 게임 2종의 팀 서비스 이식",
       ],
 
@@ -86,7 +86,7 @@ const projectCategories = [
           chosen:
             "동작 판정은 클라이언트에서 끝내고 판정 결과만 1회 전송한다. 점수·턴 순서·게임 상태 변경은 서버 이벤트로만 가능하도록 스키마를 정의했고, 이 규칙을 28종 전체에 적용했다. 이후 게임을 3종으로 늘릴 때 봉투 구조는 그대로 두고 페이로드만 추가했다.",
           breaksWhen:
-            "클라이언트 판정을 신뢰하므로 조작된 클라이언트는 유리한 판정을 보낼 수 있다. 같은 공간에서 함께 즐기는 파티게임이라 조작 동기가 낮다고 판단했다. 랭킹·보상 같은 경쟁 요소가 붙으면 서버 측 검증 로직을 추가해야 한다.",
+            "서버가 받은 값을 검증하지 않으면 계약만으로는 조작을 막지 못한다. 1차 배포(2026.07.30) 뒤 한 사용자가 WebSocket 메시지를 손대면 점수를 바꿀 수 있다고 제보했다. 가장 먼저 고칠 문제로 잡았다. 주사위 눈은 서버가 정하고, 점수는 그 결과로만 계산하도록 고쳐 바로 반영했다. 서버 검증 구현은 팀원이 맡았다.",
         },
         {
           title: "음성은 서버를 거치지 않는 WebRTC P2P로 분리",
@@ -127,7 +127,7 @@ const projectCategories = [
         "최고 동시접속 80명, 누적 참여 635건 · 플레이 487판",
         "만족도 설문(n=17) 4점 이상 94.1% (5점 58.8% · 4점 35.3%)",
         "1차 배포 피드백을 백로그로 정리해 2차 배포에 반영: 튜토리얼·툴팁, 센서 보정, 버튼 조작 지원",
-        "SSAFY 2학기 공통 PJT 우수상 (1위 · 2026.08)",
+        "SSAFY 공통 프로젝트 우수상 (1등 · 2026.08)",
       ],
       techStack: [
         "Java", "Spring Boot", "JPA", "WebSocket", "WebRTC", "coturn",
@@ -152,13 +152,13 @@ const projectCategories = [
     ],
     tags: ["Spring Boot", "MySQL", "Redis"],
     live: { url: "https://tripcrew.duckdns.org" },
-    award: "SSAFY 우수상 (2위)",
+    award: "SSAFY 우수상 (2등)",
     githubUrls: [
       { label: "Live 데모", url: "https://tripcrew.duckdns.org" },
       { label: "GitHub", url: "https://github.com/tripcrew/tripcrew" },
     ],
     modal: {
-      badge: "SSAFY 1학기 최종 PJT 우수상 (2위)",
+      badge: "SSAFY 관통 프로젝트 우수상 (2등)",
       intro: [
         "여행 일정을 여러 사용자가 실시간으로 함께 편집하는 협업 플랫폼",
         "SSAFY 관통 프로젝트 · 2인 팀 · 팀장, 백엔드 담당",
@@ -166,9 +166,10 @@ const projectCategories = [
       ],
       roles: [
         "관리자 회원 조회 API: 서버 사이드 페이징 전환, (role, created_at) 복합 인덱스 설계",
-        "공동 편집 동시 수정 충돌 제어: 낙관적 락(version 컬럼), 충돌 시 409 반환 후 최신본 재조회",
-        "JWT 인증",
+        "공동 편집 동시 수정 충돌 제어: 낙관적 락(version 컬럼), 충돌 시 409. 최신본과 내 수정본 중 고르는 선택 화면까지 구현",
+        "인증: JWT + Refresh Token, Kakao/Naver 소셜 로그인(OAuth 2.0). 토큰이 URL·로그에 남지 않도록 일회용 코드(TTL 60초, 조회 즉시 삭제)로 교환",
         "STOMP 기반 실시간 공동 편집 (인메모리 SimpleBroker, 단일 인스턴스)",
+        "LLM 출력 검증: Gemini 챗봇 답변에서 장소명을 추출해 관광지 DB와 이름(길이 60% 기준)·지역으로 대조. 검증된 장소만 찜·일정 추가 카드로 노출하는 후처리 계층 단독 구현 (LLM 연동은 팀원 담당)",
       ],
 
       incidents: [
@@ -176,9 +177,9 @@ const projectCategories = [
           title: "관리자 회원 조회 0.473초 → 0.018초",
           tag: "EXPLAIN 실측",
           symptom:
-            "초기 구현(AI 코딩 도구로 작성)은 회원 전체를 불러와 애플리케이션 메모리에서 필터·정렬·페이징했다. 더미 30만 건으로 재현하니 조회에 0.473초가 걸렸다.",
+            "초기 구현(AI 코딩 도구로 작성)은 회원 전체를 불러와 애플리케이션 메모리에서 정렬·페이징했다. 화면은 정상이었지만 데이터가 늘면 그대로 느려질 구조였다.",
           cause:
-            "EXPLAIN 결과 전체 테이블 스캔(type ALL)과 별도 정렬(Using filesort)이 병목이었다.",
+            "먼저 EXPLAIN으로 실행계획을 열었다. 전체 테이블 스캔(type ALL)과 별도 정렬(Using filesort)이었다. 회원 30만 건을 넣고 재니 조회에 0.473초가 걸렸다.",
           fix: "DB에서 페이징하도록 바꾸고 (role, created_at) 복합 인덱스를 추가했다. 등호 조건인 role을 앞에, 정렬 기준인 created_at을 뒤에 두어 인덱스 순서대로 읽고 LIMIT에서 바로 멈추게 했다. EXPLAIN으로 type ref 전환과 filesort 제거를 확인했다.",
         },
       ],
@@ -193,7 +194,7 @@ const projectCategories = [
             why: "공동 편집은 같은 항목을 동시에 고치는 경우가 드물다. 드문 충돌을 막으려고 모든 수정에 잠금을 거는 비용이 더 크다고 판단했다.",
           },
           chosen:
-            "version 컬럼을 두고 UPDATE 시 version을 조건에 포함했다. 영향받은 행이 0이면 409를 반환하고, 클라이언트는 최신본을 다시 불러와 사용자에게 선택하게 한다.",
+            "version 컬럼을 두고 UPDATE 시 version을 조건에 포함했다. 영향받은 행이 0이면 409를 반환한다. 화면은 최신본과 내 수정본 중 고르는 선택 화면을 띄운다.",
           breaksWhen:
             "충돌이 잦은 데이터라면 재조회·재시도가 반복돼 사용자 경험이 나빠진다. 그런 경우에는 비관적 락이나 편집 단위 분할이 필요하다.",
         },
@@ -203,7 +204,7 @@ const projectCategories = [
         "회원 조회 30만 건 기준 0.473초 → 0.018초 (약 26배)",
         "한계: OFFSET 10만 이후 페이지는 인덱스 적용 후에도 0.244초. 대용량 페이징은 커서 방식이 필요하다는 것을 실측으로 확인 (미적용)",
         "AWS EC2 + Docker Compose(MySQL·Redis·Backend·Caddy) 배포, Caddy로 HTTPS 적용",
-        "SSAFY 1학기 최종 PJT 우수상 (2위 · 2026.06)",
+        "SSAFY 관통 프로젝트 우수상 (2등 · 2026.06)",
       ],
       resultBadges: [
         { icon: "👥", label: "2인 팀" },
@@ -234,20 +235,20 @@ const projectCategories = [
     modal: {
       badge: "3클래스 분류 정확도 84.62%",
       intro: [
-        "가격·출시 정보·리뷰를 피처로 향수 평점을 예측하는 분류 모델",
+        "가격·출고 정보·리뷰를 피처로 향수 평점을 예측하는 분류 모델",
         "T-academy ASAC 과정 · 6인 팀 · 데이터 수집·EDA 담당, 모델링 공동",
       ],
       roles: [
         "리뷰 수집: HTML 파싱으로는 리뷰가 잡히지 않아, 비동기 로딩이라고 가정하고 DevTools Network 탭에서 리뷰 요청 API를 특정. 페이지 파라미터를 포함한 GET 요청을 코드로 재현해 수집",
-        "EDA: 리뷰 없는 상품이 0점으로 채워져 0점(800건)과 5점(337건)에 분포가 몰린 것을 확인",
+        "EDA: 리뷰가 없는 상품이 0점으로 처리되어 0점과 5점에 분포가 몰림 (0점 800건 · 5점 337건)",
         "모델링(6인 공동): Random Forest·XGBoost 교차검증, GridSearch 튜닝",
         "리뷰 감성 분류: Keras GRU 72.36% (공동)",
       ],
       decisions: [
         {
-          title: "분류 기준 설계: 5클래스 → 2클래스 → 3클래스",
+          title: "분류 기준 설계: 6클래스 → 2클래스 → 3클래스",
           problem:
-            "평점(1~5점)을 5클래스로 분류하면 정확도가 36.15%였다. EDA에서 확인한 분포 편중이 원인이라고 보고 분류 기준을 바꿨다.",
+            "평점(0~5점)을 6클래스로 분류하면 정확도가 36.15%였다. EDA에서 확인한 분포 편중이 원인이라고 보고 분류 기준을 바꿨다.",
           rejected: {
             what: "0점(리뷰 없음)을 제외하고 1–4점 / 5점 2클래스로 분류",
             why: "정확도는 71.53%로 올랐지만 0점 상품을 모두 버려야 했고, 예측 결과가 5점 여부뿐이라 활용도가 낮았다.",
@@ -261,7 +262,7 @@ const projectCategories = [
       results: [
         "3클래스 정확도(교차검증 평균): Random Forest 84.62% · XGBoost 84.96%",
         "GridSearch 후: Random Forest 86.00% · XGBoost 86.42%",
-        "분류 기준별 RF 정확도: 5클래스 36.15% → 2클래스 71.53% → 3클래스 84.62%",
+        "분류 기준별 RF 정확도: 6클래스(0~5점) 36.15% → 2클래스 71.53% → 3클래스 84.62%",
       ],
       resultBadges: [
         { icon: "👥", label: "6인 팀" },
@@ -277,31 +278,30 @@ const projectCategories = [
   // ── 달리셔스 ─────────────────────────────────────────
   {
     id: "kurrant",
-    featured: 5,
+    featured: 3,
     title: "달리셔스",
     image: daliImage,
     subtitle: "메뉴 추천 시스템",
     period: "2023.01–2023.03",
-    role: "Content-Based 모델 구현 · 팀 리딩",
+    role: "Content-Based 모델 구현",
     teamSize: "6인 팀",
     summaryLines: [
       "구독형 외식 플랫폼 기업 연계 프로젝트",
       "고객·메뉴 데이터 5만 건 기반 메뉴 추천",
     ],
     tags: ["Python", "sklearn", "Pandas"],
-    award: "ASAC 우수상 (1위)",
+    award: "ASAC 우수상 (6팀 중 1등)",
     githubUrls: [
       { label: "CB 모델 구현", url: "https://github.com/jhyungit/Final_project" },
       { label: "관련 기사", url: "https://www.donga.com/news/It/article/all/20230503/119128322/1" },
     ],
     modal: {
-      badge: "ASAC 우수상 (6팀 중 1위)",
+      badge: "ASAC 우수상 (6팀 중 1등)",
       intro: [
         "T-academy ASAC 기업 연계 프로젝트 (기업: 달리셔스, 구독형 외식 플랫폼)",
-        "3개월 · 6인 팀 · Content-Based 모델 담당, 팀 리딩",
+        "6인 팀 · Content-Based 모델 담당 · 고객사 사무실 3개월 상주",
       ],
       roles: [
-        "Scrum 회의 진행, 팀 일정 관리",
         "사내 제공 고객·메뉴 데이터 약 5만 건 전처리·EDA",
         "음식 속성 기반 유사도 행렬 설계, Cosine Similarity 기반 Content-Based 모델 구현",
         "주문 기록이 1건뿐인 사용자도 추천받을 수 있게 설계 (콜드 스타트 대응)",
@@ -310,7 +310,7 @@ const projectCategories = [
       results: [
         "운영팀 수동 메뉴 선정 30분 → 3분 (약 90% 단축)",
         "잠재고객 2만 명 규모 고객사 계약 성사에 기여",
-        "ASAC 빅데이터 분석가 과정 우수상 (6팀 중 1위)",
+        "ASAC 빅데이터 분석가 과정 우수상 (6팀 중 1등)",
       ],
       resultBadges: [
         { icon: "👥", label: "6인 팀" },
@@ -435,7 +435,7 @@ const projectCategories = [
   // ── IBK 슈퍼앱 ───────────────────────────────────────
   {
     id: "supperapp",
-    featured: 3,
+    featured: 5,
     title: "SUPER APP",
     image: ibkImage,
     subtitle: "IBK기업은행 슈퍼앱 기획",
@@ -446,9 +446,9 @@ const projectCategories = [
       "슈퍼앱 프로토타입 기획 (Figma)",
     ],
     tags: ["Figma", "서비스 기획"],
-    award: "우수팀 · 우수인턴",
+    award: "우수인턴",
     modal: {
-      badge: "우수팀 · 우수인턴",
+      badge: "우수인턴",
       caption: [
         ["포스 홈 - POS 주사용 고객", "금융 홈 - 통장거래 주사용 고객"],
         ["상품몰 - 상품 빠른 접근", "페이 - 보유 카드로 간편 결제"],
@@ -465,9 +465,9 @@ const projectCategories = [
         "Figma로 4개 앱 통합 프로토타입 설계",
         "최종 발표: Flowchart를 고객 이용 시나리오로 풀어 비개발 직군도 이해할 수 있게 구성",
       ],
-      results: ["IT본부장 참석 최종 발표에서 우수팀 · 우수인턴 선정"],
+      results: ["IT본부장 참석 최종 발표에서 우수인턴 선정"],
       resultBadges: [
-        { icon: "🏆", label: "우수팀 · 우수인턴" },
+        { icon: "🏆", label: "우수인턴" },
         { icon: "🎨", label: "Figma 프로토타입" },
       ],
       techStack: ["Figma"],

@@ -42,7 +42,7 @@ const skillCategories = [
       { id: "docker",  name: "Docker Compose", note: "TripCrew — 4컨테이너 (MySQL·Redis·Backend·Caddy)" },
       { id: "caddy",   name: "Caddy",          note: "TripCrew — 리버스 프록시, HTTPS 운영" },
       { id: "ec2",     name: "AWS EC2",        note: "TripCrew · YORR — 라이브 운영" },
-      { id: "git",     name: "Git · GitLab",   note: "YORR — 협업 컨벤션(CONTRIBUTING.md), MR 21건 통합" },
+      { id: "git",     name: "Git · GitLab",   note: "YORR — 협업 컨벤션(CONTRIBUTING.md)" },
       { id: "jira",    name: "Jira",           note: "YORR — 이슈·일정·릴리스 관리" },
     ],
   },
